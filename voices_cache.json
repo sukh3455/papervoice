@@ -1,0 +1,4190 @@
+[
+  {
+    "id": "af-ZA-AdriNeural",
+    "name": "Adri",
+    "fullName": "Microsoft Adri Online (Natural) - Afrikaans (South Africa)",
+    "gender": "Female",
+    "locale": "af-ZA",
+    "localeName": "Afrikaans (South Africa)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "af-ZA-WillemNeural",
+    "name": "Willem",
+    "fullName": "Microsoft Willem Online (Natural) - Afrikaans (South Africa)",
+    "gender": "Male",
+    "locale": "af-ZA",
+    "localeName": "Afrikaans (South Africa)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "sq-AL-AnilaNeural",
+    "name": "Anila",
+    "fullName": "Microsoft Anila Online (Natural) - Albanian (Albania)",
+    "gender": "Female",
+    "locale": "sq-AL",
+    "localeName": "Albanian (Albania)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "sq-AL-IlirNeural",
+    "name": "Ilir",
+    "fullName": "Microsoft Ilir Online (Natural) - Albanian (Albania)",
+    "gender": "Male",
+    "locale": "sq-AL",
+    "localeName": "Albanian (Albania)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "am-ET-AmehaNeural",
+    "name": "Ameha",
+    "fullName": "Microsoft Ameha Online (Natural) - Amharic (Ethiopia)",
+    "gender": "Male",
+    "locale": "am-ET",
+    "localeName": "Amharic (Ethiopia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "am-ET-MekdesNeural",
+    "name": "Mekdes",
+    "fullName": "Microsoft Mekdes Online (Natural) - Amharic (Ethiopia)",
+    "gender": "Female",
+    "locale": "am-ET",
+    "localeName": "Amharic (Ethiopia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ar-DZ-AminaNeural",
+    "name": "Amina",
+    "fullName": "Microsoft Amina Online (Natural) - Arabic (Algeria)",
+    "gender": "Female",
+    "locale": "ar-DZ",
+    "localeName": "Arabic (Algeria)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ar-DZ-IsmaelNeural",
+    "name": "Ismael",
+    "fullName": "Microsoft Ismael Online (Natural) - Arabic (Algeria)",
+    "gender": "Male",
+    "locale": "ar-DZ",
+    "localeName": "Arabic (Algeria)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ar-BH-AliNeural",
+    "name": "Ali",
+    "fullName": "Microsoft Ali Online (Natural) - Arabic (Bahrain)",
+    "gender": "Male",
+    "locale": "ar-BH",
+    "localeName": "Arabic (Bahrain)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ar-BH-LailaNeural",
+    "name": "Laila",
+    "fullName": "Microsoft Laila Online (Natural) - Arabic (Bahrain)",
+    "gender": "Female",
+    "locale": "ar-BH",
+    "localeName": "Arabic (Bahrain)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ar-EG-SalmaNeural",
+    "name": "Salma",
+    "fullName": "Microsoft Salma Online (Natural) - Arabic (Egypt)",
+    "gender": "Female",
+    "locale": "ar-EG",
+    "localeName": "Arabic (Egypt)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ar-EG-ShakirNeural",
+    "name": "Shakir",
+    "fullName": "Microsoft Shakir Online (Natural) - Arabic (Egypt)",
+    "gender": "Male",
+    "locale": "ar-EG",
+    "localeName": "Arabic (Egypt)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ar-IQ-BasselNeural",
+    "name": "Bassel",
+    "fullName": "Microsoft Bassel Online (Natural) - Arabic (Iraq)",
+    "gender": "Male",
+    "locale": "ar-IQ",
+    "localeName": "Arabic (Iraq)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ar-IQ-RanaNeural",
+    "name": "Rana",
+    "fullName": "Microsoft Rana Online (Natural) - Arabic (Iraq)",
+    "gender": "Female",
+    "locale": "ar-IQ",
+    "localeName": "Arabic (Iraq)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ar-JO-SanaNeural",
+    "name": "Sana",
+    "fullName": "Microsoft Sana Online (Natural) - Arabic (Jordan)",
+    "gender": "Female",
+    "locale": "ar-JO",
+    "localeName": "Arabic (Jordan)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ar-JO-TaimNeural",
+    "name": "Taim",
+    "fullName": "Microsoft Taim Online (Natural) - Arabic (Jordan)",
+    "gender": "Male",
+    "locale": "ar-JO",
+    "localeName": "Arabic (Jordan)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ar-KW-FahedNeural",
+    "name": "Fahed",
+    "fullName": "Microsoft Fahed Online (Natural) - Arabic (Kuwait)",
+    "gender": "Male",
+    "locale": "ar-KW",
+    "localeName": "Arabic (Kuwait)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ar-KW-NouraNeural",
+    "name": "Noura",
+    "fullName": "Microsoft Noura Online (Natural) - Arabic (Kuwait)",
+    "gender": "Female",
+    "locale": "ar-KW",
+    "localeName": "Arabic (Kuwait)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ar-LB-LaylaNeural",
+    "name": "Layla",
+    "fullName": "Microsoft Layla Online (Natural) - Arabic (Lebanon)",
+    "gender": "Female",
+    "locale": "ar-LB",
+    "localeName": "Arabic (Lebanon)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ar-LB-RamiNeural",
+    "name": "Rami",
+    "fullName": "Microsoft Rami Online (Natural) - Arabic (Lebanon)",
+    "gender": "Male",
+    "locale": "ar-LB",
+    "localeName": "Arabic (Lebanon)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ar-LY-ImanNeural",
+    "name": "Iman",
+    "fullName": "Microsoft Iman Online (Natural) - Arabic (Libya)",
+    "gender": "Female",
+    "locale": "ar-LY",
+    "localeName": "Arabic (Libya)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ar-LY-OmarNeural",
+    "name": "Omar",
+    "fullName": "Microsoft Omar Online (Natural) - Arabic (Libya)",
+    "gender": "Male",
+    "locale": "ar-LY",
+    "localeName": "Arabic (Libya)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ar-MA-JamalNeural",
+    "name": "Jamal",
+    "fullName": "Microsoft Jamal Online (Natural) - Arabic (Morocco)",
+    "gender": "Male",
+    "locale": "ar-MA",
+    "localeName": "Arabic (Morocco)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ar-MA-MounaNeural",
+    "name": "Mouna",
+    "fullName": "Microsoft Mouna Online (Natural) - Arabic (Morocco)",
+    "gender": "Female",
+    "locale": "ar-MA",
+    "localeName": "Arabic (Morocco)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ar-OM-AbdullahNeural",
+    "name": "Abdullah",
+    "fullName": "Microsoft Abdullah Online (Natural) - Arabic (Oman)",
+    "gender": "Male",
+    "locale": "ar-OM",
+    "localeName": "Arabic (Oman)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ar-OM-AyshaNeural",
+    "name": "Aysha",
+    "fullName": "Microsoft Aysha Online (Natural) - Arabic (Oman)",
+    "gender": "Female",
+    "locale": "ar-OM",
+    "localeName": "Arabic (Oman)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ar-QA-AmalNeural",
+    "name": "Amal",
+    "fullName": "Microsoft Amal Online (Natural) - Arabic (Qatar)",
+    "gender": "Female",
+    "locale": "ar-QA",
+    "localeName": "Arabic (Qatar)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ar-QA-MoazNeural",
+    "name": "Moaz",
+    "fullName": "Microsoft Moaz Online (Natural) - Arabic (Qatar)",
+    "gender": "Male",
+    "locale": "ar-QA",
+    "localeName": "Arabic (Qatar)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ar-SA-HamedNeural",
+    "name": "Hamed",
+    "fullName": "Microsoft Hamed Online (Natural) - Arabic (Saudi Arabia)",
+    "gender": "Male",
+    "locale": "ar-SA",
+    "localeName": "Arabic (Saudi Arabia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ar-SA-ZariyahNeural",
+    "name": "Zariyah",
+    "fullName": "Microsoft Zariyah Online (Natural) - Arabic (Saudi Arabia)",
+    "gender": "Female",
+    "locale": "ar-SA",
+    "localeName": "Arabic (Saudi Arabia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ar-SY-AmanyNeural",
+    "name": "Amany",
+    "fullName": "Microsoft Amany Online (Natural) - Arabic (Syria)",
+    "gender": "Female",
+    "locale": "ar-SY",
+    "localeName": "Arabic (Syria)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ar-SY-LaithNeural",
+    "name": "Laith",
+    "fullName": "Microsoft Laith Online (Natural) - Arabic (Syria)",
+    "gender": "Male",
+    "locale": "ar-SY",
+    "localeName": "Arabic (Syria)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ar-TN-HediNeural",
+    "name": "Hedi",
+    "fullName": "Microsoft Hedi Online (Natural) - Arabic (Tunisia)",
+    "gender": "Male",
+    "locale": "ar-TN",
+    "localeName": "Arabic (Tunisia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ar-TN-ReemNeural",
+    "name": "Reem",
+    "fullName": "Microsoft Reem Online (Natural) - Arabic (Tunisia)",
+    "gender": "Female",
+    "locale": "ar-TN",
+    "localeName": "Arabic (Tunisia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ar-AE-FatimaNeural",
+    "name": "Fatima",
+    "fullName": "Microsoft Fatima Online (Natural) - Arabic (United Arab Emirates)",
+    "gender": "Female",
+    "locale": "ar-AE",
+    "localeName": "Arabic (United Arab Emirates)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ar-AE-HamdanNeural",
+    "name": "Hamdan",
+    "fullName": "Microsoft Hamdan Online (Natural) - Arabic (United Arab Emirates)",
+    "gender": "Male",
+    "locale": "ar-AE",
+    "localeName": "Arabic (United Arab Emirates)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ar-YE-MaryamNeural",
+    "name": "Maryam",
+    "fullName": "Microsoft Maryam Online (Natural) - Arabic (Yemen)",
+    "gender": "Female",
+    "locale": "ar-YE",
+    "localeName": "Arabic (Yemen)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ar-YE-SalehNeural",
+    "name": "Saleh",
+    "fullName": "Microsoft Saleh Online (Natural) - Arabic (Yemen)",
+    "gender": "Male",
+    "locale": "ar-YE",
+    "localeName": "Arabic (Yemen)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "az-AZ-BabekNeural",
+    "name": "Babek",
+    "fullName": "Microsoft Babek Online (Natural) - Azerbaijani (Azerbaijan)",
+    "gender": "Male",
+    "locale": "az-AZ",
+    "localeName": "Azerbaijani (Latin, Azerbaijan)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "az-AZ-BanuNeural",
+    "name": "Banu",
+    "fullName": "Microsoft Banu Online (Natural) - Azerbaijani (Azerbaijan)",
+    "gender": "Female",
+    "locale": "az-AZ",
+    "localeName": "Azerbaijani (Latin, Azerbaijan)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "bn-BD-NabanitaNeural",
+    "name": "Nabanita",
+    "fullName": "Microsoft Nabanita Online (Natural) - Bangla (Bangladesh)",
+    "gender": "Female",
+    "locale": "bn-BD",
+    "localeName": "Bangla (Bangladesh)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "bn-BD-PradeepNeural",
+    "name": "Pradeep",
+    "fullName": "Microsoft Pradeep Online (Natural) - Bangla (Bangladesh)",
+    "gender": "Male",
+    "locale": "bn-BD",
+    "localeName": "Bangla (Bangladesh)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "bn-IN-BashkarNeural",
+    "name": "Bashkar",
+    "fullName": "Microsoft Bashkar Online (Natural) - Bangla (India)",
+    "gender": "Male",
+    "locale": "bn-IN",
+    "localeName": "Bengali (India)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "bn-IN-TanishaaNeural",
+    "name": "Tanishaa",
+    "fullName": "Microsoft Tanishaa Online (Natural) - Bengali (India)",
+    "gender": "Female",
+    "locale": "bn-IN",
+    "localeName": "Bengali (India)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "bs-BA-VesnaNeural",
+    "name": "Vesna",
+    "fullName": "Microsoft Vesna Online (Natural) - Bosnian (Bosnia and Herzegovina)",
+    "gender": "Female",
+    "locale": "bs-BA",
+    "localeName": "Bosnian (Bosnia and Herzegovina)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "bs-BA-GoranNeural",
+    "name": "Goran",
+    "fullName": "Microsoft Goran Online (Natural) - Bosnian (Bosnia)",
+    "gender": "Male",
+    "locale": "bs-BA",
+    "localeName": "Bosnian (Bosnia and Herzegovina)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "bg-BG-BorislavNeural",
+    "name": "Borislav",
+    "fullName": "Microsoft Borislav Online (Natural) - Bulgarian (Bulgaria)",
+    "gender": "Male",
+    "locale": "bg-BG",
+    "localeName": "Bulgarian (Bulgaria)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "bg-BG-KalinaNeural",
+    "name": "Kalina",
+    "fullName": "Microsoft Kalina Online (Natural) - Bulgarian (Bulgaria)",
+    "gender": "Female",
+    "locale": "bg-BG",
+    "localeName": "Bulgarian (Bulgaria)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "my-MM-NilarNeural",
+    "name": "Nilar",
+    "fullName": "Microsoft Nilar Online (Natural) - Burmese (Myanmar)",
+    "gender": "Female",
+    "locale": "my-MM",
+    "localeName": "Burmese (Myanmar)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "my-MM-ThihaNeural",
+    "name": "Thiha",
+    "fullName": "Microsoft Thiha Online (Natural) - Burmese (Myanmar)",
+    "gender": "Male",
+    "locale": "my-MM",
+    "localeName": "Burmese (Myanmar)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ca-ES-EnricNeural",
+    "name": "Enric",
+    "fullName": "Microsoft Enric Online (Natural) - Catalan",
+    "gender": "Male",
+    "locale": "ca-ES",
+    "localeName": "Catalan",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ca-ES-JoanaNeural",
+    "name": "Joana",
+    "fullName": "Microsoft Joana Online (Natural) - Catalan",
+    "gender": "Female",
+    "locale": "ca-ES",
+    "localeName": "Catalan",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "zh-HK-HiuGaaiNeural",
+    "name": "HiuGaai",
+    "fullName": "Microsoft HiuGaai Online (Natural) - Chinese (Cantonese Traditional)",
+    "gender": "Female",
+    "locale": "zh-HK",
+    "localeName": "Chinese (Cantonese, Traditional)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "zh-HK-HiuMaanNeural",
+    "name": "HiuMaan",
+    "fullName": "Microsoft HiuMaan Online (Natural) - Chinese (Hong Kong SAR)",
+    "gender": "Female",
+    "locale": "zh-HK",
+    "localeName": "Chinese (Cantonese, Traditional)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "zh-HK-WanLungNeural",
+    "name": "WanLung",
+    "fullName": "Microsoft WanLung Online (Natural) - Chinese (Hong Kong SAR)",
+    "gender": "Male",
+    "locale": "zh-HK",
+    "localeName": "Chinese (Cantonese, Traditional)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "zh-CN-XiaoxiaoNeural",
+    "name": "Xiaoxiao",
+    "fullName": "Microsoft Xiaoxiao Online (Natural) - Chinese (Mainland)",
+    "gender": "Female",
+    "locale": "zh-CN",
+    "localeName": "Chinese (Mandarin, Simplified)",
+    "provider": "edge",
+    "personalities": [
+      "Warm"
+    ]
+  },
+  {
+    "id": "zh-CN-XiaoyiNeural",
+    "name": "Xiaoyi",
+    "fullName": "Microsoft Xiaoyi Online (Natural) - Chinese (Mainland)",
+    "gender": "Female",
+    "locale": "zh-CN",
+    "localeName": "Chinese (Mandarin, Simplified)",
+    "provider": "edge",
+    "personalities": [
+      "Lively"
+    ]
+  },
+  {
+    "id": "zh-CN-YunjianNeural",
+    "name": "Yunjian",
+    "fullName": "Microsoft Yunjian Online (Natural) - Chinese (Mainland)",
+    "gender": "Male",
+    "locale": "zh-CN",
+    "localeName": "Chinese (Mandarin, Simplified)",
+    "provider": "edge",
+    "personalities": [
+      "Passion"
+    ]
+  },
+  {
+    "id": "zh-CN-YunxiNeural",
+    "name": "Yunxi",
+    "fullName": "Microsoft Yunxi Online (Natural) - Chinese (Mainland)",
+    "gender": "Male",
+    "locale": "zh-CN",
+    "localeName": "Chinese (Mandarin, Simplified)",
+    "provider": "edge",
+    "personalities": [
+      "Lively",
+      "Sunshine"
+    ]
+  },
+  {
+    "id": "zh-CN-YunxiaNeural",
+    "name": "Yunxia",
+    "fullName": "Microsoft Yunxia Online (Natural) - Chinese (Mainland)",
+    "gender": "Male",
+    "locale": "zh-CN",
+    "localeName": "Chinese (Mandarin, Simplified)",
+    "provider": "edge",
+    "personalities": [
+      "Cute"
+    ]
+  },
+  {
+    "id": "zh-CN-YunyangNeural",
+    "name": "Yunyang",
+    "fullName": "Microsoft Yunyang Online (Natural) - Chinese (Mainland)",
+    "gender": "Male",
+    "locale": "zh-CN",
+    "localeName": "Chinese (Mandarin, Simplified)",
+    "provider": "edge",
+    "personalities": [
+      "Professional",
+      "Reliable"
+    ]
+  },
+  {
+    "id": "zh-CN-liaoning-XiaobeiNeural",
+    "name": "Xiaobei",
+    "fullName": "Microsoft Xiaobei Online (Natural) - Chinese (Northeastern Mandarin)",
+    "gender": "Female",
+    "locale": "zh-CN-liaoning",
+    "localeName": "Chinese (Northeastern Mandarin, Simplified)",
+    "provider": "edge",
+    "personalities": [
+      "Humorous"
+    ]
+  },
+  {
+    "id": "zh-TW-HsiaoChenNeural",
+    "name": "HsiaoChen",
+    "fullName": "Microsoft HsiaoChen Online (Natural) - Chinese (Taiwan)",
+    "gender": "Female",
+    "locale": "zh-TW",
+    "localeName": "Chinese (Taiwanese Mandarin, Traditional)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "zh-TW-YunJheNeural",
+    "name": "YunJhe",
+    "fullName": "Microsoft YunJhe Online (Natural) - Chinese (Taiwan)",
+    "gender": "Male",
+    "locale": "zh-TW",
+    "localeName": "Chinese (Taiwanese Mandarin, Traditional)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "zh-TW-HsiaoYuNeural",
+    "name": "HsiaoYu",
+    "fullName": "Microsoft HsiaoYu Online (Natural) - Chinese (Taiwanese Mandarin)",
+    "gender": "Female",
+    "locale": "zh-TW",
+    "localeName": "Chinese (Taiwanese Mandarin, Traditional)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "zh-CN-shaanxi-XiaoniNeural",
+    "name": "Xiaoni",
+    "fullName": "Microsoft Xiaoni Online (Natural) - Chinese (Zhongyuan Mandarin Shaanxi)",
+    "gender": "Female",
+    "locale": "zh-CN-shaanxi",
+    "localeName": "Chinese (Zhongyuan Mandarin Shaanxi, Simplified)",
+    "provider": "edge",
+    "personalities": [
+      "Bright"
+    ]
+  },
+  {
+    "id": "hr-HR-GabrijelaNeural",
+    "name": "Gabrijela",
+    "fullName": "Microsoft Gabrijela Online (Natural) - Croatian (Croatia)",
+    "gender": "Female",
+    "locale": "hr-HR",
+    "localeName": "Croatian (Croatia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "hr-HR-SreckoNeural",
+    "name": "Srecko",
+    "fullName": "Microsoft Srecko Online (Natural) - Croatian (Croatia)",
+    "gender": "Male",
+    "locale": "hr-HR",
+    "localeName": "Croatian (Croatia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "cs-CZ-AntoninNeural",
+    "name": "Antonin",
+    "fullName": "Microsoft Antonin Online (Natural) - Czech (Czech)",
+    "gender": "Male",
+    "locale": "cs-CZ",
+    "localeName": "Czech (Czechia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "cs-CZ-VlastaNeural",
+    "name": "Vlasta",
+    "fullName": "Microsoft Vlasta Online (Natural) - Czech (Czech)",
+    "gender": "Female",
+    "locale": "cs-CZ",
+    "localeName": "Czech (Czechia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "da-DK-ChristelNeural",
+    "name": "Christel",
+    "fullName": "Microsoft Christel Online (Natural) - Danish (Denmark)",
+    "gender": "Female",
+    "locale": "da-DK",
+    "localeName": "Danish (Denmark)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "da-DK-JeppeNeural",
+    "name": "Jeppe",
+    "fullName": "Microsoft Jeppe Online (Natural) - Danish (Denmark)",
+    "gender": "Male",
+    "locale": "da-DK",
+    "localeName": "Danish (Denmark)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "nl-BE-ArnaudNeural",
+    "name": "Arnaud",
+    "fullName": "Microsoft Arnaud Online (Natural) - Dutch (Belgium)",
+    "gender": "Male",
+    "locale": "nl-BE",
+    "localeName": "Dutch (Belgium)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "nl-BE-DenaNeural",
+    "name": "Dena",
+    "fullName": "Microsoft Dena Online (Natural) - Dutch (Belgium)",
+    "gender": "Female",
+    "locale": "nl-BE",
+    "localeName": "Dutch (Belgium)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "nl-NL-ColetteNeural",
+    "name": "Colette",
+    "fullName": "Microsoft Colette Online (Natural) - Dutch (Netherlands)",
+    "gender": "Female",
+    "locale": "nl-NL",
+    "localeName": "Dutch (Netherlands)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "nl-NL-FennaNeural",
+    "name": "Fenna",
+    "fullName": "Microsoft Fenna Online (Natural) - Dutch (Netherlands)",
+    "gender": "Female",
+    "locale": "nl-NL",
+    "localeName": "Dutch (Netherlands)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "nl-NL-MaartenNeural",
+    "name": "Maarten",
+    "fullName": "Microsoft Maarten Online (Natural) - Dutch (Netherlands)",
+    "gender": "Male",
+    "locale": "nl-NL",
+    "localeName": "Dutch (Netherlands)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "en-AU-WilliamMultilingualNeural",
+    "name": "WilliamMultilingual",
+    "fullName": "Microsoft WilliamMultilingual Online (Natural) - English (Australia)",
+    "gender": "Male",
+    "locale": "en-AU",
+    "localeName": "English (Australia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "en-AU-NatashaNeural",
+    "name": "Natasha",
+    "fullName": "Microsoft Natasha Online (Natural) - English (Australia)",
+    "gender": "Female",
+    "locale": "en-AU",
+    "localeName": "English (Australia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "en-CA-ClaraNeural",
+    "name": "Clara",
+    "fullName": "Microsoft Clara Online (Natural) - English (Canada)",
+    "gender": "Female",
+    "locale": "en-CA",
+    "localeName": "English (Canada)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "en-CA-LiamNeural",
+    "name": "Liam",
+    "fullName": "Microsoft Liam Online (Natural) - English (Canada)",
+    "gender": "Male",
+    "locale": "en-CA",
+    "localeName": "English (Canada)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "en-HK-YanNeural",
+    "name": "Yan",
+    "fullName": "Microsoft Yan Online (Natural) - English (Hong Kong SAR)",
+    "gender": "Female",
+    "locale": "en-HK",
+    "localeName": "English (Hong Kong SAR)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "en-HK-SamNeural",
+    "name": "Sam",
+    "fullName": "Microsoft Sam Online (Natural) - English (Hongkong)",
+    "gender": "Male",
+    "locale": "en-HK",
+    "localeName": "English (Hong Kong SAR)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "en-IN-NeerjaExpressiveNeural",
+    "name": "NeerjaExpressive",
+    "fullName": "Microsoft Neerja Online (Natural) - English (India) (Preview)",
+    "gender": "Female",
+    "locale": "en-IN",
+    "localeName": "English (India)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "en-IN-NeerjaNeural",
+    "name": "Neerja",
+    "fullName": "Microsoft Neerja Online (Natural) - English (India)",
+    "gender": "Female",
+    "locale": "en-IN",
+    "localeName": "English (India)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "en-IN-PrabhatNeural",
+    "name": "Prabhat",
+    "fullName": "Microsoft Prabhat Online (Natural) - English (India)",
+    "gender": "Male",
+    "locale": "en-IN",
+    "localeName": "English (India)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "en-IE-ConnorNeural",
+    "name": "Connor",
+    "fullName": "Microsoft Connor Online (Natural) - English (Ireland)",
+    "gender": "Male",
+    "locale": "en-IE",
+    "localeName": "English (Ireland)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "en-IE-EmilyNeural",
+    "name": "Emily",
+    "fullName": "Microsoft Emily Online (Natural) - English (Ireland)",
+    "gender": "Female",
+    "locale": "en-IE",
+    "localeName": "English (Ireland)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "en-KE-AsiliaNeural",
+    "name": "Asilia",
+    "fullName": "Microsoft Asilia Online (Natural) - English (Kenya)",
+    "gender": "Female",
+    "locale": "en-KE",
+    "localeName": "English (Kenya)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "en-KE-ChilembaNeural",
+    "name": "Chilemba",
+    "fullName": "Microsoft Chilemba Online (Natural) - English (Kenya)",
+    "gender": "Male",
+    "locale": "en-KE",
+    "localeName": "English (Kenya)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "en-NZ-MitchellNeural",
+    "name": "Mitchell",
+    "fullName": "Microsoft Mitchell Online (Natural) - English (New Zealand)",
+    "gender": "Male",
+    "locale": "en-NZ",
+    "localeName": "English (New Zealand)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "en-NZ-MollyNeural",
+    "name": "Molly",
+    "fullName": "Microsoft Molly Online (Natural) - English (New Zealand)",
+    "gender": "Female",
+    "locale": "en-NZ",
+    "localeName": "English (New Zealand)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "en-NG-AbeoNeural",
+    "name": "Abeo",
+    "fullName": "Microsoft Abeo Online (Natural) - English (Nigeria)",
+    "gender": "Male",
+    "locale": "en-NG",
+    "localeName": "English (Nigeria)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "en-NG-EzinneNeural",
+    "name": "Ezinne",
+    "fullName": "Microsoft Ezinne Online (Natural) - English (Nigeria)",
+    "gender": "Female",
+    "locale": "en-NG",
+    "localeName": "English (Nigeria)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "en-PH-JamesNeural",
+    "name": "James",
+    "fullName": "Microsoft James Online (Natural) - English (Philippines)",
+    "gender": "Male",
+    "locale": "en-PH",
+    "localeName": "English (Philippines)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "en-PH-RosaNeural",
+    "name": "Rosa",
+    "fullName": "Microsoft Rosa Online (Natural) - English (Philippines)",
+    "gender": "Female",
+    "locale": "en-PH",
+    "localeName": "English (Philippines)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "en-US-AvaNeural",
+    "name": "Ava",
+    "fullName": "Microsoft Ava Online (Natural) - English (United States)",
+    "gender": "Female",
+    "locale": "en-US",
+    "localeName": "English (United States)",
+    "provider": "edge",
+    "personalities": [
+      "Expressive",
+      "Caring",
+      "Pleasant",
+      "Friendly"
+    ]
+  },
+  {
+    "id": "en-US-AndrewNeural",
+    "name": "Andrew",
+    "fullName": "Microsoft Andrew Online (Natural) - English (United States)",
+    "gender": "Male",
+    "locale": "en-US",
+    "localeName": "English (United States)",
+    "provider": "edge",
+    "personalities": [
+      "Warm",
+      "Confident",
+      "Authentic",
+      "Honest"
+    ]
+  },
+  {
+    "id": "en-US-EmmaNeural",
+    "name": "Emma",
+    "fullName": "Microsoft Emma Online (Natural) - English (United States)",
+    "gender": "Female",
+    "locale": "en-US",
+    "localeName": "English (United States)",
+    "provider": "edge",
+    "personalities": [
+      "Cheerful",
+      "Clear",
+      "Conversational"
+    ]
+  },
+  {
+    "id": "en-US-BrianNeural",
+    "name": "Brian",
+    "fullName": "Microsoft Brian Online (Natural) - English (United States)",
+    "gender": "Male",
+    "locale": "en-US",
+    "localeName": "English (United States)",
+    "provider": "edge",
+    "personalities": [
+      "Approachable",
+      "Casual",
+      "Sincere"
+    ]
+  },
+  {
+    "id": "en-SG-LunaNeural",
+    "name": "Luna",
+    "fullName": "Microsoft Luna Online (Natural) - English (Singapore)",
+    "gender": "Female",
+    "locale": "en-SG",
+    "localeName": "English (Singapore)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "en-SG-WayneNeural",
+    "name": "Wayne",
+    "fullName": "Microsoft Wayne Online (Natural) - English (Singapore)",
+    "gender": "Male",
+    "locale": "en-SG",
+    "localeName": "English (Singapore)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "en-ZA-LeahNeural",
+    "name": "Leah",
+    "fullName": "Microsoft Leah Online (Natural) - English (South Africa)",
+    "gender": "Female",
+    "locale": "en-ZA",
+    "localeName": "English (South Africa)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "en-ZA-LukeNeural",
+    "name": "Luke",
+    "fullName": "Microsoft Luke Online (Natural) - English (South Africa)",
+    "gender": "Male",
+    "locale": "en-ZA",
+    "localeName": "English (South Africa)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "en-TZ-ElimuNeural",
+    "name": "Elimu",
+    "fullName": "Microsoft Elimu Online (Natural) - English (Tanzania)",
+    "gender": "Male",
+    "locale": "en-TZ",
+    "localeName": "English (Tanzania)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "en-TZ-ImaniNeural",
+    "name": "Imani",
+    "fullName": "Microsoft Imani Online (Natural) - English (Tanzania)",
+    "gender": "Female",
+    "locale": "en-TZ",
+    "localeName": "English (Tanzania)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "en-GB-LibbyNeural",
+    "name": "Libby",
+    "fullName": "Microsoft Libby Online (Natural) - English (United Kingdom)",
+    "gender": "Female",
+    "locale": "en-GB",
+    "localeName": "English (United Kingdom)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "en-GB-MaisieNeural",
+    "name": "Maisie",
+    "fullName": "Microsoft Maisie Online (Natural) - English (United Kingdom)",
+    "gender": "Female",
+    "locale": "en-GB",
+    "localeName": "English (United Kingdom)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "en-GB-RyanNeural",
+    "name": "Ryan",
+    "fullName": "Microsoft Ryan Online (Natural) - English (United Kingdom)",
+    "gender": "Male",
+    "locale": "en-GB",
+    "localeName": "English (United Kingdom)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "en-GB-SoniaNeural",
+    "name": "Sonia",
+    "fullName": "Microsoft Sonia Online (Natural) - English (United Kingdom)",
+    "gender": "Female",
+    "locale": "en-GB",
+    "localeName": "English (United Kingdom)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "en-GB-ThomasNeural",
+    "name": "Thomas",
+    "fullName": "Microsoft Thomas Online (Natural) - English (United Kingdom)",
+    "gender": "Male",
+    "locale": "en-GB",
+    "localeName": "English (United Kingdom)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "en-US-AnaNeural",
+    "name": "Ana",
+    "fullName": "Microsoft Ana Online (Natural) - English (United States)",
+    "gender": "Female",
+    "locale": "en-US",
+    "localeName": "English (United States)",
+    "provider": "edge",
+    "personalities": [
+      "Cute"
+    ]
+  },
+  {
+    "id": "en-US-AndrewMultilingualNeural",
+    "name": "AndrewMultilingual",
+    "fullName": "Microsoft AndrewMultilingual Online (Natural) - English (United States)",
+    "gender": "Male",
+    "locale": "en-US",
+    "localeName": "English (United States)",
+    "provider": "edge",
+    "personalities": [
+      "Warm",
+      "Confident",
+      "Authentic",
+      "Honest"
+    ]
+  },
+  {
+    "id": "en-US-AriaNeural",
+    "name": "Aria",
+    "fullName": "Microsoft Aria Online (Natural) - English (United States)",
+    "gender": "Female",
+    "locale": "en-US",
+    "localeName": "English (United States)",
+    "provider": "edge",
+    "personalities": [
+      "Positive",
+      "Confident"
+    ]
+  },
+  {
+    "id": "en-US-AvaMultilingualNeural",
+    "name": "AvaMultilingual",
+    "fullName": "Microsoft AvaMultilingual Online (Natural) - English (United States)",
+    "gender": "Female",
+    "locale": "en-US",
+    "localeName": "English (United States)",
+    "provider": "edge",
+    "personalities": [
+      "Expressive",
+      "Caring",
+      "Pleasant",
+      "Friendly"
+    ]
+  },
+  {
+    "id": "en-US-BrianMultilingualNeural",
+    "name": "BrianMultilingual",
+    "fullName": "Microsoft BrianMultilingual Online (Natural) - English (United States)",
+    "gender": "Male",
+    "locale": "en-US",
+    "localeName": "English (United States)",
+    "provider": "edge",
+    "personalities": [
+      "Approachable",
+      "Casual",
+      "Sincere"
+    ]
+  },
+  {
+    "id": "en-US-ChristopherNeural",
+    "name": "Christopher",
+    "fullName": "Microsoft Christopher Online (Natural) - English (United States)",
+    "gender": "Male",
+    "locale": "en-US",
+    "localeName": "English (United States)",
+    "provider": "edge",
+    "personalities": [
+      "Reliable",
+      "Authority"
+    ]
+  },
+  {
+    "id": "en-US-EmmaMultilingualNeural",
+    "name": "EmmaMultilingual",
+    "fullName": "Microsoft EmmaMultilingual Online (Natural) - English (United States)",
+    "gender": "Female",
+    "locale": "en-US",
+    "localeName": "English (United States)",
+    "provider": "edge",
+    "personalities": [
+      "Cheerful",
+      "Clear",
+      "Conversational"
+    ]
+  },
+  {
+    "id": "en-US-EricNeural",
+    "name": "Eric",
+    "fullName": "Microsoft Eric Online (Natural) - English (United States)",
+    "gender": "Male",
+    "locale": "en-US",
+    "localeName": "English (United States)",
+    "provider": "edge",
+    "personalities": [
+      "Rational"
+    ]
+  },
+  {
+    "id": "en-US-GuyNeural",
+    "name": "Guy",
+    "fullName": "Microsoft Guy Online (Natural) - English (United States)",
+    "gender": "Male",
+    "locale": "en-US",
+    "localeName": "English (United States)",
+    "provider": "edge",
+    "personalities": [
+      "Passion"
+    ]
+  },
+  {
+    "id": "en-US-JennyNeural",
+    "name": "Jenny",
+    "fullName": "Microsoft Jenny Online (Natural) - English (United States)",
+    "gender": "Female",
+    "locale": "en-US",
+    "localeName": "English (United States)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Considerate",
+      "Comfort"
+    ]
+  },
+  {
+    "id": "en-US-MichelleNeural",
+    "name": "Michelle",
+    "fullName": "Microsoft Michelle Online (Natural) - English (United States)",
+    "gender": "Female",
+    "locale": "en-US",
+    "localeName": "English (United States)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Pleasant"
+    ]
+  },
+  {
+    "id": "en-US-RogerNeural",
+    "name": "Roger",
+    "fullName": "Microsoft Roger Online (Natural) - English (United States)",
+    "gender": "Male",
+    "locale": "en-US",
+    "localeName": "English (United States)",
+    "provider": "edge",
+    "personalities": [
+      "Lively"
+    ]
+  },
+  {
+    "id": "en-US-SteffanNeural",
+    "name": "Steffan",
+    "fullName": "Microsoft Steffan Online (Natural) - English (United States)",
+    "gender": "Male",
+    "locale": "en-US",
+    "localeName": "English (United States)",
+    "provider": "edge",
+    "personalities": [
+      "Rational"
+    ]
+  },
+  {
+    "id": "et-EE-AnuNeural",
+    "name": "Anu",
+    "fullName": "Microsoft Anu Online (Natural) - Estonian (Estonia)",
+    "gender": "Female",
+    "locale": "et-EE",
+    "localeName": "Estonian (Estonia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "et-EE-KertNeural",
+    "name": "Kert",
+    "fullName": "Microsoft Kert Online (Natural) - Estonian (Estonia)",
+    "gender": "Male",
+    "locale": "et-EE",
+    "localeName": "Estonian (Estonia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "fil-PH-AngeloNeural",
+    "name": "Angelo",
+    "fullName": "Microsoft Angelo Online (Natural) - Filipino (Philippines)",
+    "gender": "Male",
+    "locale": "fil-PH",
+    "localeName": "Filipino (Philippines)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "fil-PH-BlessicaNeural",
+    "name": "Blessica",
+    "fullName": "Microsoft Blessica Online (Natural) - Filipino (Philippines)",
+    "gender": "Female",
+    "locale": "fil-PH",
+    "localeName": "Filipino (Philippines)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "fi-FI-HarriNeural",
+    "name": "Harri",
+    "fullName": "Microsoft Harri Online (Natural) - Finnish (Finland)",
+    "gender": "Male",
+    "locale": "fi-FI",
+    "localeName": "Finnish (Finland)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "fi-FI-NooraNeural",
+    "name": "Noora",
+    "fullName": "Microsoft Noora Online (Natural) - Finnish (Finland)",
+    "gender": "Female",
+    "locale": "fi-FI",
+    "localeName": "Finnish (Finland)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "fr-BE-CharlineNeural",
+    "name": "Charline",
+    "fullName": "Microsoft Charline Online (Natural) - French (Belgium)",
+    "gender": "Female",
+    "locale": "fr-BE",
+    "localeName": "French (Belgium)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "fr-BE-GerardNeural",
+    "name": "Gerard",
+    "fullName": "Microsoft Gerard Online (Natural) - French (Belgium)",
+    "gender": "Male",
+    "locale": "fr-BE",
+    "localeName": "French (Belgium)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "fr-CA-ThierryNeural",
+    "name": "Thierry",
+    "fullName": "Microsoft Thierry Online (Natural) - French (Canada)",
+    "gender": "Male",
+    "locale": "fr-CA",
+    "localeName": "French (Canada)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "fr-CA-AntoineNeural",
+    "name": "Antoine",
+    "fullName": "Microsoft Antoine Online (Natural) - French (Canada)",
+    "gender": "Male",
+    "locale": "fr-CA",
+    "localeName": "French (Canada)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "fr-CA-JeanNeural",
+    "name": "Jean",
+    "fullName": "Microsoft Jean Online (Natural) - French (Canada)",
+    "gender": "Male",
+    "locale": "fr-CA",
+    "localeName": "French (Canada)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "fr-CA-SylvieNeural",
+    "name": "Sylvie",
+    "fullName": "Microsoft Sylvie Online (Natural) - French (Canada)",
+    "gender": "Female",
+    "locale": "fr-CA",
+    "localeName": "French (Canada)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "fr-FR-VivienneMultilingualNeural",
+    "name": "VivienneMultilingual",
+    "fullName": "Microsoft VivienneMultilingual Online (Natural) - French (France)",
+    "gender": "Female",
+    "locale": "fr-FR",
+    "localeName": "French (France)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "fr-FR-RemyMultilingualNeural",
+    "name": "RemyMultilingual",
+    "fullName": "Microsoft RemyMultilingual Online (Natural) - French (France)",
+    "gender": "Male",
+    "locale": "fr-FR",
+    "localeName": "French (France)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "fr-FR-DeniseNeural",
+    "name": "Denise",
+    "fullName": "Microsoft Denise Online (Natural) - French (France)",
+    "gender": "Female",
+    "locale": "fr-FR",
+    "localeName": "French (France)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "fr-FR-EloiseNeural",
+    "name": "Eloise",
+    "fullName": "Microsoft Eloise Online (Natural) - French (France)",
+    "gender": "Female",
+    "locale": "fr-FR",
+    "localeName": "French (France)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "fr-FR-HenriNeural",
+    "name": "Henri",
+    "fullName": "Microsoft Henri Online (Natural) - French (France)",
+    "gender": "Male",
+    "locale": "fr-FR",
+    "localeName": "French (France)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "fr-CH-ArianeNeural",
+    "name": "Ariane",
+    "fullName": "Microsoft Ariane Online (Natural) - French (Switzerland)",
+    "gender": "Female",
+    "locale": "fr-CH",
+    "localeName": "French (Switzerland)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "fr-CH-FabriceNeural",
+    "name": "Fabrice",
+    "fullName": "Microsoft Fabrice Online (Natural) - French (Switzerland)",
+    "gender": "Male",
+    "locale": "fr-CH",
+    "localeName": "French (Switzerland)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "gl-ES-RoiNeural",
+    "name": "Roi",
+    "fullName": "Microsoft Roi Online (Natural) - Galician",
+    "gender": "Male",
+    "locale": "gl-ES",
+    "localeName": "Galician",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "gl-ES-SabelaNeural",
+    "name": "Sabela",
+    "fullName": "Microsoft Sabela Online (Natural) - Galician",
+    "gender": "Female",
+    "locale": "gl-ES",
+    "localeName": "Galician",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ka-GE-EkaNeural",
+    "name": "Eka",
+    "fullName": "Microsoft Eka Online (Natural) - Georgian (Georgia)",
+    "gender": "Female",
+    "locale": "ka-GE",
+    "localeName": "Georgian (Georgia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ka-GE-GiorgiNeural",
+    "name": "Giorgi",
+    "fullName": "Microsoft Giorgi Online (Natural) - Georgian (Georgia)",
+    "gender": "Male",
+    "locale": "ka-GE",
+    "localeName": "Georgian (Georgia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "de-AT-IngridNeural",
+    "name": "Ingrid",
+    "fullName": "Microsoft Ingrid Online (Natural) - German (Austria)",
+    "gender": "Female",
+    "locale": "de-AT",
+    "localeName": "German (Austria)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "de-AT-JonasNeural",
+    "name": "Jonas",
+    "fullName": "Microsoft Jonas Online (Natural) - German (Austria)",
+    "gender": "Male",
+    "locale": "de-AT",
+    "localeName": "German (Austria)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "de-DE-SeraphinaMultilingualNeural",
+    "name": "SeraphinaMultilingual",
+    "fullName": "Microsoft SeraphinaMultilingual Online (Natural) - German (Germany)",
+    "gender": "Female",
+    "locale": "de-DE",
+    "localeName": "German (Germany)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "de-DE-FlorianMultilingualNeural",
+    "name": "FlorianMultilingual",
+    "fullName": "Microsoft FlorianMultilingual Online (Natural) - German (Germany)",
+    "gender": "Male",
+    "locale": "de-DE",
+    "localeName": "German (Germany)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "de-DE-AmalaNeural",
+    "name": "Amala",
+    "fullName": "Microsoft Amala Online (Natural) - German (Germany)",
+    "gender": "Female",
+    "locale": "de-DE",
+    "localeName": "German (Germany)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "de-DE-ConradNeural",
+    "name": "Conrad",
+    "fullName": "Microsoft Conrad Online (Natural) - German (Germany)",
+    "gender": "Male",
+    "locale": "de-DE",
+    "localeName": "German (Germany)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "de-DE-KatjaNeural",
+    "name": "Katja",
+    "fullName": "Microsoft Katja Online (Natural) - German (Germany)",
+    "gender": "Female",
+    "locale": "de-DE",
+    "localeName": "German (Germany)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "de-DE-KillianNeural",
+    "name": "Killian",
+    "fullName": "Microsoft Killian Online (Natural) - German (Germany)",
+    "gender": "Male",
+    "locale": "de-DE",
+    "localeName": "German (Germany)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "de-CH-JanNeural",
+    "name": "Jan",
+    "fullName": "Microsoft Jan Online (Natural) - German (Switzerland)",
+    "gender": "Male",
+    "locale": "de-CH",
+    "localeName": "German (Switzerland)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "de-CH-LeniNeural",
+    "name": "Leni",
+    "fullName": "Microsoft Leni Online (Natural) - German (Switzerland)",
+    "gender": "Female",
+    "locale": "de-CH",
+    "localeName": "German (Switzerland)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "el-GR-AthinaNeural",
+    "name": "Athina",
+    "fullName": "Microsoft Athina Online (Natural) - Greek (Greece)",
+    "gender": "Female",
+    "locale": "el-GR",
+    "localeName": "Greek (Greece)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "el-GR-NestorasNeural",
+    "name": "Nestoras",
+    "fullName": "Microsoft Nestoras Online (Natural) - Greek (Greece)",
+    "gender": "Male",
+    "locale": "el-GR",
+    "localeName": "Greek (Greece)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "gu-IN-DhwaniNeural",
+    "name": "Dhwani",
+    "fullName": "Microsoft Dhwani Online (Natural) - Gujarati (India)",
+    "gender": "Female",
+    "locale": "gu-IN",
+    "localeName": "Gujarati (India)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "gu-IN-NiranjanNeural",
+    "name": "Niranjan",
+    "fullName": "Microsoft Niranjan Online (Natural) - Gujarati (India)",
+    "gender": "Male",
+    "locale": "gu-IN",
+    "localeName": "Gujarati (India)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "he-IL-AvriNeural",
+    "name": "Avri",
+    "fullName": "Microsoft Avri Online (Natural) - Hebrew (Israel)",
+    "gender": "Male",
+    "locale": "he-IL",
+    "localeName": "Hebrew (Israel)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "he-IL-HilaNeural",
+    "name": "Hila",
+    "fullName": "Microsoft Hila Online (Natural) - Hebrew (Israel)",
+    "gender": "Female",
+    "locale": "he-IL",
+    "localeName": "Hebrew (Israel)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "hi-IN-MadhurNeural",
+    "name": "Madhur",
+    "fullName": "Microsoft Madhur Online (Natural) - Hindi (India)",
+    "gender": "Male",
+    "locale": "hi-IN",
+    "localeName": "Hindi (India)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "hi-IN-SwaraNeural",
+    "name": "Swara",
+    "fullName": "Microsoft Swara Online (Natural) - Hindi (India)",
+    "gender": "Female",
+    "locale": "hi-IN",
+    "localeName": "Hindi (India)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "hu-HU-NoemiNeural",
+    "name": "Noemi",
+    "fullName": "Microsoft Noemi Online (Natural) - Hungarian (Hungary)",
+    "gender": "Female",
+    "locale": "hu-HU",
+    "localeName": "Hungarian (Hungary)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "hu-HU-TamasNeural",
+    "name": "Tamas",
+    "fullName": "Microsoft Tamas Online (Natural) - Hungarian (Hungary)",
+    "gender": "Male",
+    "locale": "hu-HU",
+    "localeName": "Hungarian (Hungary)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "is-IS-GudrunNeural",
+    "name": "Gudrun",
+    "fullName": "Microsoft Gudrun Online (Natural) - Icelandic (Iceland)",
+    "gender": "Female",
+    "locale": "is-IS",
+    "localeName": "Icelandic (Iceland)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "is-IS-GunnarNeural",
+    "name": "Gunnar",
+    "fullName": "Microsoft Gunnar Online (Natural) - Icelandic (Iceland)",
+    "gender": "Male",
+    "locale": "is-IS",
+    "localeName": "Icelandic (Iceland)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "id-ID-ArdiNeural",
+    "name": "Ardi",
+    "fullName": "Microsoft Ardi Online (Natural) - Indonesian (Indonesia)",
+    "gender": "Male",
+    "locale": "id-ID",
+    "localeName": "Indonesian (Indonesia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "id-ID-GadisNeural",
+    "name": "Gadis",
+    "fullName": "Microsoft Gadis Online (Natural) - Indonesian (Indonesia)",
+    "gender": "Female",
+    "locale": "id-ID",
+    "localeName": "Indonesian (Indonesia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "iu-Latn-CA-SiqiniqNeural",
+    "name": "Siqiniq",
+    "fullName": "Microsoft Siqiniq Online (Natural) - Inuktitut (Latin, Canada)",
+    "gender": "Female",
+    "locale": "iu-Latn-CA",
+    "localeName": "Inuktitut (Latin, Canada)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "iu-Latn-CA-TaqqiqNeural",
+    "name": "Taqqiq",
+    "fullName": "Microsoft Taqqiq Online (Natural) - Inuktitut (Latin, Canada)",
+    "gender": "Male",
+    "locale": "iu-Latn-CA",
+    "localeName": "Inuktitut (Latin, Canada)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "iu-Cans-CA-SiqiniqNeural",
+    "name": "Siqiniq",
+    "fullName": "Microsoft Siqiniq Online (Natural) - Inuktitut (Syllabics, Canada)",
+    "gender": "Female",
+    "locale": "iu-Cans-CA",
+    "localeName": "Inuktitut (Syllabics, Canada)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "iu-Cans-CA-TaqqiqNeural",
+    "name": "Taqqiq",
+    "fullName": "Microsoft Taqqiq Online (Natural) - Inuktitut (Syllabics, Canada)",
+    "gender": "Male",
+    "locale": "iu-Cans-CA",
+    "localeName": "Inuktitut (Syllabics, Canada)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ga-IE-ColmNeural",
+    "name": "Colm",
+    "fullName": "Microsoft Colm Online (Natural) - Irish (Ireland)",
+    "gender": "Male",
+    "locale": "ga-IE",
+    "localeName": "Irish (Ireland)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ga-IE-OrlaNeural",
+    "name": "Orla",
+    "fullName": "Microsoft Orla Online (Natural) - Irish (Ireland)",
+    "gender": "Female",
+    "locale": "ga-IE",
+    "localeName": "Irish (Ireland)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "it-IT-GiuseppeMultilingualNeural",
+    "name": "GiuseppeMultilingual",
+    "fullName": "Microsoft GiuseppeMultilingual Online (Natural) - Italian (Italy)",
+    "gender": "Male",
+    "locale": "it-IT",
+    "localeName": "Italian (Italy)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "it-IT-DiegoNeural",
+    "name": "Diego",
+    "fullName": "Microsoft Diego Online (Natural) - Italian (Italy)",
+    "gender": "Male",
+    "locale": "it-IT",
+    "localeName": "Italian (Italy)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "it-IT-ElsaNeural",
+    "name": "Elsa",
+    "fullName": "Microsoft Elsa Online (Natural) - Italian (Italy)",
+    "gender": "Female",
+    "locale": "it-IT",
+    "localeName": "Italian (Italy)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "it-IT-IsabellaNeural",
+    "name": "Isabella",
+    "fullName": "Microsoft Isabella Online (Natural) - Italian (Italy)",
+    "gender": "Female",
+    "locale": "it-IT",
+    "localeName": "Italian (Italy)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ja-JP-KeitaNeural",
+    "name": "Keita",
+    "fullName": "Microsoft Keita Online (Natural) - Japanese (Japan)",
+    "gender": "Male",
+    "locale": "ja-JP",
+    "localeName": "Japanese (Japan)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ja-JP-NanamiNeural",
+    "name": "Nanami",
+    "fullName": "Microsoft Nanami Online (Natural) - Japanese (Japan)",
+    "gender": "Female",
+    "locale": "ja-JP",
+    "localeName": "Japanese (Japan)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "jv-ID-DimasNeural",
+    "name": "Dimas",
+    "fullName": "Microsoft Dimas Online (Natural) - Javanese (Indonesia)",
+    "gender": "Male",
+    "locale": "jv-ID",
+    "localeName": "Javanese (Latin, Indonesia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "jv-ID-SitiNeural",
+    "name": "Siti",
+    "fullName": "Microsoft Siti Online (Natural) - Javanese (Indonesia)",
+    "gender": "Female",
+    "locale": "jv-ID",
+    "localeName": "Javanese (Latin, Indonesia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "kn-IN-GaganNeural",
+    "name": "Gagan",
+    "fullName": "Microsoft Gagan Online (Natural) - Kannada (India)",
+    "gender": "Male",
+    "locale": "kn-IN",
+    "localeName": "Kannada (India)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "kn-IN-SapnaNeural",
+    "name": "Sapna",
+    "fullName": "Microsoft Sapna Online (Natural) - Kannada (India)",
+    "gender": "Female",
+    "locale": "kn-IN",
+    "localeName": "Kannada (India)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "kk-KZ-AigulNeural",
+    "name": "Aigul",
+    "fullName": "Microsoft Aigul Online (Natural) - Kazakh (Kazakhstan)",
+    "gender": "Female",
+    "locale": "kk-KZ",
+    "localeName": "Kazakh (Kazakhstan)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "kk-KZ-DauletNeural",
+    "name": "Daulet",
+    "fullName": "Microsoft Daulet Online (Natural) - Kazakh (Kazakhstan)",
+    "gender": "Male",
+    "locale": "kk-KZ",
+    "localeName": "Kazakh (Kazakhstan)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "km-KH-PisethNeural",
+    "name": "Piseth",
+    "fullName": "Microsoft Piseth Online (Natural) - Khmer (Cambodia)",
+    "gender": "Male",
+    "locale": "km-KH",
+    "localeName": "Khmer (Cambodia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "km-KH-SreymomNeural",
+    "name": "Sreymom",
+    "fullName": "Microsoft Sreymom Online (Natural) - Khmer (Cambodia)",
+    "gender": "Female",
+    "locale": "km-KH",
+    "localeName": "Khmer (Cambodia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ko-KR-HyunsuMultilingualNeural",
+    "name": "HyunsuMultilingual",
+    "fullName": "Microsoft HyunsuMultilingual Online (Natural) - Korean (Korea)",
+    "gender": "Male",
+    "locale": "ko-KR",
+    "localeName": "Korean (Korea)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ko-KR-InJoonNeural",
+    "name": "InJoon",
+    "fullName": "Microsoft InJoon Online (Natural) - Korean (Korea)",
+    "gender": "Male",
+    "locale": "ko-KR",
+    "localeName": "Korean (Korea)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ko-KR-SunHiNeural",
+    "name": "SunHi",
+    "fullName": "Microsoft SunHi Online (Natural) - Korean (Korea)",
+    "gender": "Female",
+    "locale": "ko-KR",
+    "localeName": "Korean (Korea)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "lo-LA-ChanthavongNeural",
+    "name": "Chanthavong",
+    "fullName": "Microsoft Chanthavong Online (Natural) - Lao (Laos)",
+    "gender": "Male",
+    "locale": "lo-LA",
+    "localeName": "Lao (Laos)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "lo-LA-KeomanyNeural",
+    "name": "Keomany",
+    "fullName": "Microsoft Keomany Online (Natural) - Lao (Laos)",
+    "gender": "Female",
+    "locale": "lo-LA",
+    "localeName": "Lao (Laos)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "lv-LV-EveritaNeural",
+    "name": "Everita",
+    "fullName": "Microsoft Everita Online (Natural) - Latvian (Latvia)",
+    "gender": "Female",
+    "locale": "lv-LV",
+    "localeName": "Latvian (Latvia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "lv-LV-NilsNeural",
+    "name": "Nils",
+    "fullName": "Microsoft Nils Online (Natural) - Latvian (Latvia)",
+    "gender": "Male",
+    "locale": "lv-LV",
+    "localeName": "Latvian (Latvia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "lt-LT-LeonasNeural",
+    "name": "Leonas",
+    "fullName": "Microsoft Leonas Online (Natural) - Lithuanian (Lithuania)",
+    "gender": "Male",
+    "locale": "lt-LT",
+    "localeName": "Lithuanian (Lithuania)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "lt-LT-OnaNeural",
+    "name": "Ona",
+    "fullName": "Microsoft Ona Online (Natural) - Lithuanian (Lithuania)",
+    "gender": "Female",
+    "locale": "lt-LT",
+    "localeName": "Lithuanian (Lithuania)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "mk-MK-AleksandarNeural",
+    "name": "Aleksandar",
+    "fullName": "Microsoft Aleksandar Online (Natural) - Macedonian (North Macedonia)",
+    "gender": "Male",
+    "locale": "mk-MK",
+    "localeName": "Macedonian (North Macedonia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "mk-MK-MarijaNeural",
+    "name": "Marija",
+    "fullName": "Microsoft Marija Online (Natural) - Macedonian (North Macedonia)",
+    "gender": "Female",
+    "locale": "mk-MK",
+    "localeName": "Macedonian (North Macedonia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ms-MY-OsmanNeural",
+    "name": "Osman",
+    "fullName": "Microsoft Osman Online (Natural) - Malay (Malaysia)",
+    "gender": "Male",
+    "locale": "ms-MY",
+    "localeName": "Malay (Malaysia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ms-MY-YasminNeural",
+    "name": "Yasmin",
+    "fullName": "Microsoft Yasmin Online (Natural) - Malay (Malaysia)",
+    "gender": "Female",
+    "locale": "ms-MY",
+    "localeName": "Malay (Malaysia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ml-IN-MidhunNeural",
+    "name": "Midhun",
+    "fullName": "Microsoft Midhun Online (Natural) - Malayalam (India)",
+    "gender": "Male",
+    "locale": "ml-IN",
+    "localeName": "Malayalam (India)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ml-IN-SobhanaNeural",
+    "name": "Sobhana",
+    "fullName": "Microsoft Sobhana Online (Natural) - Malayalam (India)",
+    "gender": "Female",
+    "locale": "ml-IN",
+    "localeName": "Malayalam (India)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "mt-MT-GraceNeural",
+    "name": "Grace",
+    "fullName": "Microsoft Grace Online (Natural) - Maltese (Malta)",
+    "gender": "Female",
+    "locale": "mt-MT",
+    "localeName": "Maltese (Malta)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "mt-MT-JosephNeural",
+    "name": "Joseph",
+    "fullName": "Microsoft Joseph Online (Natural) - Maltese (Malta)",
+    "gender": "Male",
+    "locale": "mt-MT",
+    "localeName": "Maltese (Malta)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "mr-IN-AarohiNeural",
+    "name": "Aarohi",
+    "fullName": "Microsoft Aarohi Online (Natural) - Marathi (India)",
+    "gender": "Female",
+    "locale": "mr-IN",
+    "localeName": "Marathi (India)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "mr-IN-ManoharNeural",
+    "name": "Manohar",
+    "fullName": "Microsoft Manohar Online (Natural) - Marathi (India)",
+    "gender": "Male",
+    "locale": "mr-IN",
+    "localeName": "Marathi (India)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "mn-MN-BataaNeural",
+    "name": "Bataa",
+    "fullName": "Microsoft Bataa Online (Natural) - Mongolian (Mongolia)",
+    "gender": "Male",
+    "locale": "mn-MN",
+    "localeName": "Mongolian (Mongolia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "mn-MN-YesuiNeural",
+    "name": "Yesui",
+    "fullName": "Microsoft Yesui Online (Natural) - Mongolian (Mongolia)",
+    "gender": "Female",
+    "locale": "mn-MN",
+    "localeName": "Mongolian (Mongolia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ne-NP-HemkalaNeural",
+    "name": "Hemkala",
+    "fullName": "Microsoft Hemkala Online (Natural) - Nepali (Nepal)",
+    "gender": "Female",
+    "locale": "ne-NP",
+    "localeName": "Nepali (Nepal)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ne-NP-SagarNeural",
+    "name": "Sagar",
+    "fullName": "Microsoft Sagar Online (Natural) - Nepali (Nepal)",
+    "gender": "Male",
+    "locale": "ne-NP",
+    "localeName": "Nepali (Nepal)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "nb-NO-FinnNeural",
+    "name": "Finn",
+    "fullName": "Microsoft Finn Online (Natural) - Norwegian (Bokmål Norway)",
+    "gender": "Male",
+    "locale": "nb-NO",
+    "localeName": "Norwegian Bokmål (Norway)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "nb-NO-PernilleNeural",
+    "name": "Pernille",
+    "fullName": "Microsoft Pernille Online (Natural) - Norwegian (Bokmål, Norway)",
+    "gender": "Female",
+    "locale": "nb-NO",
+    "localeName": "Norwegian Bokmål (Norway)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ps-AF-GulNawazNeural",
+    "name": "GulNawaz",
+    "fullName": "Microsoft GulNawaz Online (Natural) - Pashto (Afghanistan)",
+    "gender": "Male",
+    "locale": "ps-AF",
+    "localeName": "Pashto (Afghanistan)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ps-AF-LatifaNeural",
+    "name": "Latifa",
+    "fullName": "Microsoft Latifa Online (Natural) - Pashto (Afghanistan)",
+    "gender": "Female",
+    "locale": "ps-AF",
+    "localeName": "Pashto (Afghanistan)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "fa-IR-DilaraNeural",
+    "name": "Dilara",
+    "fullName": "Microsoft Dilara Online (Natural) - Persian (Iran)",
+    "gender": "Female",
+    "locale": "fa-IR",
+    "localeName": "Persian (Iran)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "fa-IR-FaridNeural",
+    "name": "Farid",
+    "fullName": "Microsoft Farid Online (Natural) - Persian (Iran)",
+    "gender": "Male",
+    "locale": "fa-IR",
+    "localeName": "Persian (Iran)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "pl-PL-MarekNeural",
+    "name": "Marek",
+    "fullName": "Microsoft Marek Online (Natural) - Polish (Poland)",
+    "gender": "Male",
+    "locale": "pl-PL",
+    "localeName": "Polish (Poland)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "pl-PL-ZofiaNeural",
+    "name": "Zofia",
+    "fullName": "Microsoft Zofia Online (Natural) - Polish (Poland)",
+    "gender": "Female",
+    "locale": "pl-PL",
+    "localeName": "Polish (Poland)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "pt-BR-ThalitaMultilingualNeural",
+    "name": "ThalitaMultilingual",
+    "fullName": "Microsoft ThalitaMultilingual Online (Natural) - Portuguese (Brazil)",
+    "gender": "Female",
+    "locale": "pt-BR",
+    "localeName": "Portuguese (Brazil)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "pt-BR-AntonioNeural",
+    "name": "Antonio",
+    "fullName": "Microsoft Antonio Online (Natural) - Portuguese (Brazil)",
+    "gender": "Male",
+    "locale": "pt-BR",
+    "localeName": "Portuguese (Brazil)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "pt-BR-FranciscaNeural",
+    "name": "Francisca",
+    "fullName": "Microsoft Francisca Online (Natural) - Portuguese (Brazil)",
+    "gender": "Female",
+    "locale": "pt-BR",
+    "localeName": "Portuguese (Brazil)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "pt-PT-DuarteNeural",
+    "name": "Duarte",
+    "fullName": "Microsoft Duarte Online (Natural) - Portuguese (Portugal)",
+    "gender": "Male",
+    "locale": "pt-PT",
+    "localeName": "Portuguese (Portugal)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "pt-PT-RaquelNeural",
+    "name": "Raquel",
+    "fullName": "Microsoft Raquel Online (Natural) - Portuguese (Portugal)",
+    "gender": "Female",
+    "locale": "pt-PT",
+    "localeName": "Portuguese (Portugal)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ro-RO-AlinaNeural",
+    "name": "Alina",
+    "fullName": "Microsoft Alina Online (Natural) - Romanian (Romania)",
+    "gender": "Female",
+    "locale": "ro-RO",
+    "localeName": "Romanian (Romania)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ro-RO-EmilNeural",
+    "name": "Emil",
+    "fullName": "Microsoft Emil Online (Natural) - Romanian (Romania)",
+    "gender": "Male",
+    "locale": "ro-RO",
+    "localeName": "Romanian (Romania)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ru-RU-DmitryNeural",
+    "name": "Dmitry",
+    "fullName": "Microsoft Dmitry Online (Natural) - Russian (Russia)",
+    "gender": "Male",
+    "locale": "ru-RU",
+    "localeName": "Russian (Russia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ru-RU-SvetlanaNeural",
+    "name": "Svetlana",
+    "fullName": "Microsoft Svetlana Online (Natural) - Russian (Russia)",
+    "gender": "Female",
+    "locale": "ru-RU",
+    "localeName": "Russian (Russia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "sr-RS-NicholasNeural",
+    "name": "Nicholas",
+    "fullName": "Microsoft Nicholas Online (Natural) - Serbian (Serbia)",
+    "gender": "Male",
+    "locale": "sr-RS",
+    "localeName": "Serbian (Cyrillic, Serbia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "sr-RS-SophieNeural",
+    "name": "Sophie",
+    "fullName": "Microsoft Sophie Online (Natural) - Serbian (Serbia)",
+    "gender": "Female",
+    "locale": "sr-RS",
+    "localeName": "Serbian (Cyrillic, Serbia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "si-LK-SameeraNeural",
+    "name": "Sameera",
+    "fullName": "Microsoft Sameera Online (Natural) - Sinhala (Sri Lanka)",
+    "gender": "Male",
+    "locale": "si-LK",
+    "localeName": "Sinhala (Sri Lanka)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "si-LK-ThiliniNeural",
+    "name": "Thilini",
+    "fullName": "Microsoft Thilini Online (Natural) - Sinhala (Sri Lanka)",
+    "gender": "Female",
+    "locale": "si-LK",
+    "localeName": "Sinhala (Sri Lanka)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "sk-SK-LukasNeural",
+    "name": "Lukas",
+    "fullName": "Microsoft Lukas Online (Natural) - Slovak (Slovakia)",
+    "gender": "Male",
+    "locale": "sk-SK",
+    "localeName": "Slovak (Slovakia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "sk-SK-ViktoriaNeural",
+    "name": "Viktoria",
+    "fullName": "Microsoft Viktoria Online (Natural) - Slovak (Slovakia)",
+    "gender": "Female",
+    "locale": "sk-SK",
+    "localeName": "Slovak (Slovakia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "sl-SI-PetraNeural",
+    "name": "Petra",
+    "fullName": "Microsoft Petra Online (Natural) - Slovenian (Slovenia)",
+    "gender": "Female",
+    "locale": "sl-SI",
+    "localeName": "Slovenian (Slovenia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "sl-SI-RokNeural",
+    "name": "Rok",
+    "fullName": "Microsoft Rok Online (Natural) - Slovenian (Slovenia)",
+    "gender": "Male",
+    "locale": "sl-SI",
+    "localeName": "Slovenian (Slovenia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "so-SO-MuuseNeural",
+    "name": "Muuse",
+    "fullName": "Microsoft Muuse Online (Natural) - Somali (Somalia)",
+    "gender": "Male",
+    "locale": "so-SO",
+    "localeName": "Somali (Somalia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "so-SO-UbaxNeural",
+    "name": "Ubax",
+    "fullName": "Microsoft Ubax Online (Natural) - Somali (Somalia)",
+    "gender": "Female",
+    "locale": "so-SO",
+    "localeName": "Somali (Somalia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-AR-ElenaNeural",
+    "name": "Elena",
+    "fullName": "Microsoft Elena Online (Natural) - Spanish (Argentina)",
+    "gender": "Female",
+    "locale": "es-AR",
+    "localeName": "Spanish (Argentina)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-AR-TomasNeural",
+    "name": "Tomas",
+    "fullName": "Microsoft Tomas Online (Natural) - Spanish (Argentina)",
+    "gender": "Male",
+    "locale": "es-AR",
+    "localeName": "Spanish (Argentina)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-BO-MarceloNeural",
+    "name": "Marcelo",
+    "fullName": "Microsoft Marcelo Online (Natural) - Spanish (Bolivia)",
+    "gender": "Male",
+    "locale": "es-BO",
+    "localeName": "Spanish (Bolivia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-BO-SofiaNeural",
+    "name": "Sofia",
+    "fullName": "Microsoft Sofia Online (Natural) - Spanish (Bolivia)",
+    "gender": "Female",
+    "locale": "es-BO",
+    "localeName": "Spanish (Bolivia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-CL-CatalinaNeural",
+    "name": "Catalina",
+    "fullName": "Microsoft Catalina Online (Natural) - Spanish (Chile)",
+    "gender": "Female",
+    "locale": "es-CL",
+    "localeName": "Spanish (Chile)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-CL-LorenzoNeural",
+    "name": "Lorenzo",
+    "fullName": "Microsoft Lorenzo Online (Natural) - Spanish (Chile)",
+    "gender": "Male",
+    "locale": "es-CL",
+    "localeName": "Spanish (Chile)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-CO-GonzaloNeural",
+    "name": "Gonzalo",
+    "fullName": "Microsoft Gonzalo Online (Natural) - Spanish (Colombia)",
+    "gender": "Male",
+    "locale": "es-CO",
+    "localeName": "Spanish (Colombia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-CO-SalomeNeural",
+    "name": "Salome",
+    "fullName": "Microsoft Salome Online (Natural) - Spanish (Colombia)",
+    "gender": "Female",
+    "locale": "es-CO",
+    "localeName": "Spanish (Colombia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-ES-XimenaNeural",
+    "name": "Ximena",
+    "fullName": "Microsoft Ximena Online (Natural) - Spanish (Colombia)",
+    "gender": "Female",
+    "locale": "es-ES",
+    "localeName": "Spanish (Spain)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-CR-JuanNeural",
+    "name": "Juan",
+    "fullName": "Microsoft Juan Online (Natural) - Spanish (Costa Rica)",
+    "gender": "Male",
+    "locale": "es-CR",
+    "localeName": "Spanish (Costa Rica)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-CR-MariaNeural",
+    "name": "Maria",
+    "fullName": "Microsoft Maria Online (Natural) - Spanish (Costa Rica)",
+    "gender": "Female",
+    "locale": "es-CR",
+    "localeName": "Spanish (Costa Rica)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-CU-BelkysNeural",
+    "name": "Belkys",
+    "fullName": "Microsoft Belkys Online (Natural) - Spanish (Cuba)",
+    "gender": "Female",
+    "locale": "es-CU",
+    "localeName": "Spanish (Cuba)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-CU-ManuelNeural",
+    "name": "Manuel",
+    "fullName": "Microsoft Manuel Online (Natural) - Spanish (Cuba)",
+    "gender": "Male",
+    "locale": "es-CU",
+    "localeName": "Spanish (Cuba)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-DO-EmilioNeural",
+    "name": "Emilio",
+    "fullName": "Microsoft Emilio Online (Natural) - Spanish (Dominican Republic)",
+    "gender": "Male",
+    "locale": "es-DO",
+    "localeName": "Spanish (Dominican Republic)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-DO-RamonaNeural",
+    "name": "Ramona",
+    "fullName": "Microsoft Ramona Online (Natural) - Spanish (Dominican Republic)",
+    "gender": "Female",
+    "locale": "es-DO",
+    "localeName": "Spanish (Dominican Republic)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-EC-AndreaNeural",
+    "name": "Andrea",
+    "fullName": "Microsoft Andrea Online (Natural) - Spanish (Ecuador)",
+    "gender": "Female",
+    "locale": "es-EC",
+    "localeName": "Spanish (Ecuador)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-EC-LuisNeural",
+    "name": "Luis",
+    "fullName": "Microsoft Luis Online (Natural) - Spanish (Ecuador)",
+    "gender": "Male",
+    "locale": "es-EC",
+    "localeName": "Spanish (Ecuador)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-SV-LorenaNeural",
+    "name": "Lorena",
+    "fullName": "Microsoft Lorena Online (Natural) - Spanish (El Salvador)",
+    "gender": "Female",
+    "locale": "es-SV",
+    "localeName": "Spanish (El Salvador)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-SV-RodrigoNeural",
+    "name": "Rodrigo",
+    "fullName": "Microsoft Rodrigo Online (Natural) - Spanish (El Salvador)",
+    "gender": "Male",
+    "locale": "es-SV",
+    "localeName": "Spanish (El Salvador)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-GQ-JavierNeural",
+    "name": "Javier",
+    "fullName": "Microsoft Javier Online (Natural) - Spanish (Equatorial Guinea)",
+    "gender": "Male",
+    "locale": "es-GQ",
+    "localeName": "Spanish (Equatorial Guinea)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-GQ-TeresaNeural",
+    "name": "Teresa",
+    "fullName": "Microsoft Teresa Online (Natural) - Spanish (Equatorial Guinea)",
+    "gender": "Female",
+    "locale": "es-GQ",
+    "localeName": "Spanish (Equatorial Guinea)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-GT-AndresNeural",
+    "name": "Andres",
+    "fullName": "Microsoft Andres Online (Natural) - Spanish (Guatemala)",
+    "gender": "Male",
+    "locale": "es-GT",
+    "localeName": "Spanish (Guatemala)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-GT-MartaNeural",
+    "name": "Marta",
+    "fullName": "Microsoft Marta Online (Natural) - Spanish (Guatemala)",
+    "gender": "Female",
+    "locale": "es-GT",
+    "localeName": "Spanish (Guatemala)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-HN-CarlosNeural",
+    "name": "Carlos",
+    "fullName": "Microsoft Carlos Online (Natural) - Spanish (Honduras)",
+    "gender": "Male",
+    "locale": "es-HN",
+    "localeName": "Spanish (Honduras)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-HN-KarlaNeural",
+    "name": "Karla",
+    "fullName": "Microsoft Karla Online (Natural) - Spanish (Honduras)",
+    "gender": "Female",
+    "locale": "es-HN",
+    "localeName": "Spanish (Honduras)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-MX-DaliaNeural",
+    "name": "Dalia",
+    "fullName": "Microsoft Dalia Online (Natural) - Spanish (Mexico)",
+    "gender": "Female",
+    "locale": "es-MX",
+    "localeName": "Spanish (Mexico)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-MX-JorgeNeural",
+    "name": "Jorge",
+    "fullName": "Microsoft Jorge Online (Natural) - Spanish (Mexico)",
+    "gender": "Male",
+    "locale": "es-MX",
+    "localeName": "Spanish (Mexico)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-NI-FedericoNeural",
+    "name": "Federico",
+    "fullName": "Microsoft Federico Online (Natural) - Spanish (Nicaragua)",
+    "gender": "Male",
+    "locale": "es-NI",
+    "localeName": "Spanish (Nicaragua)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-NI-YolandaNeural",
+    "name": "Yolanda",
+    "fullName": "Microsoft Yolanda Online (Natural) - Spanish (Nicaragua)",
+    "gender": "Female",
+    "locale": "es-NI",
+    "localeName": "Spanish (Nicaragua)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-PA-MargaritaNeural",
+    "name": "Margarita",
+    "fullName": "Microsoft Margarita Online (Natural) - Spanish (Panama)",
+    "gender": "Female",
+    "locale": "es-PA",
+    "localeName": "Spanish (Panama)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-PA-RobertoNeural",
+    "name": "Roberto",
+    "fullName": "Microsoft Roberto Online (Natural) - Spanish (Panama)",
+    "gender": "Male",
+    "locale": "es-PA",
+    "localeName": "Spanish (Panama)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-PY-MarioNeural",
+    "name": "Mario",
+    "fullName": "Microsoft Mario Online (Natural) - Spanish (Paraguay)",
+    "gender": "Male",
+    "locale": "es-PY",
+    "localeName": "Spanish (Paraguay)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-PY-TaniaNeural",
+    "name": "Tania",
+    "fullName": "Microsoft Tania Online (Natural) - Spanish (Paraguay)",
+    "gender": "Female",
+    "locale": "es-PY",
+    "localeName": "Spanish (Paraguay)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-PE-AlexNeural",
+    "name": "Alex",
+    "fullName": "Microsoft Alex Online (Natural) - Spanish (Peru)",
+    "gender": "Male",
+    "locale": "es-PE",
+    "localeName": "Spanish (Peru)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-PE-CamilaNeural",
+    "name": "Camila",
+    "fullName": "Microsoft Camila Online (Natural) - Spanish (Peru)",
+    "gender": "Female",
+    "locale": "es-PE",
+    "localeName": "Spanish (Peru)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-PR-KarinaNeural",
+    "name": "Karina",
+    "fullName": "Microsoft Karina Online (Natural) - Spanish (Puerto Rico)",
+    "gender": "Female",
+    "locale": "es-PR",
+    "localeName": "Spanish (Puerto Rico)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-PR-VictorNeural",
+    "name": "Victor",
+    "fullName": "Microsoft Victor Online (Natural) - Spanish (Puerto Rico)",
+    "gender": "Male",
+    "locale": "es-PR",
+    "localeName": "Spanish (Puerto Rico)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-ES-AlvaroNeural",
+    "name": "Alvaro",
+    "fullName": "Microsoft Alvaro Online (Natural) - Spanish (Spain)",
+    "gender": "Male",
+    "locale": "es-ES",
+    "localeName": "Spanish (Spain)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-ES-ElviraNeural",
+    "name": "Elvira",
+    "fullName": "Microsoft Elvira Online (Natural) - Spanish (Spain)",
+    "gender": "Female",
+    "locale": "es-ES",
+    "localeName": "Spanish (Spain)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-US-AlonsoNeural",
+    "name": "Alonso",
+    "fullName": "Microsoft Alonso Online (Natural) - Spanish (United States)",
+    "gender": "Male",
+    "locale": "es-US",
+    "localeName": "Spanish (United States)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-US-PalomaNeural",
+    "name": "Paloma",
+    "fullName": "Microsoft Paloma Online (Natural) - Spanish (United States)",
+    "gender": "Female",
+    "locale": "es-US",
+    "localeName": "Spanish (United States)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-UY-MateoNeural",
+    "name": "Mateo",
+    "fullName": "Microsoft Mateo Online (Natural) - Spanish (Uruguay)",
+    "gender": "Male",
+    "locale": "es-UY",
+    "localeName": "Spanish (Uruguay)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-UY-ValentinaNeural",
+    "name": "Valentina",
+    "fullName": "Microsoft Valentina Online (Natural) - Spanish (Uruguay)",
+    "gender": "Female",
+    "locale": "es-UY",
+    "localeName": "Spanish (Uruguay)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-VE-PaolaNeural",
+    "name": "Paola",
+    "fullName": "Microsoft Paola Online (Natural) - Spanish (Venezuela)",
+    "gender": "Female",
+    "locale": "es-VE",
+    "localeName": "Spanish (Venezuela)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "es-VE-SebastianNeural",
+    "name": "Sebastian",
+    "fullName": "Microsoft Sebastian Online (Natural) - Spanish (Venezuela)",
+    "gender": "Male",
+    "locale": "es-VE",
+    "localeName": "Spanish (Venezuela)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "su-ID-JajangNeural",
+    "name": "Jajang",
+    "fullName": "Microsoft Jajang Online (Natural) - Sundanese (Indonesia)",
+    "gender": "Male",
+    "locale": "su-ID",
+    "localeName": "Sundanese (Indonesia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "su-ID-TutiNeural",
+    "name": "Tuti",
+    "fullName": "Microsoft Tuti Online (Natural) - Sundanese (Indonesia)",
+    "gender": "Female",
+    "locale": "su-ID",
+    "localeName": "Sundanese (Indonesia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "sw-KE-RafikiNeural",
+    "name": "Rafiki",
+    "fullName": "Microsoft Rafiki Online (Natural) - Swahili (Kenya)",
+    "gender": "Male",
+    "locale": "sw-KE",
+    "localeName": "Swahili (Kenya)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "sw-KE-ZuriNeural",
+    "name": "Zuri",
+    "fullName": "Microsoft Zuri Online (Natural) - Swahili (Kenya)",
+    "gender": "Female",
+    "locale": "sw-KE",
+    "localeName": "Swahili (Kenya)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "sw-TZ-DaudiNeural",
+    "name": "Daudi",
+    "fullName": "Microsoft Daudi Online (Natural) - Swahili (Tanzania)",
+    "gender": "Male",
+    "locale": "sw-TZ",
+    "localeName": "Swahili (Tanzania)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "sw-TZ-RehemaNeural",
+    "name": "Rehema",
+    "fullName": "Microsoft Rehema Online (Natural) - Swahili (Tanzania)",
+    "gender": "Female",
+    "locale": "sw-TZ",
+    "localeName": "Swahili (Tanzania)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "sv-SE-MattiasNeural",
+    "name": "Mattias",
+    "fullName": "Microsoft Mattias Online (Natural) - Swedish (Sweden)",
+    "gender": "Male",
+    "locale": "sv-SE",
+    "localeName": "Swedish (Sweden)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "sv-SE-SofieNeural",
+    "name": "Sofie",
+    "fullName": "Microsoft Sofie Online (Natural) - Swedish (Sweden)",
+    "gender": "Female",
+    "locale": "sv-SE",
+    "localeName": "Swedish (Sweden)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ta-IN-PallaviNeural",
+    "name": "Pallavi",
+    "fullName": "Microsoft Pallavi Online (Natural) - Tamil (India)",
+    "gender": "Female",
+    "locale": "ta-IN",
+    "localeName": "Tamil (India)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ta-IN-ValluvarNeural",
+    "name": "Valluvar",
+    "fullName": "Microsoft Valluvar Online (Natural) - Tamil (India)",
+    "gender": "Male",
+    "locale": "ta-IN",
+    "localeName": "Tamil (India)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ta-MY-KaniNeural",
+    "name": "Kani",
+    "fullName": "Microsoft Kani Online (Natural) - Tamil (Malaysia)",
+    "gender": "Female",
+    "locale": "ta-MY",
+    "localeName": "Tamil (Malaysia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ta-MY-SuryaNeural",
+    "name": "Surya",
+    "fullName": "Microsoft Surya Online (Natural) - Tamil (Malaysia)",
+    "gender": "Male",
+    "locale": "ta-MY",
+    "localeName": "Tamil (Malaysia)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ta-SG-AnbuNeural",
+    "name": "Anbu",
+    "fullName": "Microsoft Anbu Online (Natural) - Tamil (Singapore)",
+    "gender": "Male",
+    "locale": "ta-SG",
+    "localeName": "Tamil (Singapore)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ta-SG-VenbaNeural",
+    "name": "Venba",
+    "fullName": "Microsoft Venba Online (Natural) - Tamil (Singapore)",
+    "gender": "Female",
+    "locale": "ta-SG",
+    "localeName": "Tamil (Singapore)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ta-LK-KumarNeural",
+    "name": "Kumar",
+    "fullName": "Microsoft Kumar Online (Natural) - Tamil (Sri Lanka)",
+    "gender": "Male",
+    "locale": "ta-LK",
+    "localeName": "Tamil (Sri Lanka)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ta-LK-SaranyaNeural",
+    "name": "Saranya",
+    "fullName": "Microsoft Saranya Online (Natural) - Tamil (Sri Lanka)",
+    "gender": "Female",
+    "locale": "ta-LK",
+    "localeName": "Tamil (Sri Lanka)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "te-IN-MohanNeural",
+    "name": "Mohan",
+    "fullName": "Microsoft Mohan Online (Natural) - Telugu (India)",
+    "gender": "Male",
+    "locale": "te-IN",
+    "localeName": "Telugu (India)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "te-IN-ShrutiNeural",
+    "name": "Shruti",
+    "fullName": "Microsoft Shruti Online (Natural) - Telugu (India)",
+    "gender": "Female",
+    "locale": "te-IN",
+    "localeName": "Telugu (India)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "th-TH-NiwatNeural",
+    "name": "Niwat",
+    "fullName": "Microsoft Niwat Online (Natural) - Thai (Thailand)",
+    "gender": "Male",
+    "locale": "th-TH",
+    "localeName": "Thai (Thailand)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "th-TH-PremwadeeNeural",
+    "name": "Premwadee",
+    "fullName": "Microsoft Premwadee Online (Natural) - Thai (Thailand)",
+    "gender": "Female",
+    "locale": "th-TH",
+    "localeName": "Thai (Thailand)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "tr-TR-EmelNeural",
+    "name": "Emel",
+    "fullName": "Microsoft Emel Online (Natural) - Turkish (Turkey)",
+    "gender": "Female",
+    "locale": "tr-TR",
+    "localeName": "Turkish (Türkiye)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "tr-TR-AhmetNeural",
+    "name": "Ahmet",
+    "fullName": "Microsoft Ahmet Online (Natural) - Turkish (Türkiye)",
+    "gender": "Male",
+    "locale": "tr-TR",
+    "localeName": "Turkish (Türkiye)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "uk-UA-OstapNeural",
+    "name": "Ostap",
+    "fullName": "Microsoft Ostap Online (Natural) - Ukrainian (Ukraine)",
+    "gender": "Male",
+    "locale": "uk-UA",
+    "localeName": "Ukrainian (Ukraine)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "uk-UA-PolinaNeural",
+    "name": "Polina",
+    "fullName": "Microsoft Polina Online (Natural) - Ukrainian (Ukraine)",
+    "gender": "Female",
+    "locale": "uk-UA",
+    "localeName": "Ukrainian (Ukraine)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ur-IN-GulNeural",
+    "name": "Gul",
+    "fullName": "Microsoft Gul Online (Natural) - Urdu (India)",
+    "gender": "Female",
+    "locale": "ur-IN",
+    "localeName": "Urdu (India)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ur-IN-SalmanNeural",
+    "name": "Salman",
+    "fullName": "Microsoft Salman Online (Natural) - Urdu (India)",
+    "gender": "Male",
+    "locale": "ur-IN",
+    "localeName": "Urdu (India)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ur-PK-AsadNeural",
+    "name": "Asad",
+    "fullName": "Microsoft Asad Online (Natural) - Urdu (Pakistan)",
+    "gender": "Male",
+    "locale": "ur-PK",
+    "localeName": "Urdu (Pakistan)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "ur-PK-UzmaNeural",
+    "name": "Uzma",
+    "fullName": "Microsoft Uzma Online (Natural) - Urdu (Pakistan)",
+    "gender": "Female",
+    "locale": "ur-PK",
+    "localeName": "Urdu (Pakistan)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "uz-UZ-MadinaNeural",
+    "name": "Madina",
+    "fullName": "Microsoft Madina Online (Natural) - Uzbek (Uzbekistan)",
+    "gender": "Female",
+    "locale": "uz-UZ",
+    "localeName": "Uzbek (Latin, Uzbekistan)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "uz-UZ-SardorNeural",
+    "name": "Sardor",
+    "fullName": "Microsoft Sardor Online (Natural) - Uzbek (Uzbekistan)",
+    "gender": "Male",
+    "locale": "uz-UZ",
+    "localeName": "Uzbek (Latin, Uzbekistan)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "vi-VN-HoaiMyNeural",
+    "name": "HoaiMy",
+    "fullName": "Microsoft HoaiMy Online (Natural) - Vietnamese (Vietnam)",
+    "gender": "Female",
+    "locale": "vi-VN",
+    "localeName": "Vietnamese (Vietnam)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "vi-VN-NamMinhNeural",
+    "name": "NamMinh",
+    "fullName": "Microsoft NamMinh Online (Natural) - Vietnamese (Vietnam)",
+    "gender": "Male",
+    "locale": "vi-VN",
+    "localeName": "Vietnamese (Vietnam)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "cy-GB-AledNeural",
+    "name": "Aled",
+    "fullName": "Microsoft Aled Online (Natural) - Welsh (United Kingdom)",
+    "gender": "Male",
+    "locale": "cy-GB",
+    "localeName": "Welsh (United Kingdom)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "cy-GB-NiaNeural",
+    "name": "Nia",
+    "fullName": "Microsoft Nia Online (Natural) - Welsh (United Kingdom)",
+    "gender": "Female",
+    "locale": "cy-GB",
+    "localeName": "Welsh (United Kingdom)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "zu-ZA-ThandoNeural",
+    "name": "Thando",
+    "fullName": "Microsoft Thando Online (Natural) - Zulu (South Africa)",
+    "gender": "Female",
+    "locale": "zu-ZA",
+    "localeName": "Zulu (South Africa)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  },
+  {
+    "id": "zu-ZA-ThembaNeural",
+    "name": "Themba",
+    "fullName": "Microsoft Themba Online (Natural) - Zulu (South Africa)",
+    "gender": "Male",
+    "locale": "zu-ZA",
+    "localeName": "Zulu (South Africa)",
+    "provider": "edge",
+    "personalities": [
+      "Friendly",
+      "Positive"
+    ]
+  }
+]

@@ -1,0 +1,243 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --paper-bg: #f7f4ea;
+    --paper-surface: #fffdf8;
+    --paper-surface-alt: #f1ebd9;
+    --paper-border: #e4dcc8;
+    --paper-line: rgba(180, 160, 130, 0.28);
+    --paper-ink: #201c18;
+    --paper-ink-muted: #6e675f;
+    --paper-accent: #b85d38; /* Terracotta stamp */
+    --paper-accent-hover: #9c4c2a;
+    --paper-highlight: #eed8a1;
+    --paper-brass: #c29b38;
+    --paper-shadow: 0 2px 4px rgba(78, 60, 42, 0.05), 0 12px 24px -4px rgba(78, 60, 42, 0.08);
+    --paper-shadow-lg: 0 4px 6px rgba(78, 60, 42, 0.06), 0 20px 32px -6px rgba(78, 60, 42, 0.12);
+  }
+
+  .dark {
+    --paper-bg: #121315;
+    --paper-surface: #1d1e22;
+    --paper-surface-alt: #26282e;
+    --paper-border: #32353c;
+    --paper-line: rgba(220, 210, 190, 0.12);
+    --paper-ink: #f2eee6;
+    --paper-ink-muted: #a39e94;
+    --paper-accent: #dca153; /* Burnished brass */
+    --paper-accent-hover: #eab46b;
+    --paper-highlight: #453b26;
+    --paper-brass: #dca153;
+    --paper-shadow: 0 2px 4px rgba(0, 0, 0, 0.25), 0 12px 24px -4px rgba(0, 0, 0, 0.4);
+    --paper-shadow-lg: 0 4px 6px rgba(0, 0, 0, 0.35), 0 20px 32px -6px rgba(0, 0, 0, 0.55);
+  }
+
+  body {
+    background-color: var(--paper-bg);
+    color: var(--paper-ink);
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+  }
+}
+
+/* Subtle Realistic Paper Grain Texture Overlay */
+.paper-grain-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.35;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+}
+
+.dark .paper-grain-overlay {
+  opacity: 0.22;
+}
+
+/* Authentic Paper Styles */
+.paper-sheet {
+  background-color: var(--paper-surface);
+  border: 1px solid var(--paper-border);
+  box-shadow: var(--paper-shadow);
+  border-radius: 12px;
+  position: relative;
+}
+
+.paper-sheet-elevated {
+  background-color: var(--paper-surface);
+  border: 1px solid var(--paper-border);
+  box-shadow: var(--paper-shadow-lg);
+  border-radius: 16px;
+  position: relative;
+}
+
+/* Ruled Notebook Lines Pattern */
+.paper-ruled {
+  background-image: linear-gradient(
+    to bottom,
+    transparent calc(1.75rem - 1px),
+    var(--paper-line) calc(1.75rem - 1px),
+    var(--paper-line) 1.75rem
+  );
+  background-size: 100% 1.75rem;
+  line-height: 1.75rem;
+}
+
+/* Engineering / Journal Grid Pattern */
+.paper-grid {
+  background-image: 
+    linear-gradient(to right, var(--paper-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--paper-line) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Linen / Cotton Fabric Pattern */
+.paper-linen {
+  background-image: 
+    radial-gradient(var(--paper-line) 0.75px, transparent 0.75px),
+    radial-gradient(var(--paper-line) 0.75px, var(--paper-surface) 0.75px);
+  background-size: 12px 12px;
+  background-position: 0 0, 6px 6px;
+}
+
+/* Editorial Serif & Display Fonts */
+.font-editorial {
+  font-family: 'Newsreader', 'Playfair Display', Georgia, serif;
+}
+
+.font-display {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-mono-code {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Wax Seal / Stamped Button Effect */
+.paper-stamp-button {
+  background: var(--paper-accent);
+  color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.paper-stamp-button:hover {
+  background: var(--paper-accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.paper-stamp-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15), inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Debossed Paper Well */
+.paper-well {
+  background-color: var(--paper-surface-alt);
+  border: 1px solid var(--paper-border);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Brass Clip / Bookmark Tab Effect */
+.brass-clip {
+  position: absolute;
+  top: -10px;
+  right: 28px;
+  width: 18px;
+  height: 28px;
+  background: linear-gradient(135deg, #e5b95c, #9d7729);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.brass-clip::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 3px;
+  right: 3px;
+  bottom: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 2px;
+}
+
+/* Custom Paper Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--paper-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--paper-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--paper-ink-muted);
+}
+
+/* Karaoke Word Highlighting Effect */
+.karaoke-word-active {
+  background-color: var(--paper-highlight);
+  color: var(--paper-ink);
+  border-radius: 3px;
+  padding: 0 2px;
+  transition: background-color 0.12s ease-in-out;
+}
+
+/* Slider Track & Thumb Custom Styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background: var(--paper-border);
+  height: 6px;
+  border-radius: 9999px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-top: -6px;
+  background: var(--paper-accent);
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--paper-surface);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  transition: transform 0.1s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+input[type="range"]::-moz-range-track {
+  background: var(--paper-border);
+  height: 6px;
+  border-radius: 9999px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  background: var(--paper-accent);
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--paper-surface);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
