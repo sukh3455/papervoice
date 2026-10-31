@@ -236,7 +236,6 @@ export default function VoiceSelector({
           >
             <option value="gemini-2.5-flash-preview-tts">Gemini 2.5 Flash TTS (Latest &amp; Recommended)</option>
             <option value="gemini-2.5-pro-preview-tts">Gemini 2.5 Pro TTS (Highest Quality)</option>
-            <option value="gemini-3.8-flash">Gemini 3.8 Flash (Multimodal Latest)</option>
           </select>
         </div>
       )}

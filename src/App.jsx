@@ -92,6 +92,7 @@ export default function App() {
 
   const audioRef = useRef(new Audio());
   const previewAudioRef = useRef(new Audio());
+  const lastPreviewTimestampRef = useRef(0); // cooldown guard for Gemini previews
 
   // Show temporary toast message
   const showToast = (msg) => {
@@ -333,6 +334,18 @@ export default function App() {
       setIsKeyModalOpen(true);
       showToast('Enter your Google API key to preview Gemini voices.');
       return;
+    }
+
+    // Cooldown guard — Gemini free tier is 15 RPM, so throttle previews to 1 per 4 seconds
+    if (voice.provider === 'gemini') {
+      const now = Date.now();
+      const elapsed = now - lastPreviewTimestampRef.current;
+      if (elapsed < 4000) {
+        const waitSec = Math.ceil((4000 - elapsed) / 1000);
+        showToast(`Please wait ${waitSec}s before previewing another Gemini voice.`);
+        return;
+      }
+      lastPreviewTimestampRef.current = now;
     }
 
     setPreviewingVoiceId(voice.id);

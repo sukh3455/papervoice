@@ -52,14 +52,14 @@ export async function synthesizeGeminiDirect({
     }
   }
 
+  // Only use dedicated TTS models — gemini-3.8-flash is a multimodal model that ignores voiceName
   const candidateModels = [
     model,
     'gemini-2.5-flash-preview-tts',
     'gemini-2.5-pro-preview-tts',
-    'gemini-3.8-flash'
   ]
     .map((m) => (m ? m.replace(/^models\//, '') : m))
-    .filter((m, idx, arr) => m && m !== 'gemini-2.5-flash' && arr.indexOf(m) === idx);
+    .filter((m, idx, arr) => m && m !== 'gemini-2.5-flash' && m !== 'gemini-3.8-flash' && arr.indexOf(m) === idx);
 
   let firstError = null;
   let lastError = null;
@@ -101,9 +101,16 @@ export async function synthesizeGeminiDirect({
         const errMsg = errJson.error?.message || `Gemini API error ${resp.status} on ${currentModel}`;
         console.warn(`[Gemini Direct TTS] ${currentModel} returned error:`, errMsg);
 
+        // Hard-stop on auth errors
         if (errMsg.includes('API key not valid') || errMsg.includes('PERMISSION_DENIED') || errMsg.includes('CONSUMER_INVALID')) {
           throw new Error(errMsg);
         }
+
+        // Hard-stop on rate limit — don't waste time trying fallback models
+        if (resp.status === 429 || errMsg.includes('RESOURCE_EXHAUSTED') || errMsg.includes('quota') || errMsg.includes('rate limit')) {
+          throw new Error('Rate limit reached (free tier: 15 req/min). Please wait ~60 seconds and try again.');
+        }
+
         if (!firstError) {
           firstError = new Error(errMsg);
         }
@@ -114,7 +121,8 @@ export async function synthesizeGeminiDirect({
       const data = await resp.json();
       const part = data.candidates?.[0]?.content?.parts?.[0];
       if (!part || !part.inlineData?.data) {
-        const noAudioErr = new Error(`${currentModel} returned no audio data`);
+        console.warn('[Gemini TTS] No audio in response:', JSON.stringify(data).slice(0, 300));
+        const noAudioErr = new Error('Gemini returned no audio. This may be a temporary API issue — please try again in a moment.');
         if (!firstError) firstError = noAudioErr;
         lastError = noAudioErr;
         continue;
@@ -144,7 +152,13 @@ export async function synthesizeGeminiDirect({
     } catch (err) {
       if (!firstError) firstError = err;
       lastError = err;
-      if (err.message.includes('API key not valid') || err.message.includes('PERMISSION_DENIED') || err.message.includes('CONSUMER_INVALID')) {
+      // Hard-stop on auth or rate limit errors
+      if (
+        err.message.includes('API key not valid') ||
+        err.message.includes('PERMISSION_DENIED') ||
+        err.message.includes('CONSUMER_INVALID') ||
+        err.message.includes('Rate limit reached')
+      ) {
         throw err;
       }
     }
