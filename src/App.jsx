@@ -10,6 +10,7 @@ import ApiKeyModal from './components/ApiKeyModal';
 import { webSpeech } from './utils/webSpeech';
 import { SAMPLE_TEXTS } from './utils/sampleTexts';
 import { synthesizeGeminiDirect } from './utils/geminiDirect';
+import { GEMINI_VOICES, GEMINI_MODELS } from './utils/geminiVoices';
 
 export default function App() {
   // Theme & Paper Style state
@@ -28,13 +29,14 @@ export default function App() {
     return localStorage.getItem('papervoice_draft_text') || SAMPLE_TEXTS[0].text;
   });
 
-  // Voice & Provider states
+  // Voice & Provider states — Gemini voices are hardcoded so they always show on static hosting
   const [voicesByProvider, setVoicesByProvider] = useState({
     edge: [],
-    gemini: [],
+    gemini: GEMINI_VOICES,
     webspeech: [],
     google: [],
-    kokoro: []
+    kokoro: [],
+    geminiModels: GEMINI_MODELS,
   });
   const [selectedVoice, setSelectedVoice] = useState(null);
   const [favorites, setFavorites] = useState(() => {
@@ -151,18 +153,23 @@ export default function App() {
           const data = await res.json();
           const webVoices = webSpeech.getVoices();
 
+          // Merge backend Gemini voices with hardcoded list (backend entries take priority, deduped by id)
+          const backendGemini = data.gemini || [];
+          const hardcodedIds = new Set(backendGemini.map((v) => v.id));
+          const mergedGemini = [...backendGemini, ...GEMINI_VOICES.filter((v) => !hardcodedIds.has(v.id))];
+
           setVoicesByProvider({
             edge: data.edge || [],
             webspeech: webVoices,
             google: data.google || [],
             kokoro: data.kokoro || [],
-            gemini: data.gemini || [],
-            geminiModels: data.geminiModels || []
+            gemini: mergedGemini,
+            geminiModels: data.geminiModels?.length ? data.geminiModels : GEMINI_MODELS,
           });
 
           // Set default voice (prefer en-US Jenny or first available)
           if (!selectedVoice) {
-            const defaultVoice = 
+            const defaultVoice =
               data.edge?.find((v) => v.id === 'en-US-JennyNeural') ||
               data.edge?.[0] ||
               webVoices[0];
@@ -170,11 +177,12 @@ export default function App() {
           }
         }
       } catch (err) {
-        console.warn('API voices fetch error, using fallback/web speech:', err);
+        // Backend unavailable (Netlify static deploy) — Gemini voices already seeded in state
+        console.warn('API voices fetch error, using hardcoded Gemini list + WebSpeech:', err);
         const webVoices = webSpeech.getVoices();
         setVoicesByProvider((prev) => ({
           ...prev,
-          webspeech: webVoices
+          webspeech: webVoices,
         }));
         if (webVoices.length > 0 && !selectedVoice) {
           setSelectedVoice(webVoices[0]);
