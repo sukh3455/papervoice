@@ -1,7 +1,8 @@
 import React from 'react';
 import { 
   Sun, Moon, Feather, SlidersHorizontal, 
-  History, Sparkles, HelpCircle, Layers, Volume2
+  History, Sparkles, HelpCircle, Layers, Volume2,
+  KeyRound
 } from 'lucide-react';
 
 export default function Header({
@@ -12,7 +13,9 @@ export default function Header({
   onOpenHistory,
   historyCount = 0,
   onOpenInfo,
-  totalVoices = 320
+  onOpenKeyModal,
+  hasGoogleKey = false,
+  totalVoices = 328
 }) {
   return (
     <header className="w-full border-b border-[var(--paper-border)] bg-[var(--paper-bg)]/85 backdrop-blur-md sticky top-0 z-40 transition-colors">
@@ -63,6 +66,21 @@ export default function Header({
               </button>
             ))}
           </div>
+
+          {/* Google Gemini API Key Button */}
+          <button
+            onClick={onOpenKeyModal}
+            className={`flex items-center gap-1.5 px-3 py-2 rounded-xl border transition-all text-xs font-medium shadow-sm ${
+              hasGoogleKey
+                ? 'border-emerald-500/40 bg-emerald-500/10 text-emerald-800 dark:text-emerald-300 font-semibold'
+                : 'border-[var(--paper-border)] bg-[var(--paper-surface)] hover:bg-[var(--paper-surface-alt)] text-[var(--paper-ink-muted)] hover:text-[var(--paper-ink)]'
+            }`}
+            title="Configure Google Gemini / Cloud API Key"
+          >
+            <KeyRound className="w-3.5 h-3.5 text-amber-500" />
+            <span className="hidden sm:inline">{hasGoogleKey ? 'Gemini Key' : 'Add Gemini Key'}</span>
+            {hasGoogleKey && <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />}
+          </button>
 
           {/* History Drawer Trigger */}
           <button

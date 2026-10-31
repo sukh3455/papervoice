@@ -50,6 +50,18 @@ const kokoroVoices = [
   { id: 'kokoro-bm_george', name: 'George (British Dignified)', fullName: 'Kokoro Neural - George (British Dignified)', gender: 'Male', locale: 'en-GB', localeName: 'English (UK)', provider: 'kokoro' }
 ];
 
+// Google Gemini Native Audio & Journey Voices (BYOK)
+const geminiVoices = [
+  { id: 'gemini-Puck', name: 'Puck (Playful & Energetic)', fullName: 'Gemini 2.0 Audio - Puck', gender: 'Neutral', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Charon', name: 'Charon (Deep & Resonant)', fullName: 'Gemini 2.0 Audio - Charon', gender: 'Male', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Kore', name: 'Kore (Warm & Soothing)', fullName: 'Gemini 2.0 Audio - Kore', gender: 'Female', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Fenrir', name: 'Fenrir (Confident & Articulate)', fullName: 'Gemini 2.0 Audio - Fenrir', gender: 'Male', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Aoede', name: 'Aoede (Melodic & Poetic)', fullName: 'Gemini 2.0 Audio - Aoede', gender: 'Female', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gcloud-en-US-Journey-F', name: 'Journey Female (Podcast Host)', fullName: 'Google Cloud - Journey F', gender: 'Female', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gcloud-en-US-Journey-D', name: 'Journey Male (Conversational)', fullName: 'Google Cloud - Journey D', gender: 'Male', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gcloud-en-US-Journey-O', name: 'Journey Broadcaster', fullName: 'Google Cloud - Journey O', gender: 'Female', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true }
+];
+
 // Helper: format rate into edge-tts percentage string
 function formatRate(rate) {
   if (typeof rate === 'string' && (rate.endsWith('%') || rate.endsWith('Hz'))) return rate;
@@ -67,13 +79,40 @@ function formatPitch(pitch) {
   return num > 0 ? `+${num}Hz` : `${num}Hz`;
 }
 
+// Helper: convert raw PCM to WAV with header
+function pcmToWav(pcmBuffer, sampleRate = 24000, numChannels = 1, bitDepth = 16) {
+  if (pcmBuffer.length > 4 && pcmBuffer.toString('utf8', 0, 4) === 'RIFF') {
+    return pcmBuffer;
+  }
+  const header = Buffer.alloc(44);
+  const dataLength = pcmBuffer.length;
+  const fileSize = 36 + dataLength;
+
+  header.write('RIFF', 0);
+  header.writeUInt32LE(fileSize, 4);
+  header.write('WAVE', 8);
+  header.write('fmt ', 12);
+  header.writeUInt32LE(16, 16);
+  header.writeUInt16LE(1, 20); // PCM format
+  header.writeUInt16LE(numChannels, 22);
+  header.writeUInt32LE(sampleRate, 24);
+  header.writeUInt32LE(sampleRate * numChannels * (bitDepth / 8), 28);
+  header.writeUInt16LE(numChannels * (bitDepth / 8), 32);
+  header.writeUInt16LE(bitDepth, 34);
+  header.write('data', 36);
+  header.writeUInt32LE(dataLength, 40);
+
+  return Buffer.concat([header, pcmBuffer]);
+}
+
 // 1. Voice list API
 app.get('/api/voices', (req, res) => {
   res.json({
     edge: voicesList,
     google: googleVoices,
     kokoro: kokoroVoices,
-    total: voicesList.length + googleVoices.length + kokoroVoices.length
+    gemini: geminiVoices,
+    total: voicesList.length + googleVoices.length + kokoroVoices.length + geminiVoices.length
   });
 });
 
@@ -232,7 +271,135 @@ app.post('/api/tts/kokoro', async (req, res) => {
   pyProcess.stdout.pipe(res);
 });
 
-// 5. Setup Vite in dev or static files in production
+// 5. Key validation endpoint
+app.post('/api/validate-key', async (req, res) => {
+  const { apiKey } = req.body;
+  if (!apiKey || !apiKey.trim()) {
+    return res.status(400).json({ valid: false, error: 'API key is required' });
+  }
+
+  try {
+    const testUrl = `https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey.trim()}`;
+    const response = await fetch(testUrl);
+    if (response.ok) {
+      return res.json({ valid: true, provider: 'gemini', message: 'Valid Google Gemini API Key' });
+    }
+    const errData = await response.json().catch(() => ({}));
+    return res.status(response.status).json({
+      valid: false,
+      error: errData.error?.message || `Google returned status ${response.status}`
+    });
+  } catch (err) {
+    res.status(500).json({ valid: false, error: err.message });
+  }
+});
+
+// 6. Gemini 2.0 Native Audio & Google Cloud Synthesis Endpoint
+app.post('/api/tts/gemini', async (req, res) => {
+  const { text, voice = 'gemini-Puck', apiKey } = req.body;
+  const key = apiKey || req.headers['x-google-api-key'] || process.env.GEMINI_API_KEY;
+
+  if (!key) {
+    return res.status(401).json({ error: 'Google API key is required. Click the Key icon in the header to enter your key.' });
+  }
+
+  if (!text || !text.trim()) {
+    return res.status(400).json({ error: 'Text is required for synthesis' });
+  }
+
+  try {
+    if (voice.startsWith('gcloud-')) {
+      // Google Cloud Text-to-Speech API (Journey / Studio / Neural2)
+      const cloudVoiceName = voice.replace('gcloud-', '');
+      const url = `https://texttospeech.googleapis.com/v1/text:synthesize?key=${key.trim()}`;
+      const payload = {
+        input: { text: text.trim() },
+        voice: {
+          languageCode: 'en-US',
+          name: cloudVoiceName
+        },
+        audioConfig: {
+          audioEncoding: 'MP3'
+        }
+      };
+
+      const resp = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (!resp.ok) {
+        const errJson = await resp.json().catch(() => ({}));
+        throw new Error(errJson.error?.message || `Google Cloud TTS error ${resp.status}`);
+      }
+
+      const data = await resp.json();
+      if (!data.audioContent) {
+        throw new Error('No audio content returned by Google Cloud TTS');
+      }
+
+      const buffer = Buffer.from(data.audioContent, 'base64');
+      res.setHeader('Content-Type', 'audio/mpeg');
+      res.setHeader('Cache-Control', 'no-cache');
+      return res.send(buffer);
+    } else {
+      // Gemini 2.0 Native Audio Modality (Puck, Charon, Kore, Fenrir, Aoede)
+      const voiceName = voice.replace('gemini-', '');
+      const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${key.trim()}`;
+      const payload = {
+        contents: [
+          {
+            parts: [
+              {
+                text: `Read the following text out loud in a natural, expressive voice, without adding any commentary:\n\n${text.trim()}`
+              }
+            ]
+          }
+        ],
+        generationConfig: {
+          responseModalities: ["AUDIO"],
+          speechConfig: {
+            voiceConfig: {
+              prebuiltVoiceConfig: {
+                voiceName: voiceName
+              }
+            }
+          }
+        }
+      };
+
+      const resp = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (!resp.ok) {
+        const errJson = await resp.json().catch(() => ({}));
+        throw new Error(errJson.error?.message || `Gemini API error ${resp.status}`);
+      }
+
+      const data = await resp.json();
+      const part = data.candidates?.[0]?.content?.parts?.[0];
+      if (!part || !part.inlineData?.data) {
+        throw new Error('Gemini did not return audio data for this request.');
+      }
+
+      const rawBuffer = Buffer.from(part.inlineData.data, 'base64');
+      const wavBuffer = pcmToWav(rawBuffer, 24000);
+
+      res.setHeader('Content-Type', 'audio/wav');
+      res.setHeader('Cache-Control', 'no-cache');
+      return res.send(wavBuffer);
+    }
+  } catch (err) {
+    console.error('Gemini TTS error:', err.message);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+// 7. Setup Vite in dev or static files in production
 async function startServer() {
   if (process.env.NODE_ENV !== 'production') {
     const { createServer: createViteServer } = await import('vite');

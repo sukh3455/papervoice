@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { 
   Search, Star, Play, Pause, Globe, Zap, 
-  Sparkles, Filter, Check, Volume2, User
+  Sparkles, Filter, Check, Volume2, User, KeyRound
 } from 'lucide-react';
 
 export default function VoiceSelector({
@@ -11,9 +11,11 @@ export default function VoiceSelector({
   favorites = [],
   onToggleFavorite,
   onPreviewVoice,
-  previewingVoiceId = null
+  previewingVoiceId = null,
+  hasGoogleKey = false,
+  onOpenKeyModal
 }) {
-  const [activeProvider, setActiveProvider] = useState('edge'); // 'edge', 'webspeech', 'google', 'kokoro'
+  const [activeProvider, setActiveProvider] = useState('edge'); // 'edge', 'gemini', 'webspeech', 'google', 'kokoro'
   const [searchQuery, setSearchQuery] = useState('');
   const [genderFilter, setGenderFilter] = useState('all'); // 'all', 'female', 'male'
   const [selectedLanguage, setSelectedLanguage] = useState('all');
@@ -102,12 +104,13 @@ export default function VoiceSelector({
       </div>
 
       {/* Provider Selector Tabs */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 p-1 rounded-xl bg-[var(--paper-surface-alt)] border border-[var(--paper-border)] mb-4">
+      <div className="grid grid-cols-2 sm:grid-cols-5 gap-1.5 p-1 rounded-xl bg-[var(--paper-surface-alt)] border border-[var(--paper-border)] mb-4">
         {[
-          { id: 'edge', label: 'Edge Neural', icon: Globe, count: voicesByProvider.edge?.length || 320, badge: 'Recommended' },
-          { id: 'webspeech', label: 'Web Speech', icon: Zap, count: voicesByProvider.webspeech?.length || 0, badge: 'Offline 0ms' },
-          { id: 'google', label: 'Google Web', icon: Sparkles, count: voicesByProvider.google?.length || 10, badge: 'Standard' },
-          { id: 'kokoro', label: 'Kokoro Neural', icon: User, count: voicesByProvider.kokoro?.length || 6, badge: 'Expressive' }
+          { id: 'edge', label: 'Edge Neural', icon: Globe, count: voicesByProvider.edge?.length || 320, badge: 'Free' },
+          { id: 'gemini', label: 'Gemini Audio', icon: Sparkles, count: voicesByProvider.gemini?.length || 8, badge: hasGoogleKey ? 'Active' : 'Key Needed' },
+          { id: 'webspeech', label: 'Web Speech', icon: Zap, count: voicesByProvider.webspeech?.length || 0, badge: 'Offline' },
+          { id: 'google', label: 'Google Web', icon: Volume2, count: voicesByProvider.google?.length || 10, badge: 'Standard' },
+          { id: 'kokoro', label: 'Kokoro Neural', icon: User, count: voicesByProvider.kokoro?.length || 6, badge: 'Open' }
         ].map((prov) => {
           const Icon = prov.icon;
           const isActive = activeProvider === prov.id;
@@ -115,15 +118,15 @@ export default function VoiceSelector({
             <button
               key={prov.id}
               onClick={() => setActiveProvider(prov.id)}
-              className={`flex flex-col items-center justify-center py-2 px-2 rounded-lg text-xs transition-all ${
+              className={`flex flex-col items-center justify-center py-2 px-1.5 rounded-lg text-xs transition-all ${
                 isActive
                   ? 'bg-[var(--paper-surface)] text-[var(--paper-ink)] font-bold shadow-sm border border-[var(--paper-border)]'
                   : 'text-[var(--paper-ink-muted)] hover:text-[var(--paper-ink)]'
               }`}
             >
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-1">
                 <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[var(--paper-accent)]' : ''}`} />
-                <span>{prov.label}</span>
+                <span className="truncate">{prov.label}</span>
               </div>
               <span className="text-[10px] font-mono-code opacity-75 mt-0.5">
                 {prov.count} voices
@@ -178,6 +181,22 @@ export default function VoiceSelector({
         </div>
       </div>
 
+      {/* Gemini Key Warning Banner */}
+      {activeProvider === 'gemini' && !hasGoogleKey && (
+        <div className="p-3 mb-3 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-between gap-2 text-xs">
+          <div className="flex items-center gap-2 text-[var(--paper-ink)]">
+            <KeyRound className="w-4 h-4 text-amber-500 shrink-0" />
+            <span>Google API Key required for Gemini 2.0 Audio & Journey.</span>
+          </div>
+          <button
+            onClick={onOpenKeyModal}
+            className="px-3 py-1.5 rounded-lg bg-[var(--paper-accent)] text-white font-bold text-xs shrink-0 shadow-sm hover:opacity-90"
+          >
+            Enter Key
+          </button>
+        </div>
+      )}
+
       {/* Voices Grid */}
       <div className="max-h-[55vh] sm:max-h-[460px] overflow-y-auto space-y-2 pr-1 pb-24">
         {sortedVoices.length === 0 ? (
@@ -222,6 +241,11 @@ export default function VoiceSelector({
                       <span className="text-[10px] font-mono-code px-1.5 py-0.5 rounded-md bg-[var(--paper-surface-alt)] border border-[var(--paper-border)] text-[var(--paper-ink-muted)] shrink-0">
                         {voice.gender}
                       </span>
+                      {voice.requiresKey && (
+                        <span className="text-[10px] font-mono-code px-1.5 py-0.5 rounded-md bg-amber-500/15 border border-amber-500/30 text-amber-700 dark:text-amber-400 shrink-0 flex items-center gap-0.5">
+                          <KeyRound className="w-2.5 h-2.5" /> Key
+                        </span>
+                      )}
                     </div>
                     <p className="text-[11px] text-[var(--paper-ink-muted)] truncate mt-0.5">
                       {voice.localeName || voice.locale}

@@ -6,6 +6,7 @@ import ControlsPanel from './components/ControlsPanel';
 import AudioPlayerBar from './components/AudioPlayerBar';
 import AudioHistoryDrawer from './components/AudioHistoryDrawer';
 import InfoModal from './components/InfoModal';
+import ApiKeyModal from './components/ApiKeyModal';
 import { webSpeech } from './utils/webSpeech';
 import { SAMPLE_TEXTS } from './utils/sampleTexts';
 
@@ -62,6 +63,10 @@ export default function App() {
   // Modals & Drawers
   const [isHistoryOpen, setIsHistoryOpen] = useState(false);
   const [isInfoOpen, setIsInfoOpen] = useState(false);
+  const [isKeyModalOpen, setIsKeyModalOpen] = useState(false);
+  const [googleApiKey, setGoogleApiKey] = useState(() => {
+    return localStorage.getItem('papervoice_google_api_key') || '';
+  });
   const [history, setHistory] = useState(() => {
     try {
       return JSON.parse(localStorage.getItem('papervoice_history') || '[]');
@@ -127,7 +132,8 @@ export default function App() {
             edge: data.edge || [],
             webspeech: webVoices,
             google: data.google || [],
-            kokoro: data.kokoro || []
+            kokoro: data.kokoro || [],
+            gemini: data.gemini || []
           });
 
           // Set default voice (prefer en-US Jenny or first available)
@@ -268,6 +274,18 @@ export default function App() {
     setLastSynthesized(null);
   };
 
+  const handleSaveGoogleKey = (key) => {
+    setGoogleApiKey(key);
+    localStorage.setItem('papervoice_google_api_key', key);
+    showToast('Google Gemini API key saved!');
+  };
+
+  const handleRemoveGoogleKey = () => {
+    setGoogleApiKey('');
+    localStorage.removeItem('papervoice_google_api_key');
+    showToast('Google API key removed.');
+  };
+
   // Preview voice sample
   const handlePreviewVoice = async (voice) => {
     if (previewingVoiceId === voice.id) {
@@ -275,6 +293,12 @@ export default function App() {
       webSpeech.stop();
       previewAudioRef.current.pause();
       setPreviewingVoiceId(null);
+      return;
+    }
+
+    if (voice.provider === 'gemini' && !googleApiKey) {
+      setIsKeyModalOpen(true);
+      showToast('Enter your Google API key to preview Gemini voices.');
       return;
     }
 
@@ -293,14 +317,21 @@ export default function App() {
       });
     } else {
       try {
-        const endpoint = voice.provider === 'google' ? '/api/tts/google' : '/api/tts/edge';
+        let endpoint = '/api/tts/edge';
+        if (voice.provider === 'google') endpoint = '/api/tts/google';
+        if (voice.provider === 'gemini') endpoint = '/api/tts/gemini';
+
         const res = await fetch(endpoint, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 
+            'Content-Type': 'application/json',
+            'x-google-api-key': googleApiKey
+          },
           body: JSON.stringify({
             text: samplePhrase,
             voice: voice.id,
             locale: voice.locale,
+            apiKey: googleApiKey,
             rate: 1.0,
             pitch: 0,
             volume: 100
@@ -318,7 +349,7 @@ export default function App() {
       } catch (err) {
         console.error('Preview error:', err);
         setPreviewingVoiceId(null);
-        showToast('Preview failed. Using WebSpeech fallback.');
+        showToast('Preview failed. ' + (err.message || 'Check API key'));
       }
     }
   };
@@ -332,6 +363,12 @@ export default function App() {
 
     if (!selectedVoice) {
       showToast('Please select a voice from the catalog.');
+      return;
+    }
+
+    if (selectedVoice.provider === 'gemini' && !googleApiKey) {
+      setIsKeyModalOpen(true);
+      showToast('Please enter your Google API key to use Gemini voices.');
       return;
     }
 
@@ -396,7 +433,7 @@ export default function App() {
       return;
     }
 
-    // 2. Edge, Google, or Kokoro Neural Synthesis
+    // 2. Edge, Gemini, Google, or Kokoro Neural Synthesis
     try {
       setIsLoading(true);
 
@@ -409,14 +446,19 @@ export default function App() {
       let endpoint = '/api/tts/edge';
       if (selectedVoice.provider === 'google') endpoint = '/api/tts/google';
       if (selectedVoice.provider === 'kokoro') endpoint = '/api/tts/kokoro';
+      if (selectedVoice.provider === 'gemini') endpoint = '/api/tts/gemini';
 
       const res = await fetch(endpoint, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'x-google-api-key': googleApiKey
+        },
         body: JSON.stringify({
           text: text.trim(),
           voice: selectedVoice.id,
           locale: selectedVoice.locale,
+          apiKey: googleApiKey,
           rate,
           pitch,
           volume
@@ -570,8 +612,11 @@ export default function App() {
         onOpenHistory={() => setIsHistoryOpen(true)}
         historyCount={history.length}
         onOpenInfo={() => setIsInfoOpen(true)}
+        onOpenKeyModal={() => setIsKeyModalOpen(true)}
+        hasGoogleKey={Boolean(googleApiKey)}
         totalVoices={
           (voicesByProvider.edge?.length || 0) +
+          (voicesByProvider.gemini?.length || 0) +
           (voicesByProvider.webspeech?.length || 0) +
           (voicesByProvider.google?.length || 0) +
           (voicesByProvider.kokoro?.length || 0)
@@ -626,6 +671,8 @@ export default function App() {
               onToggleFavorite={handleToggleFavorite}
               onPreviewVoice={handlePreviewVoice}
               previewingVoiceId={previewingVoiceId}
+              hasGoogleKey={Boolean(googleApiKey)}
+              onOpenKeyModal={() => setIsKeyModalOpen(true)}
             />
           </aside>
 
@@ -663,6 +710,15 @@ export default function App() {
       <InfoModal
         isOpen={isInfoOpen}
         onClose={() => setIsInfoOpen(false)}
+      />
+
+      {/* Google Gemini & Cloud API Key Modal */}
+      <ApiKeyModal
+        isOpen={isKeyModalOpen}
+        onClose={() => setIsKeyModalOpen(false)}
+        apiKey={googleApiKey}
+        onSaveKey={handleSaveGoogleKey}
+        onRemoveKey={handleRemoveGoogleKey}
       />
     </div>
   );
