@@ -3,7 +3,6 @@ import {
   FileText, Copy, Trash2, Clipboard, Upload, 
   Sparkles, Clock, Type, AlignLeft, Check, Eye
 } from 'lucide-react';
-import { SAMPLE_TEXTS } from '../utils/sampleTexts';
 
 export default function TextInputPad({
   text,
@@ -13,10 +12,12 @@ export default function TextInputPad({
   activeWordIndex = -1,
   isSpeaking = false,
   isKaraoke = false,
-  setIsKaraoke
+  setIsKaraoke,
+  selectedVoice = null
 }) {
   const [copied, setCopied] = useState(false);
   const fileInputRef = useRef(null);
+  const textareaRef = useRef(null);
 
   // Statistics calculation
   const charCount = text.length;
@@ -63,6 +64,30 @@ export default function TextInputPad({
     e.target.value = '';
   };
 
+  // Insert Gemini vocal tag at cursor location
+  const handleInsertTag = (tag) => {
+    const textarea = textareaRef.current;
+    if (!textarea) {
+      setText((prev) => prev ? `${prev} ${tag} ` : `${tag} `);
+      return;
+    }
+    const start = textarea.selectionStart ?? text.length;
+    const end = textarea.selectionEnd ?? text.length;
+    const before = text.substring(0, start);
+    const after = text.substring(end);
+    const padBefore = (before.length > 0 && !before.endsWith(' ') && !before.endsWith('\n')) ? ' ' : '';
+    const padAfter = (after.length > 0 && !after.startsWith(' ') && !after.startsWith('\n')) ? ' ' : ' ';
+    const inserted = `${padBefore}${tag}${padAfter}`;
+    const newText = before + inserted + after;
+    setText(newText);
+
+    setTimeout(() => {
+      textarea.focus();
+      const newPos = start + inserted.length;
+      textarea.setSelectionRange(newPos, newPos);
+    }, 20);
+  };
+
   // Get paper style class
   const getPaperPatternClass = () => {
     switch (paperStyle) {
@@ -84,34 +109,20 @@ export default function TextInputPad({
       {/* Brass Bookmark / Stationery Clip */}
       <div className="brass-clip hidden sm:block" title="Stationery Paper Clip" />
 
-      {/* Sheet Header / Toolset */}
+      {/* Sheet Header / Toolset (Preset bar removed completely) */}
       <div className="flex flex-wrap items-center justify-between gap-3 pb-4 mb-4 border-b border-[var(--paper-border)]">
-        {/* Sample presets dropdown */}
+        {/* Left: Manuscript Header */}
         <div className="flex items-center gap-2">
-          <span className="text-xs font-mono-code text-[var(--paper-ink-muted)] flex items-center gap-1 font-medium">
-            <Sparkles className="w-3.5 h-3.5 text-[var(--paper-accent)]" /> Preset:
+          <span className="text-xs font-mono-code text-[var(--paper-ink-muted)] flex items-center gap-1.5 font-medium">
+            <FileText className="w-3.5 h-3.5 text-[var(--paper-accent)]" /> Manuscript Sheet
           </span>
-          <select
-            onChange={(e) => {
-              const sample = SAMPLE_TEXTS.find((s) => s.id === e.target.value);
-              if (sample) setText(sample.text);
-            }}
-            defaultValue=""
-            className="text-xs font-medium bg-[var(--paper-surface-alt)] border border-[var(--paper-border)] text-[var(--paper-ink)] rounded-lg px-2.5 py-1.5 focus:outline-none focus:ring-1 focus:ring-[var(--paper-accent)] cursor-pointer"
-          >
-            <option value="" disabled>Load curated sample text...</option>
-            {SAMPLE_TEXTS.map((s) => (
-              <option key={s.id} value={s.id}>
-                {s.category}: {s.title}
-              </option>
-            ))}
-          </select>
         </div>
 
         {/* Action icons */}
         <div className="flex items-center gap-1 sm:gap-2">
           {/* Karaoke Mode Toggle */}
           <button
+            type="button"
             onClick={() => setIsKaraoke(!isKaraoke)}
             className={`flex items-center gap-1 px-2.5 py-1.5 rounded-lg border text-xs font-medium transition-colors ${
               isKaraoke
@@ -126,6 +137,7 @@ export default function TextInputPad({
 
           {/* Paste */}
           <button
+            type="button"
             onClick={handlePaste}
             className="p-1.5 rounded-lg border border-[var(--paper-border)] bg-[var(--paper-surface-alt)] hover:bg-[var(--paper-border)] text-[var(--paper-ink-muted)] hover:text-[var(--paper-ink)] transition-colors"
             title="Paste from clipboard"
@@ -135,6 +147,7 @@ export default function TextInputPad({
 
           {/* Copy */}
           <button
+            type="button"
             onClick={handleCopy}
             disabled={!text.trim()}
             className="p-1.5 rounded-lg border border-[var(--paper-border)] bg-[var(--paper-surface-alt)] hover:bg-[var(--paper-border)] text-[var(--paper-ink-muted)] hover:text-[var(--paper-ink)] transition-colors disabled:opacity-40"
@@ -145,6 +158,7 @@ export default function TextInputPad({
 
           {/* Upload file */}
           <button
+            type="button"
             onClick={() => fileInputRef.current?.click()}
             className="p-1.5 rounded-lg border border-[var(--paper-border)] bg-[var(--paper-surface-alt)] hover:bg-[var(--paper-border)] text-[var(--paper-ink-muted)] hover:text-[var(--paper-ink)] transition-colors"
             title="Upload .txt text file"
@@ -161,6 +175,7 @@ export default function TextInputPad({
 
           {/* Clear */}
           <button
+            type="button"
             onClick={() => setText('')}
             disabled={!text.trim()}
             className="p-1.5 rounded-lg border border-[var(--paper-border)] bg-[var(--paper-surface-alt)] hover:bg-rose-500/10 hover:border-rose-400 text-[var(--paper-ink-muted)] hover:text-rose-600 transition-colors disabled:opacity-40"
@@ -170,6 +185,41 @@ export default function TextInputPad({
           </button>
         </div>
       </div>
+
+      {/* Official Google AI Studio Vocal & Emotion Reaction Tags (Shown for Gemini voices) */}
+      {selectedVoice?.provider === 'gemini' && (
+        <div className="mb-3 p-2.5 rounded-xl bg-[var(--paper-surface-alt)] border border-[var(--paper-border)] space-y-2">
+          <div className="flex items-center justify-between text-[11px] font-mono-code text-[var(--paper-ink-muted)]">
+            <span className="flex items-center gap-1.5 text-[var(--paper-accent)] font-semibold">
+              <Sparkles className="w-3.5 h-3.5" /> Vocal & Expression Tags (Google AI Studio)
+            </span>
+            <span className="text-[10px] hidden sm:inline opacity-75">Click to insert tag into text</span>
+          </div>
+          <div className="flex flex-wrap gap-1.5">
+            {[
+              { tag: '[sighs]', desc: 'Sigh' },
+              { tag: '[laughs]', desc: 'Laugh' },
+              { tag: '[chuckle]', desc: 'Chuckle' },
+              { tag: '[gasp]', desc: 'Gasp' },
+              { tag: '[whispers]', desc: 'Whisper' },
+              { tag: '[excitedly]', desc: 'Excited' },
+              { tag: '<short pause>', desc: 'Pause' },
+              { tag: '[cough]', desc: 'Cough' }
+            ].map(({ tag, desc }) => (
+              <button
+                key={tag}
+                type="button"
+                onClick={() => handleInsertTag(tag)}
+                className="px-2 py-1 rounded-md text-[11px] font-mono-code bg-[var(--paper-surface)] border border-[var(--paper-border)] hover:border-[var(--paper-accent)] hover:text-[var(--paper-accent)] text-[var(--paper-ink)] transition-colors shadow-xs active:scale-95 flex items-center gap-1 cursor-pointer"
+                title={`Insert ${tag} at cursor`}
+              >
+                <span className="font-semibold">{tag}</span>
+                <span className="text-[9px] text-[var(--paper-ink-muted)]">({desc})</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Main Text Writing Area */}
       <div className="relative min-h-[260px] sm:min-h-[340px]">
@@ -193,6 +243,7 @@ export default function TextInputPad({
         ) : (
           /* Editable Textarea */
           <textarea
+            ref={textareaRef}
             value={text}
             onChange={(e) => setText(e.target.value)}
             placeholder="Dip your quill in ink... Type or paste text here to hear it brought to life with natural neural voice."

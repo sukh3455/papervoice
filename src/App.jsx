@@ -68,7 +68,10 @@ export default function App() {
     return localStorage.getItem('papervoice_google_api_key') || '';
   });
   const [geminiModel, setGeminiModel] = useState(() => {
-    return localStorage.getItem('papervoice_gemini_model') || 'gemini-3.8-flash';
+    return localStorage.getItem('papervoice_gemini_model') || 'gemini-2.5-flash-preview-tts';
+  });
+  const [geminiStyle, setGeminiStyle] = useState(() => {
+    return localStorage.getItem('papervoice_gemini_style') || '';
   });
   const [history, setHistory] = useState(() => {
     try {
@@ -126,6 +129,11 @@ export default function App() {
   useEffect(() => {
     localStorage.setItem('papervoice_gemini_model', geminiModel);
   }, [geminiModel]);
+
+  // 7. Persist Gemini Style & Delivery prompt
+  useEffect(() => {
+    localStorage.setItem('papervoice_gemini_style', geminiStyle);
+  }, [geminiStyle]);
 
   // 7. Fetch voices from server & initialize WebSpeech voices
   useEffect(() => {
@@ -283,6 +291,16 @@ export default function App() {
     setLastSynthesized(null);
   };
 
+  const handleStyleChange = (newStyle) => {
+    setGeminiStyle(newStyle);
+    if (audioUrl) {
+      try { URL.revokeObjectURL(audioUrl); } catch (e) {}
+    }
+    setAudioUrl(null);
+    setCurrentBlob(null);
+    setLastSynthesized(null);
+  };
+
   const handleSaveGoogleKey = (key) => {
     setGoogleApiKey(key);
     localStorage.setItem('papervoice_google_api_key', key);
@@ -342,6 +360,7 @@ export default function App() {
             locale: voice.locale,
             apiKey: googleApiKey,
             model: geminiModel,
+            style: geminiStyle,
             rate: 1.0,
             pitch: 0,
             volume: 100
@@ -387,7 +406,8 @@ export default function App() {
     const isSameVoice = lastSynthesized?.voiceId === selectedVoice.id;
     const isSameRate = lastSynthesized?.rate === rate;
     const isSamePitch = lastSynthesized?.pitch === pitch;
-    const isExactSameSynthesis = isSameText && isSameVoice && isSameRate && isSamePitch;
+    const isSameStyle = (lastSynthesized?.style || '') === (geminiStyle || '');
+    const isExactSameSynthesis = isSameText && isSameVoice && isSameRate && isSamePitch && isSameStyle;
 
     const canResumeExistingAudio = 
       isExactSameSynthesis &&
@@ -470,6 +490,7 @@ export default function App() {
           locale: selectedVoice.locale,
           apiKey: googleApiKey,
           model: geminiModel,
+          style: geminiStyle,
           rate,
           pitch,
           volume
@@ -489,7 +510,8 @@ export default function App() {
         voiceId: selectedVoice.id,
         text: text.trim(),
         rate,
-        pitch
+        pitch,
+        style: geminiStyle
       });
 
       const audio = audioRef.current;
@@ -657,6 +679,7 @@ export default function App() {
               isSpeaking={isPlaying}
               isKaraoke={isKaraoke}
               setIsKaraoke={setIsKaraoke}
+              selectedVoice={selectedVoice}
             />
           </section>
 
@@ -671,6 +694,8 @@ export default function App() {
               volume={volume}
               setVolume={setVolume}
               selectedVoice={selectedVoice}
+              geminiStyle={geminiStyle}
+              setGeminiStyle={handleStyleChange}
             />
 
             {/* Voice Catalog */}

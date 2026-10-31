@@ -51,23 +51,41 @@ const kokoroVoices = [
 ];
 
 // Google Gemini Latest Models & Native Audio Voices (BYOK)
+// Using dedicated TTS models: gemini-2.5-flash-preview-tts, gemini-2.5-pro-preview-tts
 const geminiModels = [
-  { id: 'gemini-3.8-flash', name: 'Gemini 3.8 Flash', tag: 'Latest & Recommended', desc: 'Google’s newest ultra-fast multimodal model with natural intonation' },
-  { id: 'gemini-2.5-flash', name: 'Gemini 2.5 Flash', tag: 'Fast', desc: 'Low latency multimodal speech synthesis' },
-  { id: 'gemini-3.8-pro', name: 'Gemini 3.8 Pro', tag: 'High-Fidelity', desc: 'Deep emotional nuance and dramatic narration' },
-  { id: 'gemini-2.5-pro', name: 'Gemini 2.5 Pro', tag: 'Studio Quality', desc: 'Enhanced clarity for long-form reading' }
+  { id: 'gemini-2.5-flash-preview-tts', name: 'Gemini 2.5 Flash TTS', tag: 'Latest & Recommended', desc: 'Google\'s dedicated TTS model — natural, expressive, 130 languages' },
+  { id: 'gemini-2.5-pro-preview-tts', name: 'Gemini 2.5 Pro TTS', tag: 'Highest Quality', desc: 'Pro-grade TTS model with richer voice quality' },
+  { id: 'gemini-2.5-flash', name: 'Gemini 2.5 Flash (Multimodal)', tag: 'General Fallback', desc: 'General model with audio output modality' }
 ];
 
 const geminiVoices = [
-  { id: 'gemini-Puck', name: 'Puck (Playful & Energetic)', fullName: 'Gemini 3.8 Audio - Puck', gender: 'Neutral', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
-  { id: 'gemini-Charon', name: 'Charon (Deep & Resonant)', fullName: 'Gemini 3.8 Audio - Charon', gender: 'Male', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
-  { id: 'gemini-Kore', name: 'Kore (Warm & Soothing)', fullName: 'Gemini 3.8 Audio - Kore', gender: 'Female', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
-  { id: 'gemini-Fenrir', name: 'Fenrir (Confident & Articulate)', fullName: 'Gemini 3.8 Audio - Fenrir', gender: 'Male', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
-  { id: 'gemini-Aoede', name: 'Aoede (Melodic & Poetic)', fullName: 'Gemini 3.8 Audio - Aoede', gender: 'Female', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
-  { id: 'gemini-Zephyr', name: 'Zephyr (Calm & Balanced)', fullName: 'Gemini 3.8 Audio - Zephyr', gender: 'Neutral', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
-  { id: 'gemini-Orbit', name: 'Orbit (Warm & Engaging)', fullName: 'Gemini 3.8 Audio - Orbit', gender: 'Male', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
-  { id: 'gemini-Nova', name: 'Nova (Bright & Dynamic)', fullName: 'Gemini 3.8 Audio - Nova', gender: 'Female', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
-  { id: 'gemini-Ursa', name: 'Ursa (Clear & Authoritative)', fullName: 'Gemini 3.8 Audio - Ursa', gender: 'Female', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  // Core voices available in Gemini 3.8 TTS
+  { id: 'gemini-Puck', name: 'Puck (Upbeat)', fullName: 'Gemini TTS - Puck', gender: 'Male', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Charon', name: 'Charon (Informative)', fullName: 'Gemini TTS - Charon', gender: 'Male', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Kore', name: 'Kore (Firm)', fullName: 'Gemini TTS - Kore', gender: 'Female', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Fenrir', name: 'Fenrir (Excitable)', fullName: 'Gemini TTS - Fenrir', gender: 'Male', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Aoede', name: 'Aoede (Breezy)', fullName: 'Gemini TTS - Aoede', gender: 'Female', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Zephyr', name: 'Zephyr (Bright)', fullName: 'Gemini TTS - Zephyr', gender: 'Female', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Leda', name: 'Leda (Youthful)', fullName: 'Gemini TTS - Leda', gender: 'Female', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Orus', name: 'Orus (Firm)', fullName: 'Gemini TTS - Orus', gender: 'Male', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Sulafat', name: 'Sulafat (Warm)', fullName: 'Gemini TTS - Sulafat', gender: 'Female', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Umbriel', name: 'Umbriel (Easy-going)', fullName: 'Gemini TTS - Umbriel', gender: 'Neutral', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Gacrux', name: 'Gacrux (Mature)', fullName: 'Gemini TTS - Gacrux', gender: 'Neutral', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Iapetus', name: 'Iapetus (Clear)', fullName: 'Gemini TTS - Iapetus', gender: 'Neutral', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Vindemiatrix', name: 'Vindemiatrix (Gentle)', fullName: 'Gemini TTS - Vindemiatrix', gender: 'Female', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Erinome', name: 'Erinome (Clear)', fullName: 'Gemini TTS - Erinome', gender: 'Female', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Laomedeia', name: 'Laomedeia (Upbeat)', fullName: 'Gemini TTS - Laomedeia', gender: 'Female', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Despina', name: 'Despina (Smooth)', fullName: 'Gemini TTS - Despina', gender: 'Female', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Enceladus', name: 'Enceladus (Breathy)', fullName: 'Gemini TTS - Enceladus', gender: 'Neutral', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Autonoe', name: 'Autonoe (Bright)', fullName: 'Gemini TTS - Autonoe', gender: 'Female', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Callirrhoe', name: 'Callirrhoe (Easy-going)', fullName: 'Gemini TTS - Callirrhoe', gender: 'Female', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Rasalgethi', name: 'Rasalgethi (Informative)', fullName: 'Gemini TTS - Rasalgethi', gender: 'Neutral', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Sadachbia', name: 'Sadachbia (Lively)', fullName: 'Gemini TTS - Sadachbia', gender: 'Neutral', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Sadaltager', name: 'Sadaltager (Knowledgeable)', fullName: 'Gemini TTS - Sadaltager', gender: 'Neutral', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Schedar', name: 'Schedar (Even)', fullName: 'Gemini TTS - Schedar', gender: 'Neutral', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Pulcherrima', name: 'Pulcherrima (Forward)', fullName: 'Gemini TTS - Pulcherrima', gender: 'Female', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Zubenelgenubi', name: 'Zubenelgenubi (Casual)', fullName: 'Gemini TTS - Zubenelgenubi', gender: 'Neutral', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  // Google Cloud Journey voices (uses Cloud TTS API)
   { id: 'gcloud-en-US-Journey-F', name: 'Journey Female (Podcast Host)', fullName: 'Google Cloud - Journey F', gender: 'Female', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
   { id: 'gcloud-en-US-Journey-D', name: 'Journey Male (Conversational)', fullName: 'Google Cloud - Journey D', gender: 'Male', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
   { id: 'gcloud-en-US-Journey-O', name: 'Journey Broadcaster', fullName: 'Google Cloud - Journey O', gender: 'Female', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true }
@@ -317,7 +335,7 @@ app.post('/api/validate-key', async (req, res) => {
 
 // 6. Gemini Latest Native Audio & Google Cloud Synthesis Endpoint
 app.post('/api/tts/gemini', async (req, res) => {
-  const { text, voice = 'gemini-Puck', apiKey, model = 'gemini-3.8-flash' } = req.body;
+  const { text, voice = 'gemini-Puck', apiKey, model = 'gemini-2.5-flash-preview-tts', style } = req.body;
   const key = apiKey || req.headers['x-google-api-key'] || process.env.GEMINI_API_KEY;
 
   if (!key) {
@@ -365,17 +383,29 @@ app.post('/api/tts/gemini', async (req, res) => {
       res.setHeader('Cache-Control', 'no-cache');
       return res.send(buffer);
     } else {
-      // Gemini Native Audio Modality (Latest 3.8 & 2.5 models)
+      // Gemini Dedicated TTS Models
       const voiceName = voice.replace('gemini-', '');
-      
-      // Preferred models in order of priority (starting with requested model)
+
+      // Candidate models in order of priority — dedicated TTS models first
       const candidateModels = [
         model,
-        'gemini-3.8-flash',
-        'gemini-2.5-flash',
-        'gemini-3.8-pro',
-        'gemini-2.5-pro'
+        'gemini-2.5-flash-preview-tts',
+        'gemini-2.5-pro-preview-tts',
+        'gemini-2.5-flash'
       ].filter((m, idx, arr) => m && arr.indexOf(m) === idx);
+
+      // Format prompt text with style if provided (as supported by Gemini TTS in Google AI Studio)
+      let promptText = text.trim();
+      if (style && typeof style === 'string' && style.trim() && style.trim().toLowerCase() !== 'default') {
+        const trimmedStyle = style.trim();
+        if (/^(say|speak|read|narrate|tell|act)/i.test(trimmedStyle)) {
+          promptText = `${trimmedStyle}: ${text.trim()}`;
+        } else {
+          promptText = `Say in a ${trimmedStyle} tone: ${text.trim()}`;
+        }
+      }
+
+      console.log(`[Gemini TTS] voice=${voiceName} model=${model} style="${style || 'none'}" candidates=${candidateModels.join(',')}`);
 
       let lastError = null;
       let successBuffer = null;
@@ -383,19 +413,19 @@ app.post('/api/tts/gemini', async (req, res) => {
 
       for (const currentModel of candidateModels) {
         try {
-          const url = `https://generativelanguage.googleapis.com/v1beta/models/${currentModel}:generateContent?key=${key.trim()}`;
+          const url = `https://generativelanguage.googleapis.com/v1beta/models/${currentModel}:generateContent`;
+
+          // Correct payload: no speechMetadata (SDK-only field, invalid in REST)
           const payload = {
             contents: [
               {
                 parts: [
-                  {
-                    text: `Read the following text out loud in a natural, expressive voice, without adding any commentary:\n\n${text.trim()}`
-                  }
+                  { text: promptText }
                 ]
               }
             ],
             generationConfig: {
-              responseModalities: ["AUDIO"],
+              responseModalities: ['AUDIO'],
               speechConfig: {
                 voiceConfig: {
                   prebuiltVoiceConfig: {
@@ -408,47 +438,57 @@ app.post('/api/tts/gemini', async (req, res) => {
 
           const resp = await fetch(url, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+              'Content-Type': 'application/json',
+              'x-goog-api-key': key.trim()
+            },
             body: JSON.stringify(payload)
           });
 
           if (!resp.ok) {
             const errJson = await resp.json().catch(() => ({}));
             const errMsg = errJson.error?.message || `Gemini API error ${resp.status} on ${currentModel}`;
+            console.warn(`[Gemini TTS] Model ${currentModel} error: ${errMsg}`);
             
-            // If the model is not found, deprecated, or not available, try next candidate
-            if (resp.status === 404 || errMsg.includes('not available') || errMsg.includes('deprecated') || errMsg.includes('not found')) {
-              console.warn(`Gemini model ${currentModel} notice: ${errMsg}. Trying next candidate model...`);
-              lastError = new Error(errMsg);
-              continue;
+            // Bail on auth errors; retry on model availability issues
+            if (errMsg.includes('API key not valid') || errMsg.includes('PERMISSION_DENIED') || errMsg.includes('CONSUMER_INVALID')) {
+              throw new Error(errMsg);
             }
-            throw new Error(errMsg);
+            lastError = new Error(errMsg);
+            continue;
           }
 
           const data = await resp.json();
+          console.log(`[Gemini TTS] ${currentModel} raw response keys:`, Object.keys(data));
           const part = data.candidates?.[0]?.content?.parts?.[0];
           if (!part || !part.inlineData?.data) {
-            throw new Error(`Gemini ${currentModel} did not return audio data for this request.`);
+            console.warn(`[Gemini TTS] ${currentModel} returned no audio. Full response:`, JSON.stringify(data).slice(0, 500));
+            lastError = new Error(`${currentModel} returned no audio data`);
+            continue;
           }
 
           const rawBuffer = Buffer.from(part.inlineData.data, 'base64');
-          const mimeType = part.inlineData.mimeType || '';
+          const mimeType = (part.inlineData.mimeType || '').toLowerCase();
+          console.log(`[Gemini TTS] ${currentModel} success! mimeType=${mimeType} bytes=${rawBuffer.length}`);
 
-          if (mimeType.includes('mp3') || mimeType.includes('mpeg')) {
+          // Detect format: WAV (RIFF header) | MP3 | raw PCM (audio/L16 or audio/pcm)
+          if (rawBuffer.length > 4 && rawBuffer.toString('utf8', 0, 4) === 'RIFF') {
+            successBuffer = rawBuffer;
+            successMime = 'audio/wav';
+          } else if (mimeType.includes('mp3') || mimeType.includes('mpeg')) {
             successBuffer = rawBuffer;
             successMime = 'audio/mpeg';
-          } else if (mimeType.includes('wav') || (rawBuffer.length > 4 && rawBuffer.toString('utf8', 0, 4) === 'RIFF')) {
-            successBuffer = rawBuffer;
-            successMime = 'audio/wav';
           } else {
-            // Raw PCM 24000Hz (default Gemini modality)
-            successBuffer = pcmToWav(rawBuffer, 24000);
+            // Raw PCM L16 at 24000Hz — wrap with WAV header so browsers can play it
+            const sampleRate = mimeType.includes('rate=') 
+              ? parseInt(mimeType.match(/rate=(\d+)/)?.[1] || '24000', 10)
+              : 24000;
+            successBuffer = pcmToWav(rawBuffer, sampleRate);
             successMime = 'audio/wav';
           }
-          break; // successfully generated audio
+          break; // success
         } catch (err) {
           lastError = err;
-          // If it's a fatal key or permission error, stop trying other models
           if (err.message.includes('API key not valid') || err.message.includes('PERMISSION_DENIED') || err.message.includes('CONSUMER_INVALID')) {
             throw err;
           }
@@ -456,7 +496,7 @@ app.post('/api/tts/gemini', async (req, res) => {
       }
 
       if (!successBuffer) {
-        throw lastError || new Error('Failed to generate audio from any Gemini model.');
+        throw lastError || new Error('Failed to generate audio from any Gemini TTS model.');
       }
 
       res.setHeader('Content-Type', successMime);
@@ -464,7 +504,7 @@ app.post('/api/tts/gemini', async (req, res) => {
       return res.send(successBuffer);
     }
   } catch (err) {
-    console.error('Gemini TTS error:', err.message);
+    console.error('[Gemini TTS] Error:', err.message);
     res.status(500).json({ error: err.message });
   }
 });
@@ -480,7 +520,7 @@ async function startServer() {
     app.use(vite.middlewares);
   } else {
     app.use(express.static(path.join(__dirname, 'dist')));
-    app.get('*', (req, res) => {
+    app.get('/{*path}', (req, res) => {
       res.sendFile(path.join(__dirname, 'dist', 'index.html'));
     });
   }

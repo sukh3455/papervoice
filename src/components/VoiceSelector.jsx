@@ -14,7 +14,7 @@ export default function VoiceSelector({
   previewingVoiceId = null,
   hasGoogleKey = false,
   onOpenKeyModal,
-  geminiModel = 'gemini-3.8-flash',
+  geminiModel = 'gemini-2.5-flash',
   setGeminiModel = () => {},
   geminiModels = []
 }) {
@@ -201,10 +201,9 @@ export default function VoiceSelector({
             onChange={(e) => setGeminiModel(e.target.value)}
             className="text-xs px-2.5 py-1.5 rounded-lg bg-[var(--paper-surface)] border border-[var(--paper-border)] text-[var(--paper-ink)] font-mono-code focus:outline-none focus:ring-1 focus:ring-[var(--paper-accent)] cursor-pointer"
           >
-            <option value="gemini-3.8-flash">Gemini 3.8 Flash (Latest & Recommended)</option>
-            <option value="gemini-2.5-flash">Gemini 2.5 Flash (Ultra-Fast Multimodal)</option>
-            <option value="gemini-3.8-pro">Gemini 3.8 Pro (High-Fidelity Expressive)</option>
-            <option value="gemini-2.5-pro">Gemini 2.5 Pro (Studio Long-Form)</option>
+            <option value="gemini-2.5-flash-preview-tts">Gemini 2.5 Flash TTS (Latest & Recommended)</option>
+            <option value="gemini-2.5-pro-preview-tts">Gemini 2.5 Pro TTS (Highest Quality)</option>
+            <option value="gemini-2.5-flash">Gemini 2.5 Flash (Multimodal Fallback)</option>
           </select>
         </div>
       )}
