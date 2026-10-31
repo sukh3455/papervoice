@@ -3,6 +3,7 @@ import {
   X, KeyRound, Check, AlertCircle, Eye, EyeOff, 
   ExternalLink, Sparkles, Shield, Trash2, Loader2
 } from 'lucide-react';
+import { validateGeminiKeyDirect } from '../utils/geminiDirect';
 
 export default function ApiKeyModal({
   isOpen,
@@ -31,31 +32,63 @@ export default function ApiKeyModal({
       setIsValidating(true);
       setStatusMessage(null);
 
-      const res = await fetch('/api/validate-key', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ apiKey: trimmed })
-      });
+      // 1. Direct client-side validation against Google AI Studio (works on Netlify & static hosts)
+      const directResult = await validateGeminiKeyDirect(trimmed);
 
-      const data = await res.json().catch(() => ({}));
-
-      if (res.ok && data.valid) {
+      if (directResult.valid) {
         onSaveKey(trimmed);
-        setStatusMessage({ type: 'success', text: '✅ Key verified! Gemini 3.8 Audio & Journey voices unlocked.' });
+        setStatusMessage({ type: 'success', text: '✅ Key verified! Gemini TTS voices unlocked.' });
         setTimeout(() => {
           onClose();
         }, 1500);
-      } else {
-        // Even if validation ping failed due to network or restricted scopes, allow saving with warning
-        setStatusMessage({ 
-          type: 'warning', 
-          text: `Validation notice: ${data.error || 'Could not verify immediately'}. Key saved anyway.` 
-        });
-        onSaveKey(trimmed);
+        return;
       }
+
+      // 2. If Google explicitly rejected the key (e.g. invalid key, quota, permission)
+      if (directResult.error && (
+        directResult.error.toLowerCase().includes('api key not valid') ||
+        directResult.error.toLowerCase().includes('permission_denied') ||
+        directResult.error.toLowerCase().includes('invalid_argument')
+      )) {
+        setStatusMessage({
+          type: 'error',
+          text: `Google error: ${directResult.error}. Please check your key at AI Studio.`
+        });
+        return;
+      }
+
+      // 3. Fallback: try local backend proxy if running locally
+      try {
+        const res = await fetch('/api/validate-key', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ apiKey: trimmed })
+        });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && data.valid) {
+          onSaveKey(trimmed);
+          setStatusMessage({ type: 'success', text: '✅ Key verified! Gemini TTS voices unlocked.' });
+          setTimeout(() => {
+            onClose();
+          }, 1500);
+          return;
+        }
+      } catch {
+        // Backend not available (static CDN)
+      }
+
+      // 4. Offline or network block fallback - save anyway
+      onSaveKey(trimmed);
+      setStatusMessage({ 
+        type: 'warning', 
+        text: `Key saved in browser. (${directResult.error || 'Network offline'})` 
+      });
+      setTimeout(() => {
+        onClose();
+      }, 2000);
     } catch (err) {
       onSaveKey(trimmed);
-      setStatusMessage({ type: 'warning', text: 'Saved key locally (offline test).' });
+      setStatusMessage({ type: 'warning', text: 'Saved key locally in browser.' });
     } finally {
       setIsValidating(false);
     }

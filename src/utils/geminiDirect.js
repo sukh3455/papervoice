@@ -139,3 +139,32 @@ export async function synthesizeGeminiDirect({
 
   throw lastError || new Error('Failed to generate audio from Gemini API.');
 }
+
+/**
+ * Validate a Google AI Studio API key directly from the browser (CORS enabled)
+ * without needing an active backend proxy.
+ */
+export async function validateGeminiKeyDirect(apiKey) {
+  if (!apiKey || !apiKey.trim()) {
+    return { valid: false, error: 'API key is required' };
+  }
+
+  try {
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey.trim()}`);
+    if (res.ok) {
+      const data = await res.json().catch(() => ({}));
+      const models = (data.models || []).map(m => m.name?.replace('models/', '')).filter(Boolean);
+      return { 
+        valid: true, 
+        models,
+        message: 'Valid Google Gemini API Key' 
+      };
+    }
+
+    const errData = await res.json().catch(() => ({}));
+    const errMsg = errData.error?.message || `Google returned status ${res.status}`;
+    return { valid: false, error: errMsg };
+  } catch (err) {
+    return { valid: false, error: err.message, networkError: true };
+  }
+}
