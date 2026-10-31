@@ -30,6 +30,7 @@ export default function App() {
   // Voice & Provider states
   const [voicesByProvider, setVoicesByProvider] = useState({
     edge: [],
+    gemini: [],
     webspeech: [],
     google: [],
     kokoro: []

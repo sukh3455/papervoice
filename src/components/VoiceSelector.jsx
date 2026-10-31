@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { 
   Search, Star, Play, Pause, Globe, Zap, 
-  Sparkles, Filter, Check, Volume2, User, KeyRound
+  Sparkles, Filter, Check, Volume2, User, KeyRound, RotateCcw
 } from 'lucide-react';
 
 export default function VoiceSelector({
@@ -14,7 +14,7 @@ export default function VoiceSelector({
   previewingVoiceId = null,
   hasGoogleKey = false,
   onOpenKeyModal,
-  geminiModel = 'gemini-2.5-flash',
+  geminiModel = 'gemini-2.5-flash-preview-tts',
   setGeminiModel = () => {},
   geminiModels = []
 }) {
@@ -38,6 +38,21 @@ export default function VoiceSelector({
   ];
 
   const currentVoicesList = voicesByProvider[activeProvider] || [];
+
+  // Reset all filters
+  const resetFilters = () => {
+    setSearchQuery('');
+    setGenderFilter('all');
+    setSelectedLanguage('all');
+  };
+
+  // Switch provider tab with safety filter reset
+  const handleSelectProvider = (provId) => {
+    setActiveProvider(provId);
+    setSearchQuery('');
+    setSelectedLanguage('all');
+    setGenderFilter('all');
+  };
 
   // Filter voices based on search, gender, and language
   const filteredVoices = useMemo(() => {
@@ -63,6 +78,10 @@ export default function VoiceSelector({
 
       // 3. Language filter
       if (selectedLanguage !== 'all') {
+        // Gemini voices natively support 130+ languages (multilingual)
+        if (voice.provider === 'gemini' || voice.locale === 'multilingual') {
+          return true;
+        }
         const locale = (voice.locale || '').toLowerCase();
         if (!locale.startsWith(selectedLanguage.toLowerCase())) {
           return false;
@@ -84,10 +103,12 @@ export default function VoiceSelector({
     });
   }, [filteredVoices, favorites]);
 
+  const hasActiveFilters = searchQuery.trim() !== '' || genderFilter !== 'all' || selectedLanguage !== 'all';
+
   return (
-    <div className="paper-sheet p-4 sm:p-6 transition-all">
+    <div className="paper-sheet p-4 sm:p-6 transition-all space-y-4">
       {/* Title & Active Voice Pill */}
-      <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
+      <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h2 className="font-display font-bold text-lg text-[var(--paper-ink)] flex items-center gap-2">
             <Volume2 className="w-5 h-5 text-[var(--paper-accent)]" /> Voice Catalog
@@ -106,11 +127,11 @@ export default function VoiceSelector({
         )}
       </div>
 
-      {/* Provider Selector Tabs */}
-      <div className="grid grid-cols-2 sm:grid-cols-5 gap-1.5 p-1 rounded-xl bg-[var(--paper-surface-alt)] border border-[var(--paper-border)] mb-4">
+      {/* Provider Selector Tabs (1-row horizontal scroll on mobile, 5-col grid on desktop) */}
+      <div className="flex sm:grid sm:grid-cols-5 gap-1.5 p-1 rounded-xl bg-[var(--paper-surface-alt)] border border-[var(--paper-border)] overflow-x-auto no-scrollbar">
         {[
           { id: 'edge', label: 'Edge Neural', icon: Globe, count: voicesByProvider.edge?.length || 320, badge: 'Free' },
-          { id: 'gemini', label: 'Gemini Audio', icon: Sparkles, count: voicesByProvider.gemini?.length || 8, badge: hasGoogleKey ? 'Active' : 'Key Needed' },
+          { id: 'gemini', label: 'Gemini Audio', icon: Sparkles, count: voicesByProvider.gemini?.length || 28, badge: hasGoogleKey ? 'Active' : 'Key Needed' },
           { id: 'webspeech', label: 'Web Speech', icon: Zap, count: voicesByProvider.webspeech?.length || 0, badge: 'Offline' },
           { id: 'google', label: 'Google Web', icon: Volume2, count: voicesByProvider.google?.length || 10, badge: 'Standard' },
           { id: 'kokoro', label: 'Kokoro Neural', icon: User, count: voicesByProvider.kokoro?.length || 6, badge: 'Open' }
@@ -120,16 +141,17 @@ export default function VoiceSelector({
           return (
             <button
               key={prov.id}
-              onClick={() => setActiveProvider(prov.id)}
-              className={`flex flex-col items-center justify-center py-2 px-1.5 rounded-lg text-xs transition-all ${
+              type="button"
+              onClick={() => handleSelectProvider(prov.id)}
+              className={`flex flex-col items-center justify-center py-2 px-3 rounded-lg text-xs transition-all shrink-0 sm:shrink min-w-[100px] sm:min-w-0 cursor-pointer ${
                 isActive
-                  ? 'bg-[var(--paper-surface)] text-[var(--paper-ink)] font-bold shadow-sm border border-[var(--paper-border)]'
-                  : 'text-[var(--paper-ink-muted)] hover:text-[var(--paper-ink)]'
+                  ? 'bg-[var(--paper-surface)] text-[var(--paper-ink)] font-bold shadow-xs border border-[var(--paper-border)] ring-1 ring-[var(--paper-accent)]/30'
+                  : 'text-[var(--paper-ink-muted)] hover:text-[var(--paper-ink)] hover:bg-[var(--paper-surface)]/50'
               }`}
             >
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-1.5">
                 <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[var(--paper-accent)]' : ''}`} />
-                <span className="truncate">{prov.label}</span>
+                <span className="truncate whitespace-nowrap">{prov.label}</span>
               </div>
               <span className="text-[10px] font-mono-code opacity-75 mt-0.5">
                 {prov.count} voices
@@ -140,16 +162,16 @@ export default function VoiceSelector({
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="space-y-3 mb-4">
+      <div className="space-y-2.5">
         <div className="flex gap-2">
           {/* Search box */}
-          <div className="relative flex-1">
+          <div className="relative flex-1 min-w-0">
             <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-[var(--paper-ink-muted)]" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search voices by name, accent, or language..."
+              placeholder="Search voices by name or accent..."
               className="w-full pl-9 pr-3 py-2 text-xs rounded-xl bg-[var(--paper-surface-alt)] border border-[var(--paper-border)] text-[var(--paper-ink)] placeholder-[var(--paper-ink-muted)] focus:outline-none focus:ring-1 focus:ring-[var(--paper-accent)]"
             />
           </div>
@@ -158,7 +180,7 @@ export default function VoiceSelector({
           <select
             value={genderFilter}
             onChange={(e) => setGenderFilter(e.target.value)}
-            className="text-xs px-2.5 py-2 rounded-xl bg-[var(--paper-surface-alt)] border border-[var(--paper-border)] text-[var(--paper-ink)] focus:outline-none cursor-pointer"
+            className="text-xs px-2.5 py-2 rounded-xl bg-[var(--paper-surface-alt)] border border-[var(--paper-border)] text-[var(--paper-ink)] focus:outline-none cursor-pointer shrink-0"
           >
             <option value="all">Any Gender</option>
             <option value="female">Female</option>
@@ -166,42 +188,53 @@ export default function VoiceSelector({
           </select>
         </div>
 
-        {/* Quick Language Chips */}
-        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs no-scrollbar">
-          {LANGUAGE_TAGS.map((tag) => (
-            <button
-              key={tag.id}
-              onClick={() => setSelectedLanguage(tag.id)}
-              className={`px-2.5 py-1 rounded-full whitespace-nowrap transition-colors ${
-                selectedLanguage === tag.id
-                  ? 'bg-[var(--paper-accent)] text-white font-medium shadow-sm'
-                  : 'bg-[var(--paper-surface-alt)] border border-[var(--paper-border)] text-[var(--paper-ink-muted)] hover:text-[var(--paper-ink)]'
-              }`}
-            >
-              {tag.label}
-            </button>
-          ))}
-        </div>
+        {/* Quick Language Chips or Gemini Multilingual Banner */}
+        {activeProvider !== 'gemini' ? (
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs no-scrollbar">
+            {LANGUAGE_TAGS.map((tag) => (
+              <button
+                key={tag.id}
+                type="button"
+                onClick={() => setSelectedLanguage(tag.id)}
+                className={`px-2.5 py-1 rounded-full whitespace-nowrap transition-colors cursor-pointer ${
+                  selectedLanguage === tag.id
+                    ? 'bg-[var(--paper-accent)] text-white font-medium shadow-xs'
+                    : 'bg-[var(--paper-surface-alt)] border border-[var(--paper-border)] text-[var(--paper-ink-muted)] hover:text-[var(--paper-ink)]'
+                }`}
+              >
+                {tag.label}
+              </button>
+            ))}
+          </div>
+        ) : (
+          <div className="flex items-center justify-between p-2 rounded-xl bg-[var(--paper-surface-alt)] border border-[var(--paper-border)] text-[11px] font-mono-code text-[var(--paper-ink-muted)]">
+            <span className="flex items-center gap-1.5 text-[var(--paper-accent)] font-semibold">
+              <Sparkles className="w-3.5 h-3.5" /> 28 Gemini Expressive Voices
+            </span>
+            <span className="text-[10px] text-[var(--paper-ink)] bg-[var(--paper-surface)] px-2 py-0.5 rounded border border-[var(--paper-border)]">
+              Speaks 130+ languages natively
+            </span>
+          </div>
+        )}
       </div>
 
-      {/* Gemini Model Selector Toolbar */}
+      {/* Gemini Model Selector Card */}
       {activeProvider === 'gemini' && (
-        <div className="p-3 mb-3 rounded-xl bg-[var(--paper-surface-alt)] border border-[var(--paper-border)] flex flex-wrap items-center justify-between gap-2 text-xs">
-          <div className="flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-[var(--paper-accent)] shrink-0" />
-            <div>
-              <span className="font-bold text-[var(--paper-ink)]">Gemini Engine:</span>
-              <span className="text-[10px] text-[var(--paper-ink-muted)] block sm:inline sm:ml-1">
-                (Select AI speech model)
-              </span>
-            </div>
+        <div className="p-3 rounded-xl bg-[var(--paper-surface-alt)] border border-[var(--paper-border)] space-y-2">
+          <div className="flex items-center justify-between">
+            <span className="font-semibold text-xs text-[var(--paper-ink)] flex items-center gap-1.5 font-mono-code">
+              <Sparkles className="w-3.5 h-3.5 text-[var(--paper-accent)]" /> Gemini Engine:
+            </span>
+            <span className="text-[10px] text-[var(--paper-ink-muted)] font-mono-code">
+              Google AI Studio
+            </span>
           </div>
           <select
             value={geminiModel}
             onChange={(e) => setGeminiModel(e.target.value)}
-            className="text-xs px-2.5 py-1.5 rounded-lg bg-[var(--paper-surface)] border border-[var(--paper-border)] text-[var(--paper-ink)] font-mono-code focus:outline-none focus:ring-1 focus:ring-[var(--paper-accent)] cursor-pointer"
+            className="w-full text-xs px-3 py-2 rounded-lg bg-[var(--paper-surface)] border border-[var(--paper-border)] text-[var(--paper-ink)] font-mono-code focus:outline-none focus:ring-1 focus:ring-[var(--paper-accent)] cursor-pointer"
           >
-            <option value="gemini-2.5-flash-preview-tts">Gemini 2.5 Flash TTS (Latest & Recommended)</option>
+            <option value="gemini-2.5-flash-preview-tts">Gemini 2.5 Flash TTS (Latest &amp; Recommended)</option>
             <option value="gemini-2.5-pro-preview-tts">Gemini 2.5 Pro TTS (Highest Quality)</option>
             <option value="gemini-2.5-flash">Gemini 2.5 Flash (Multimodal Fallback)</option>
           </select>
@@ -210,26 +243,40 @@ export default function VoiceSelector({
 
       {/* Gemini Key Warning Banner */}
       {activeProvider === 'gemini' && !hasGoogleKey && (
-        <div className="p-3 mb-3 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-between gap-2 text-xs">
+        <div className="p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-between gap-2 text-xs">
           <div className="flex items-center gap-2 text-[var(--paper-ink)]">
             <KeyRound className="w-4 h-4 text-amber-500 shrink-0" />
-            <span>Google API Key required for Gemini 3.8 Audio & Journey.</span>
+            <span>Google API Key required for Gemini TTS voices.</span>
           </div>
           <button
+            type="button"
             onClick={onOpenKeyModal}
-            className="px-3 py-1.5 rounded-lg bg-[var(--paper-accent)] text-white font-bold text-xs shrink-0 shadow-sm hover:opacity-90"
+            className="px-3 py-1.5 rounded-lg bg-[var(--paper-accent)] text-white font-bold text-xs shrink-0 shadow-xs hover:opacity-90 cursor-pointer"
           >
             Enter Key
           </button>
         </div>
       )}
 
-      {/* Voices Grid */}
-      <div className="max-h-[55vh] sm:max-h-[460px] overflow-y-auto space-y-2 pr-1 pb-24">
+      {/* Voices List */}
+      <div className="max-h-[50vh] sm:max-h-[440px] overflow-y-auto space-y-2 pr-1 pb-4">
         {sortedVoices.length === 0 ? (
-          <div className="text-center py-10 text-[var(--paper-ink-muted)] text-xs">
-            <p className="font-editorial text-base text-[var(--paper-ink)] mb-1">No voices found matching criteria</p>
-            <p>Try clearing your search query or selecting a different language tag.</p>
+          <div className="text-center py-8 px-4 text-[var(--paper-ink-muted)] text-xs space-y-3">
+            <p className="font-editorial text-base text-[var(--paper-ink)]">No voices found matching criteria</p>
+            <p className="text-[11px] max-w-xs mx-auto text-[var(--paper-ink-muted)]">
+              {searchQuery ? `No results for "${searchQuery}". ` : ''}
+              {selectedLanguage !== 'all' ? `Filtered by ${selectedLanguage}. ` : ''}
+              Try resetting your filters to see all available voices.
+            </p>
+            {hasActiveFilters && (
+              <button
+                type="button"
+                onClick={resetFilters}
+                className="px-3.5 py-1.5 rounded-lg bg-[var(--paper-accent)] text-white font-medium text-xs shadow-xs hover:opacity-90 inline-flex items-center gap-1.5 cursor-pointer"
+              >
+                <RotateCcw className="w-3 h-3" /> Reset All Filters
+              </button>
+            )}
           </div>
         ) : (
           sortedVoices.map((voice) => {
@@ -243,7 +290,7 @@ export default function VoiceSelector({
                 onClick={() => setSelectedVoice(voice)}
                 className={`group flex items-center justify-between p-3 rounded-xl border transition-all cursor-pointer ${
                   isSelected
-                    ? 'border-[var(--paper-accent)] bg-[var(--paper-surface-alt)] shadow-sm'
+                    ? 'border-[var(--paper-accent)] bg-[var(--paper-surface-alt)] shadow-xs'
                     : 'border-[var(--paper-border)] bg-[var(--paper-surface)] hover:border-[var(--paper-ink-muted)]/40 hover:bg-[var(--paper-surface-alt)]/50'
                 }`}
               >
@@ -284,8 +331,9 @@ export default function VoiceSelector({
                 <div className="flex items-center gap-1.5 shrink-0 ml-2" onClick={(e) => e.stopPropagation()}>
                   {/* Star Favorite */}
                   <button
+                    type="button"
                     onClick={() => onToggleFavorite(voice.id)}
-                    className={`p-1.5 rounded-lg transition-colors ${
+                    className={`p-1.5 rounded-lg transition-colors cursor-pointer ${
                       isFav
                         ? 'text-amber-500 fill-amber-500 hover:text-amber-600'
                         : 'text-[var(--paper-ink-muted)] hover:text-amber-500'
@@ -297,8 +345,9 @@ export default function VoiceSelector({
 
                   {/* Preview snippet button */}
                   <button
+                    type="button"
                     onClick={() => onPreviewVoice(voice)}
-                    className={`p-1.5 rounded-lg border border-[var(--paper-border)] transition-colors ${
+                    className={`p-1.5 rounded-lg border border-[var(--paper-border)] transition-colors cursor-pointer ${
                       isPreviewing
                         ? 'bg-[var(--paper-accent)] text-white border-[var(--paper-accent)]'
                         : 'bg-[var(--paper-surface-alt)] text-[var(--paper-ink)] hover:bg-[var(--paper-border)]'
