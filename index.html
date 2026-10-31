@@ -17,6 +17,31 @@
     />
 
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23b85d38' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z'/%3E%3Cpath d='M19 10v2a7 7 0 0 1-14 0v-2'/%3E%3Cline x1='12' x2='12' y1='19' y2='22'/%3E%3C/svg%3E" />
+
+    <!-- Netlify Badge & Drawer Removal CSS Override -->
+    <style>
+      .netlify-badge,
+      #netlify-badge,
+      [id^="netlify"],
+      [id*="netlify"],
+      [class^="netlify"],
+      [class*="netlify"],
+      netlify-drawer,
+      netlify-feedback,
+      iframe[src*="netlify"],
+      div[data-netlify-badge] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        position: absolute !important;
+        top: -9999px !important;
+        left: -9999px !important;
+        width: 0 !important;
+        height: 0 !important;
+        z-index: -99999 !important;
+      }
+    </style>
   </head>
   <body class="min-h-screen antialiased selection:bg-amber-200 selection:text-amber-950 dark:selection:bg-amber-900/60 dark:selection:text-amber-100">
     <!-- SVG Filter for Dynamic Tactile Paper Grain -->
@@ -37,5 +62,44 @@
 
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Netlify Badge & Toolbar Removal Script -->
+    <script>
+      function removeNetlifyBadge() {
+        // Target common selectors Netlify uses for toolbars/badges
+        const netlifyBadge = document.querySelector('.netlify-badge') || document.querySelector('[id^="netlify"]');
+        if (netlifyBadge) {
+          netlifyBadge.remove();
+        }
+
+        // Secondary fallback to catch drawer, feedback widgets, and injected iframes
+        document.querySelectorAll('.netlify-badge, [id^="netlify"], [class*="netlify-badge"], [id*="netlify"], netlify-drawer, netlify-feedback, iframe[src*="netlify"]').forEach(function(el) {
+          el.remove();
+        });
+      }
+
+      // 1. Initial DOMContentLoaded
+      window.addEventListener('DOMContentLoaded', removeNetlifyBadge);
+
+      // 2. Window load
+      window.addEventListener('load', removeNetlifyBadge);
+
+      // 3. Fallback: MutationObserver for dynamically injected elements after load
+      if (typeof MutationObserver !== 'undefined') {
+        const netlifyObserver = new MutationObserver(function() {
+          removeNetlifyBadge();
+        });
+        netlifyObserver.observe(document.documentElement, { childList: true, subtree: true });
+        setTimeout(function() {
+          netlifyObserver.disconnect();
+        }, 10000);
+      }
+
+      // 4. Periodic polling cleanup for first 4 seconds
+      const netlifyPoll = setInterval(removeNetlifyBadge, 250);
+      setTimeout(function() {
+        clearInterval(netlifyPoll);
+      }, 4000);
+    </script>
   </body>
 </html>
