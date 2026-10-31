@@ -467,7 +467,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen pb-32 flex flex-col relative selection:bg-amber-200 dark:selection:bg-amber-900/60">
+    <div className="min-h-screen pb-52 sm:pb-36 flex flex-col relative selection:bg-amber-200 dark:selection:bg-amber-900/60">
       {/* Physical Paper Grain Texture Overlay */}
       <div className="paper-grain-overlay" aria-hidden="true" />
 

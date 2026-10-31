@@ -179,7 +179,7 @@ export default function VoiceSelector({
       </div>
 
       {/* Voices Grid */}
-      <div className="max-h-[360px] overflow-y-auto space-y-2 pr-1">
+      <div className="max-h-[55vh] sm:max-h-[460px] overflow-y-auto space-y-2 pr-1 pb-24">
         {sortedVoices.length === 0 ? (
           <div className="text-center py-10 text-[var(--paper-ink-muted)] text-xs">
             <p className="font-editorial text-base text-[var(--paper-ink)] mb-1">No voices found matching criteria</p>
