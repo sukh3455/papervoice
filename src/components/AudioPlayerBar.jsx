@@ -33,7 +33,8 @@ export default function AudioPlayerBar({
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-40 bg-[var(--paper-bg)]/95 backdrop-blur-md border-t border-[var(--paper-border)] shadow-2xl transition-all duration-200">
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 py-2 sm:py-3">
+      {/* Container with mobile vertical clearance (68px shelf) & desktop horizontal clearance (192px margin) for Netlify badge */}
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 sm:pr-48 py-2 sm:py-3 pb-[calc(4.25rem+env(safe-area-inset-bottom,0px))] sm:pb-3">
 
         {/* 1. Mobile Collapsed (Mini Player) View */}
         {isCollapsed ? (

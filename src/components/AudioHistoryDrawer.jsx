@@ -106,9 +106,9 @@ export default function AudioHistoryDrawer({
           )}
         </div>
 
-        {/* Footer actions */}
+        {/* Footer actions (left-aligned with bottom clearance so Netlify badge cannot overlap) */}
         {history.length > 0 && (
-          <div className="pt-3 border-t border-[var(--paper-border)] flex justify-end">
+          <div className="pt-3 border-t border-[var(--paper-border)] flex justify-start pb-16 sm:pb-3">
             <button
               onClick={onClearAll}
               className="text-xs font-mono-code text-rose-500 hover:text-rose-600 flex items-center gap-1"
