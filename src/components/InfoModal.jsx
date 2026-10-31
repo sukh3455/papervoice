@@ -84,6 +84,16 @@ export default function InfoModal({ isOpen, onClose }) {
                 State-of-the-art open-weights neural voices (Bella, Sarah, Adam, Michael) crafted specifically for high-expression audiobook narration.
               </p>
             </div>
+
+            <div className="p-3.5 rounded-xl border border-[var(--paper-border)] bg-[var(--paper-surface-alt)]/60 space-y-1.5 sm:col-span-2">
+              <div className="flex items-center gap-2 font-bold text-[var(--paper-ink)]">
+                <Sparkles className="w-4 h-4 text-amber-500" />
+                <span>Google Gemini 3.8 & 2.5 Native Audio (BYOK)</span>
+              </div>
+              <p className="text-[var(--paper-ink-muted)] leading-relaxed">
+                Google's latest multimodal conversational voices (Puck, Charon, Kore, Fenrir, Zephyr, Orbit, Nova, Ursa) plus Google Cloud Journey broadcaster voices. Free 1,500 requests/day with your Google AI Studio key.
+              </p>
+            </div>
           </div>
         </div>
 

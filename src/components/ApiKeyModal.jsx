@@ -9,7 +9,9 @@ export default function ApiKeyModal({
   onClose,
   apiKey,
   onSaveKey,
-  onRemoveKey
+  onRemoveKey,
+  geminiModel = 'gemini-3.8-flash',
+  setGeminiModel = () => {}
 }) {
   const [inputKey, setInputKey] = useState(apiKey || '');
   const [showKey, setShowKey] = useState(false);
@@ -39,7 +41,7 @@ export default function ApiKeyModal({
 
       if (res.ok && data.valid) {
         onSaveKey(trimmed);
-        setStatusMessage({ type: 'success', text: '✅ Key verified! Gemini 2.0 Audio & Journey voices unlocked.' });
+        setStatusMessage({ type: 'success', text: '✅ Key verified! Gemini 3.8 Audio & Journey voices unlocked.' });
         setTimeout(() => {
           onClose();
         }, 1500);
@@ -85,7 +87,7 @@ export default function ApiKeyModal({
                 Google Gemini API Key
               </h3>
               <p className="text-[11px] text-[var(--paper-ink-muted)]">
-                Unlocks Gemini 2.0 Audio (Puck, Charon, Kore) & Journey voices
+                Unlocks Gemini 3.8 & 2.5 Audio (Puck, Charon, Kore, Fenrir, Zephyr) & Journey voices
               </p>
             </div>
           </div>
@@ -115,6 +117,23 @@ export default function ApiKeyModal({
             <span>Get your free Google API key at AI Studio</span>
             <ExternalLink className="w-3 h-3" />
           </a>
+        </div>
+
+        {/* Model Preference */}
+        <div className="space-y-1.5">
+          <label className="block text-xs font-mono-code font-medium text-[var(--paper-ink)]">
+            Preferred Gemini Model:
+          </label>
+          <select
+            value={geminiModel}
+            onChange={(e) => setGeminiModel(e.target.value)}
+            className="w-full px-3 py-2 text-xs font-mono-code rounded-xl bg-[var(--paper-surface-alt)] border border-[var(--paper-border)] text-[var(--paper-ink)] focus:outline-none focus:ring-1 focus:ring-[var(--paper-accent)] cursor-pointer"
+          >
+            <option value="gemini-3.8-flash">Gemini 3.8 Flash (Latest & Recommended)</option>
+            <option value="gemini-2.5-flash">Gemini 2.5 Flash (Ultra-Fast Multimodal)</option>
+            <option value="gemini-3.8-pro">Gemini 3.8 Pro (High-Fidelity Expressive)</option>
+            <option value="gemini-2.5-pro">Gemini 2.5 Pro (Studio Long-Form)</option>
+          </select>
         </div>
 
         {/* Input */}

@@ -67,6 +67,9 @@ export default function App() {
   const [googleApiKey, setGoogleApiKey] = useState(() => {
     return localStorage.getItem('papervoice_google_api_key') || '';
   });
+  const [geminiModel, setGeminiModel] = useState(() => {
+    return localStorage.getItem('papervoice_gemini_model') || 'gemini-3.8-flash';
+  });
   const [history, setHistory] = useState(() => {
     try {
       return JSON.parse(localStorage.getItem('papervoice_history') || '[]');
@@ -119,7 +122,12 @@ export default function App() {
     localStorage.setItem('papervoice_history', JSON.stringify(history));
   }, [history]);
 
-  // 6. Fetch voices from server & initialize WebSpeech voices
+  // 6. Persist Gemini Model preference
+  useEffect(() => {
+    localStorage.setItem('papervoice_gemini_model', geminiModel);
+  }, [geminiModel]);
+
+  // 7. Fetch voices from server & initialize WebSpeech voices
   useEffect(() => {
     const fetchVoices = async () => {
       try {
@@ -133,7 +141,8 @@ export default function App() {
             webspeech: webVoices,
             google: data.google || [],
             kokoro: data.kokoro || [],
-            gemini: data.gemini || []
+            gemini: data.gemini || [],
+            geminiModels: data.geminiModels || []
           });
 
           // Set default voice (prefer en-US Jenny or first available)
@@ -332,6 +341,7 @@ export default function App() {
             voice: voice.id,
             locale: voice.locale,
             apiKey: googleApiKey,
+            model: geminiModel,
             rate: 1.0,
             pitch: 0,
             volume: 100
@@ -459,6 +469,7 @@ export default function App() {
           voice: selectedVoice.id,
           locale: selectedVoice.locale,
           apiKey: googleApiKey,
+          model: geminiModel,
           rate,
           pitch,
           volume
@@ -673,6 +684,9 @@ export default function App() {
               previewingVoiceId={previewingVoiceId}
               hasGoogleKey={Boolean(googleApiKey)}
               onOpenKeyModal={() => setIsKeyModalOpen(true)}
+              geminiModel={geminiModel}
+              setGeminiModel={setGeminiModel}
+              geminiModels={voicesByProvider.geminiModels || []}
             />
           </aside>
 
@@ -719,6 +733,9 @@ export default function App() {
         apiKey={googleApiKey}
         onSaveKey={handleSaveGoogleKey}
         onRemoveKey={handleRemoveGoogleKey}
+        geminiModel={geminiModel}
+        setGeminiModel={setGeminiModel}
+        geminiModels={voicesByProvider.geminiModels || []}
       />
     </div>
   );

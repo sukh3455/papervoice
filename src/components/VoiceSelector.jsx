@@ -13,7 +13,10 @@ export default function VoiceSelector({
   onPreviewVoice,
   previewingVoiceId = null,
   hasGoogleKey = false,
-  onOpenKeyModal
+  onOpenKeyModal,
+  geminiModel = 'gemini-3.8-flash',
+  setGeminiModel = () => {},
+  geminiModels = []
 }) {
   const [activeProvider, setActiveProvider] = useState('edge'); // 'edge', 'gemini', 'webspeech', 'google', 'kokoro'
   const [searchQuery, setSearchQuery] = useState('');
@@ -181,12 +184,37 @@ export default function VoiceSelector({
         </div>
       </div>
 
+      {/* Gemini Model Selector Toolbar */}
+      {activeProvider === 'gemini' && (
+        <div className="p-3 mb-3 rounded-xl bg-[var(--paper-surface-alt)] border border-[var(--paper-border)] flex flex-wrap items-center justify-between gap-2 text-xs">
+          <div className="flex items-center gap-2">
+            <Sparkles className="w-4 h-4 text-[var(--paper-accent)] shrink-0" />
+            <div>
+              <span className="font-bold text-[var(--paper-ink)]">Gemini Engine:</span>
+              <span className="text-[10px] text-[var(--paper-ink-muted)] block sm:inline sm:ml-1">
+                (Select AI speech model)
+              </span>
+            </div>
+          </div>
+          <select
+            value={geminiModel}
+            onChange={(e) => setGeminiModel(e.target.value)}
+            className="text-xs px-2.5 py-1.5 rounded-lg bg-[var(--paper-surface)] border border-[var(--paper-border)] text-[var(--paper-ink)] font-mono-code focus:outline-none focus:ring-1 focus:ring-[var(--paper-accent)] cursor-pointer"
+          >
+            <option value="gemini-3.8-flash">Gemini 3.8 Flash (Latest & Recommended)</option>
+            <option value="gemini-2.5-flash">Gemini 2.5 Flash (Ultra-Fast Multimodal)</option>
+            <option value="gemini-3.8-pro">Gemini 3.8 Pro (High-Fidelity Expressive)</option>
+            <option value="gemini-2.5-pro">Gemini 2.5 Pro (Studio Long-Form)</option>
+          </select>
+        </div>
+      )}
+
       {/* Gemini Key Warning Banner */}
       {activeProvider === 'gemini' && !hasGoogleKey && (
         <div className="p-3 mb-3 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-between gap-2 text-xs">
           <div className="flex items-center gap-2 text-[var(--paper-ink)]">
             <KeyRound className="w-4 h-4 text-amber-500 shrink-0" />
-            <span>Google API Key required for Gemini 2.0 Audio & Journey.</span>
+            <span>Google API Key required for Gemini 3.8 Audio & Journey.</span>
           </div>
           <button
             onClick={onOpenKeyModal}

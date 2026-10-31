@@ -50,13 +50,24 @@ const kokoroVoices = [
   { id: 'kokoro-bm_george', name: 'George (British Dignified)', fullName: 'Kokoro Neural - George (British Dignified)', gender: 'Male', locale: 'en-GB', localeName: 'English (UK)', provider: 'kokoro' }
 ];
 
-// Google Gemini Native Audio & Journey Voices (BYOK)
+// Google Gemini Latest Models & Native Audio Voices (BYOK)
+const geminiModels = [
+  { id: 'gemini-3.8-flash', name: 'Gemini 3.8 Flash', tag: 'Latest & Recommended', desc: 'Google’s newest ultra-fast multimodal model with natural intonation' },
+  { id: 'gemini-2.5-flash', name: 'Gemini 2.5 Flash', tag: 'Fast', desc: 'Low latency multimodal speech synthesis' },
+  { id: 'gemini-3.8-pro', name: 'Gemini 3.8 Pro', tag: 'High-Fidelity', desc: 'Deep emotional nuance and dramatic narration' },
+  { id: 'gemini-2.5-pro', name: 'Gemini 2.5 Pro', tag: 'Studio Quality', desc: 'Enhanced clarity for long-form reading' }
+];
+
 const geminiVoices = [
-  { id: 'gemini-Puck', name: 'Puck (Playful & Energetic)', fullName: 'Gemini 2.0 Audio - Puck', gender: 'Neutral', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
-  { id: 'gemini-Charon', name: 'Charon (Deep & Resonant)', fullName: 'Gemini 2.0 Audio - Charon', gender: 'Male', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
-  { id: 'gemini-Kore', name: 'Kore (Warm & Soothing)', fullName: 'Gemini 2.0 Audio - Kore', gender: 'Female', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
-  { id: 'gemini-Fenrir', name: 'Fenrir (Confident & Articulate)', fullName: 'Gemini 2.0 Audio - Fenrir', gender: 'Male', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
-  { id: 'gemini-Aoede', name: 'Aoede (Melodic & Poetic)', fullName: 'Gemini 2.0 Audio - Aoede', gender: 'Female', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Puck', name: 'Puck (Playful & Energetic)', fullName: 'Gemini 3.8 Audio - Puck', gender: 'Neutral', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Charon', name: 'Charon (Deep & Resonant)', fullName: 'Gemini 3.8 Audio - Charon', gender: 'Male', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Kore', name: 'Kore (Warm & Soothing)', fullName: 'Gemini 3.8 Audio - Kore', gender: 'Female', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Fenrir', name: 'Fenrir (Confident & Articulate)', fullName: 'Gemini 3.8 Audio - Fenrir', gender: 'Male', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Aoede', name: 'Aoede (Melodic & Poetic)', fullName: 'Gemini 3.8 Audio - Aoede', gender: 'Female', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Zephyr', name: 'Zephyr (Calm & Balanced)', fullName: 'Gemini 3.8 Audio - Zephyr', gender: 'Neutral', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Orbit', name: 'Orbit (Warm & Engaging)', fullName: 'Gemini 3.8 Audio - Orbit', gender: 'Male', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Nova', name: 'Nova (Bright & Dynamic)', fullName: 'Gemini 3.8 Audio - Nova', gender: 'Female', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
+  { id: 'gemini-Ursa', name: 'Ursa (Clear & Authoritative)', fullName: 'Gemini 3.8 Audio - Ursa', gender: 'Female', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
   { id: 'gcloud-en-US-Journey-F', name: 'Journey Female (Podcast Host)', fullName: 'Google Cloud - Journey F', gender: 'Female', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
   { id: 'gcloud-en-US-Journey-D', name: 'Journey Male (Conversational)', fullName: 'Google Cloud - Journey D', gender: 'Male', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true },
   { id: 'gcloud-en-US-Journey-O', name: 'Journey Broadcaster', fullName: 'Google Cloud - Journey O', gender: 'Female', locale: 'en-US', localeName: 'English (US)', provider: 'gemini', requiresKey: true }
@@ -112,6 +123,7 @@ app.get('/api/voices', (req, res) => {
     google: googleVoices,
     kokoro: kokoroVoices,
     gemini: geminiVoices,
+    geminiModels: geminiModels,
     total: voicesList.length + googleVoices.length + kokoroVoices.length + geminiVoices.length
   });
 });
@@ -282,7 +294,16 @@ app.post('/api/validate-key', async (req, res) => {
     const testUrl = `https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey.trim()}`;
     const response = await fetch(testUrl);
     if (response.ok) {
-      return res.json({ valid: true, provider: 'gemini', message: 'Valid Google Gemini API Key' });
+      const data = await response.json().catch(() => ({}));
+      const models = (data.models || []).map(m => m.name?.replace('models/', '')).filter(Boolean);
+      const hasGemini38 = models.some(m => m.includes('gemini-3.8'));
+      return res.json({ 
+        valid: true, 
+        provider: 'gemini', 
+        message: 'Valid Google Gemini API Key',
+        availableModels: models.filter(m => m.includes('gemini')),
+        recommendedModel: hasGemini38 ? 'gemini-3.8-flash' : 'gemini-2.5-flash'
+      });
     }
     const errData = await response.json().catch(() => ({}));
     return res.status(response.status).json({
@@ -294,9 +315,9 @@ app.post('/api/validate-key', async (req, res) => {
   }
 });
 
-// 6. Gemini 2.0 Native Audio & Google Cloud Synthesis Endpoint
+// 6. Gemini Latest Native Audio & Google Cloud Synthesis Endpoint
 app.post('/api/tts/gemini', async (req, res) => {
-  const { text, voice = 'gemini-Puck', apiKey } = req.body;
+  const { text, voice = 'gemini-Puck', apiKey, model = 'gemini-3.8-flash' } = req.body;
   const key = apiKey || req.headers['x-google-api-key'] || process.env.GEMINI_API_KEY;
 
   if (!key) {
@@ -344,54 +365,103 @@ app.post('/api/tts/gemini', async (req, res) => {
       res.setHeader('Cache-Control', 'no-cache');
       return res.send(buffer);
     } else {
-      // Gemini 2.0 Native Audio Modality (Puck, Charon, Kore, Fenrir, Aoede)
+      // Gemini Native Audio Modality (Latest 3.8 & 2.5 models)
       const voiceName = voice.replace('gemini-', '');
-      const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${key.trim()}`;
-      const payload = {
-        contents: [
-          {
-            parts: [
+      
+      // Preferred models in order of priority (starting with requested model)
+      const candidateModels = [
+        model,
+        'gemini-3.8-flash',
+        'gemini-2.5-flash',
+        'gemini-3.8-pro',
+        'gemini-2.5-pro'
+      ].filter((m, idx, arr) => m && arr.indexOf(m) === idx);
+
+      let lastError = null;
+      let successBuffer = null;
+      let successMime = 'audio/wav';
+
+      for (const currentModel of candidateModels) {
+        try {
+          const url = `https://generativelanguage.googleapis.com/v1beta/models/${currentModel}:generateContent?key=${key.trim()}`;
+          const payload = {
+            contents: [
               {
-                text: `Read the following text out loud in a natural, expressive voice, without adding any commentary:\n\n${text.trim()}`
+                parts: [
+                  {
+                    text: `Read the following text out loud in a natural, expressive voice, without adding any commentary:\n\n${text.trim()}`
+                  }
+                ]
               }
-            ]
-          }
-        ],
-        generationConfig: {
-          responseModalities: ["AUDIO"],
-          speechConfig: {
-            voiceConfig: {
-              prebuiltVoiceConfig: {
-                voiceName: voiceName
+            ],
+            generationConfig: {
+              responseModalities: ["AUDIO"],
+              speechConfig: {
+                voiceConfig: {
+                  prebuiltVoiceConfig: {
+                    voiceName: voiceName
+                  }
+                }
               }
             }
+          };
+
+          const resp = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+
+          if (!resp.ok) {
+            const errJson = await resp.json().catch(() => ({}));
+            const errMsg = errJson.error?.message || `Gemini API error ${resp.status} on ${currentModel}`;
+            
+            // If the model is not found, deprecated, or not available, try next candidate
+            if (resp.status === 404 || errMsg.includes('not available') || errMsg.includes('deprecated') || errMsg.includes('not found')) {
+              console.warn(`Gemini model ${currentModel} notice: ${errMsg}. Trying next candidate model...`);
+              lastError = new Error(errMsg);
+              continue;
+            }
+            throw new Error(errMsg);
+          }
+
+          const data = await resp.json();
+          const part = data.candidates?.[0]?.content?.parts?.[0];
+          if (!part || !part.inlineData?.data) {
+            throw new Error(`Gemini ${currentModel} did not return audio data for this request.`);
+          }
+
+          const rawBuffer = Buffer.from(part.inlineData.data, 'base64');
+          const mimeType = part.inlineData.mimeType || '';
+
+          if (mimeType.includes('mp3') || mimeType.includes('mpeg')) {
+            successBuffer = rawBuffer;
+            successMime = 'audio/mpeg';
+          } else if (mimeType.includes('wav') || (rawBuffer.length > 4 && rawBuffer.toString('utf8', 0, 4) === 'RIFF')) {
+            successBuffer = rawBuffer;
+            successMime = 'audio/wav';
+          } else {
+            // Raw PCM 24000Hz (default Gemini modality)
+            successBuffer = pcmToWav(rawBuffer, 24000);
+            successMime = 'audio/wav';
+          }
+          break; // successfully generated audio
+        } catch (err) {
+          lastError = err;
+          // If it's a fatal key or permission error, stop trying other models
+          if (err.message.includes('API key not valid') || err.message.includes('PERMISSION_DENIED') || err.message.includes('CONSUMER_INVALID')) {
+            throw err;
           }
         }
-      };
-
-      const resp = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-
-      if (!resp.ok) {
-        const errJson = await resp.json().catch(() => ({}));
-        throw new Error(errJson.error?.message || `Gemini API error ${resp.status}`);
       }
 
-      const data = await resp.json();
-      const part = data.candidates?.[0]?.content?.parts?.[0];
-      if (!part || !part.inlineData?.data) {
-        throw new Error('Gemini did not return audio data for this request.');
+      if (!successBuffer) {
+        throw lastError || new Error('Failed to generate audio from any Gemini model.');
       }
 
-      const rawBuffer = Buffer.from(part.inlineData.data, 'base64');
-      const wavBuffer = pcmToWav(rawBuffer, 24000);
-
-      res.setHeader('Content-Type', 'audio/wav');
+      res.setHeader('Content-Type', successMime);
       res.setHeader('Cache-Control', 'no-cache');
-      return res.send(wavBuffer);
+      return res.send(successBuffer);
     }
   } catch (err) {
     console.error('Gemini TTS error:', err.message);
