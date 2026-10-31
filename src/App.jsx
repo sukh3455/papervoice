@@ -57,6 +57,7 @@ export default function App() {
   const [activeWordIndex, setActiveWordIndex] = useState(-1);
   const [isKaraoke, setIsKaraoke] = useState(false);
   const [previewingVoiceId, setPreviewingVoiceId] = useState(null);
+  const [lastSynthesized, setLastSynthesized] = useState(null);
 
   // Modals & Drawers
   const [isHistoryOpen, setIsHistoryOpen] = useState(false);
@@ -215,6 +216,58 @@ export default function App() {
     );
   };
 
+  // Voice selection handler (invalidates prior audio so new voice is synthesized)
+  const handleSelectVoice = (voice) => {
+    if (selectedVoice?.id !== voice.id) {
+      handleStop();
+      if (audioUrl) {
+        try { URL.revokeObjectURL(audioUrl); } catch (e) {}
+      }
+      setAudioUrl(null);
+      setCurrentBlob(null);
+      setLastSynthesized(null);
+      setCurrentTime(0);
+      setDuration(0);
+      setSelectedVoice(voice);
+      showToast(`Selected voice: ${voice.name} (${voice.localeName || voice.locale})`);
+    }
+  };
+
+  // Text change handler (invalidates prior audio so new text is synthesized)
+  const handleTextChange = (newText) => {
+    setText(newText);
+    if (lastSynthesized && lastSynthesized.text !== newText.trim()) {
+      handleStop();
+      if (audioUrl) {
+        try { URL.revokeObjectURL(audioUrl); } catch (e) {}
+      }
+      setAudioUrl(null);
+      setCurrentBlob(null);
+      setLastSynthesized(null);
+      setCurrentTime(0);
+      setDuration(0);
+    }
+  };
+
+  // Modulation change handlers
+  const handleRateChange = (newRate) => {
+    setRate(newRate);
+    if (audioUrl) {
+      try { URL.revokeObjectURL(audioUrl); } catch (e) {}
+    }
+    setAudioUrl(null);
+    setLastSynthesized(null);
+  };
+
+  const handlePitchChange = (newPitch) => {
+    setPitch(newPitch);
+    if (audioUrl) {
+      try { URL.revokeObjectURL(audioUrl); } catch (e) {}
+    }
+    setAudioUrl(null);
+    setLastSynthesized(null);
+  };
+
   // Preview voice sample
   const handlePreviewVoice = async (voice) => {
     if (previewingVoiceId === voice.id) {
@@ -282,16 +335,42 @@ export default function App() {
       return;
     }
 
-    // If audio is already loaded and paused, resume playback
-    if (audioUrl && audioRef.current.paused && audioRef.current.src === audioUrl) {
+    // Check if this is truly a resume of the exact same audio
+    const isSameText = lastSynthesized?.text === text.trim();
+    const isSameVoice = lastSynthesized?.voiceId === selectedVoice.id;
+    const isSameRate = lastSynthesized?.rate === rate;
+    const isSamePitch = lastSynthesized?.pitch === pitch;
+    const isExactSameSynthesis = isSameText && isSameVoice && isSameRate && isSamePitch;
+
+    const canResumeExistingAudio = 
+      isExactSameSynthesis &&
+      selectedVoice.provider !== 'webspeech' &&
+      audioUrl &&
+      audioRef.current &&
+      audioRef.current.src === audioUrl &&
+      audioRef.current.paused &&
+      currentTime > 0 &&
+      currentTime < (duration - 0.2);
+
+    if (canResumeExistingAudio) {
       audioRef.current.play();
       setIsPlaying(true);
       return;
     }
 
-    // Web Speech API execution (100% offline)
+    // Stop whatever was playing before starting fresh synthesis
+    handleStop();
+
+    // 1. Web Speech API execution (100% offline)
     if (selectedVoice.provider === 'webspeech') {
       setIsPlaying(true);
+      setLastSynthesized({
+        voiceId: selectedVoice.id,
+        text: text.trim(),
+        rate,
+        pitch
+      });
+
       webSpeech.speak({
         text: text.trim(),
         voiceName: selectedVoice.id,
@@ -300,7 +379,6 @@ export default function App() {
         volume,
         onStart: () => setIsPlaying(true),
         onBoundary: (evt) => {
-          // Calculate active word index from charIndex
           const prefix = text.slice(0, evt.charIndex);
           const wordIdx = prefix.trim() ? prefix.trim().split(/\s+/).length : 0;
           setActiveWordIndex(wordIdx);
@@ -318,10 +396,15 @@ export default function App() {
       return;
     }
 
-    // Edge, Google, or Kokoro Neural Synthesis
+    // 2. Edge, Google, or Kokoro Neural Synthesis
     try {
       setIsLoading(true);
-      webSpeech.stop();
+
+      if (audioUrl) {
+        try { URL.revokeObjectURL(audioUrl); } catch (e) {}
+      }
+      setAudioUrl(null);
+      setCurrentBlob(null);
 
       let endpoint = '/api/tts/edge';
       if (selectedVoice.provider === 'google') endpoint = '/api/tts/google';
@@ -349,6 +432,12 @@ export default function App() {
       setCurrentBlob(blob);
       const url = URL.createObjectURL(blob);
       setAudioUrl(url);
+      setLastSynthesized({
+        voiceId: selectedVoice.id,
+        text: text.trim(),
+        rate,
+        pitch
+      });
 
       const audio = audioRef.current;
       audio.src = url;
@@ -371,7 +460,6 @@ export default function App() {
     } catch (err) {
       console.error('Synthesis error:', err);
       showToast('Synthesis error: ' + err.message + '. Falling back to Web Speech.');
-      // Fallback to Web Speech API seamlessly
       webSpeech.speak({
         text: text.trim(),
         rate,
@@ -388,7 +476,7 @@ export default function App() {
   const handlePause = () => {
     if (selectedVoice?.provider === 'webspeech') {
       webSpeech.pause();
-    } else {
+    } else if (audioRef.current) {
       audioRef.current.pause();
     }
     setIsPlaying(false);
@@ -397,8 +485,10 @@ export default function App() {
   const handleStop = () => {
     webSpeech.stop();
     const audio = audioRef.current;
-    audio.pause();
-    audio.currentTime = 0;
+    if (audio) {
+      audio.pause();
+      audio.currentTime = 0;
+    }
     setIsPlaying(false);
     setCurrentTime(0);
     setActiveWordIndex(-1);
@@ -504,7 +594,7 @@ export default function App() {
           <section className="lg:col-span-7 space-y-6">
             <TextInputPad
               text={text}
-              setText={setText}
+              setText={handleTextChange}
               paperStyle={paperStyle}
               speakingRate={rate}
               activeWordIndex={activeWordIndex}
@@ -519,9 +609,9 @@ export default function App() {
             {/* Modulation Dials */}
             <ControlsPanel
               rate={rate}
-              setRate={setRate}
+              setRate={handleRateChange}
               pitch={pitch}
-              setPitch={setPitch}
+              setPitch={handlePitchChange}
               volume={volume}
               setVolume={setVolume}
               selectedVoice={selectedVoice}
@@ -530,7 +620,7 @@ export default function App() {
             {/* Voice Catalog */}
             <VoiceSelector
               selectedVoice={selectedVoice}
-              setSelectedVoice={setSelectedVoice}
+              setSelectedVoice={handleSelectVoice}
               voicesByProvider={voicesByProvider}
               favorites={favorites}
               onToggleFavorite={handleToggleFavorite}

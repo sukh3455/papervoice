@@ -187,7 +187,7 @@ app.post('/api/tts/google', async (req, res) => {
     const combinedBuffer = Buffer.concat(audioBuffers);
     res.setHeader('Content-Type', 'audio/mpeg');
     res.setHeader('Content-Length', combinedBuffer.length);
-    res.setHeader('Cache-Control', 'public, max-age=86400');
+    res.setHeader('Cache-Control', 'no-cache');
     res.send(combinedBuffer);
   } catch (err) {
     console.error('Google TTS error:', err.message);
