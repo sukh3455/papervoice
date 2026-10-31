@@ -391,8 +391,10 @@ app.post('/api/tts/gemini', async (req, res) => {
         model,
         'gemini-2.5-flash-preview-tts',
         'gemini-2.5-pro-preview-tts',
-        'gemini-2.5-flash'
-      ].filter((m, idx, arr) => m && arr.indexOf(m) === idx);
+        'gemini-3.8-flash'
+      ]
+        .map(m => m ? m.replace(/^models\//, '') : m)
+        .filter((m, idx, arr) => m && m !== 'gemini-2.5-flash' && arr.indexOf(m) === idx);
 
       // Format prompt text with style if provided (as supported by Gemini TTS in Google AI Studio)
       let promptText = text.trim();
@@ -413,7 +415,8 @@ app.post('/api/tts/gemini', async (req, res) => {
 
       for (const currentModel of candidateModels) {
         try {
-          const url = `https://generativelanguage.googleapis.com/v1beta/models/${currentModel}:generateContent`;
+          const cleanModel = currentModel.replace(/^models\//, '');
+          const url = `https://generativelanguage.googleapis.com/v1beta/models/${cleanModel}:generateContent?key=${encodeURIComponent(key.trim())}`;
 
           // Correct payload: no speechMetadata (SDK-only field, invalid in REST)
           const payload = {

@@ -56,14 +56,19 @@ export async function synthesizeGeminiDirect({
     model,
     'gemini-2.5-flash-preview-tts',
     'gemini-2.5-pro-preview-tts',
-    'gemini-2.5-flash'
-  ].filter((m, idx, arr) => m && arr.indexOf(m) === idx);
+    'gemini-3.8-flash'
+  ]
+    .map((m) => (m ? m.replace(/^models\//, '') : m))
+    .filter((m, idx, arr) => m && m !== 'gemini-2.5-flash' && arr.indexOf(m) === idx);
 
+  let firstError = null;
   let lastError = null;
 
   for (const currentModel of candidateModels) {
     try {
-      const url = `https://generativelanguage.googleapis.com/v1beta/models/${currentModel}:generateContent`;
+      const cleanModel = currentModel.replace(/^models\//, '');
+      // Include ?key= in the URL for browser CORS and pass x-goog-api-key in headers
+      const url = `https://generativelanguage.googleapis.com/v1beta/models/${cleanModel}:generateContent?key=${encodeURIComponent(apiKey.trim())}`;
       const payload = {
         contents: [
           {
@@ -94,8 +99,13 @@ export async function synthesizeGeminiDirect({
       if (!resp.ok) {
         const errJson = await resp.json().catch(() => ({}));
         const errMsg = errJson.error?.message || `Gemini API error ${resp.status} on ${currentModel}`;
+        console.warn(`[Gemini Direct TTS] ${currentModel} returned error:`, errMsg);
+
         if (errMsg.includes('API key not valid') || errMsg.includes('PERMISSION_DENIED') || errMsg.includes('CONSUMER_INVALID')) {
           throw new Error(errMsg);
+        }
+        if (!firstError) {
+          firstError = new Error(errMsg);
         }
         lastError = new Error(errMsg);
         continue;
@@ -104,7 +114,9 @@ export async function synthesizeGeminiDirect({
       const data = await resp.json();
       const part = data.candidates?.[0]?.content?.parts?.[0];
       if (!part || !part.inlineData?.data) {
-        lastError = new Error(`${currentModel} returned no audio data`);
+        const noAudioErr = new Error(`${currentModel} returned no audio data`);
+        if (!firstError) firstError = noAudioErr;
+        lastError = noAudioErr;
         continue;
       }
 
@@ -130,6 +142,7 @@ export async function synthesizeGeminiDirect({
         return new Blob([header, bytes], { type: 'audio/wav' });
       }
     } catch (err) {
+      if (!firstError) firstError = err;
       lastError = err;
       if (err.message.includes('API key not valid') || err.message.includes('PERMISSION_DENIED') || err.message.includes('CONSUMER_INVALID')) {
         throw err;
@@ -137,7 +150,7 @@ export async function synthesizeGeminiDirect({
     }
   }
 
-  throw lastError || new Error('Failed to generate audio from Gemini API.');
+  throw firstError || lastError || new Error('Failed to generate audio from Gemini API.');
 }
 
 /**

@@ -70,7 +70,11 @@ export default function App() {
     return localStorage.getItem('papervoice_google_api_key') || '';
   });
   const [geminiModel, setGeminiModel] = useState(() => {
-    return localStorage.getItem('papervoice_gemini_model') || 'gemini-2.5-flash-preview-tts';
+    const saved = localStorage.getItem('papervoice_gemini_model');
+    if (!saved || saved === 'gemini-2.5-flash') {
+      return 'gemini-2.5-flash-preview-tts';
+    }
+    return saved;
   });
   const [geminiStyle, setGeminiStyle] = useState(() => {
     return localStorage.getItem('papervoice_gemini_style') || '';
@@ -346,12 +350,20 @@ export default function App() {
       });
     } else {
       try {
-        let endpoint = '/api/tts/edge';
-        if (voice.provider === 'google') endpoint = '/api/tts/google';
-        if (voice.provider === 'gemini') endpoint = '/api/tts/gemini';
-
         let blob;
-        try {
+        if (voice.provider === 'gemini') {
+          blob = await synthesizeGeminiDirect({
+            text: samplePhrase,
+            voice: voice.id,
+            apiKey: googleApiKey,
+            model: geminiModel,
+            style: geminiStyle
+          });
+        } else {
+          let endpoint = '/api/tts/edge';
+          if (voice.provider === 'google') endpoint = '/api/tts/google';
+          if (voice.provider === 'kokoro') endpoint = '/api/tts/kokoro';
+
           const res = await fetch(endpoint, {
             method: 'POST',
             headers: { 
@@ -363,39 +375,17 @@ export default function App() {
               voice: voice.id,
               locale: voice.locale,
               apiKey: googleApiKey,
-              model: geminiModel,
-              style: geminiStyle,
               rate: 1.0,
               pitch: 0,
               volume: 100
             })
           });
 
-          if (res.ok) {
-            blob = await res.blob();
-          } else if (voice.provider === 'gemini') {
-            blob = await synthesizeGeminiDirect({
-              text: samplePhrase,
-              voice: voice.id,
-              apiKey: googleApiKey,
-              model: geminiModel,
-              style: geminiStyle
-            });
-          } else {
-            throw new Error('Preview fetch failed');
+          if (!res.ok) {
+            const errorData = await res.json().catch(() => ({}));
+            throw new Error(errorData.error || `Server responded with ${res.status}`);
           }
-        } catch (fetchErr) {
-          if (voice.provider === 'gemini') {
-            blob = await synthesizeGeminiDirect({
-              text: samplePhrase,
-              voice: voice.id,
-              apiKey: googleApiKey,
-              model: geminiModel,
-              style: geminiStyle
-            });
-          } else {
-            throw fetchErr;
-          }
+          blob = await res.blob();
         }
 
         const url = URL.createObjectURL(blob);
@@ -502,13 +492,20 @@ export default function App() {
       setAudioUrl(null);
       setCurrentBlob(null);
 
-      let endpoint = '/api/tts/edge';
-      if (selectedVoice.provider === 'google') endpoint = '/api/tts/google';
-      if (selectedVoice.provider === 'kokoro') endpoint = '/api/tts/kokoro';
-      if (selectedVoice.provider === 'gemini') endpoint = '/api/tts/gemini';
-
       let blob;
-      try {
+      if (selectedVoice.provider === 'gemini') {
+        blob = await synthesizeGeminiDirect({
+          text: text.trim(),
+          voice: selectedVoice.id,
+          apiKey: googleApiKey,
+          model: geminiModel,
+          style: geminiStyle
+        });
+      } else {
+        let endpoint = '/api/tts/edge';
+        if (selectedVoice.provider === 'google') endpoint = '/api/tts/google';
+        if (selectedVoice.provider === 'kokoro') endpoint = '/api/tts/kokoro';
+
         const res = await fetch(endpoint, {
           method: 'POST',
           headers: { 
@@ -520,40 +517,17 @@ export default function App() {
             voice: selectedVoice.id,
             locale: selectedVoice.locale,
             apiKey: googleApiKey,
-            model: geminiModel,
-            style: geminiStyle,
             rate,
             pitch,
             volume
           })
         });
 
-        if (res.ok) {
-          blob = await res.blob();
-        } else if (selectedVoice.provider === 'gemini') {
-          blob = await synthesizeGeminiDirect({
-            text: text.trim(),
-            voice: selectedVoice.id,
-            apiKey: googleApiKey,
-            model: geminiModel,
-            style: geminiStyle
-          });
-        } else {
+        if (!res.ok) {
           const errorData = await res.json().catch(() => ({}));
           throw new Error(errorData.error || `Server responded with ${res.status}`);
         }
-      } catch (fetchErr) {
-        if (selectedVoice.provider === 'gemini') {
-          blob = await synthesizeGeminiDirect({
-            text: text.trim(),
-            voice: selectedVoice.id,
-            apiKey: googleApiKey,
-            model: geminiModel,
-            style: geminiStyle
-          });
-        } else {
-          throw fetchErr;
-        }
+        blob = await res.blob();
       }
       setCurrentBlob(blob);
       const url = URL.createObjectURL(blob);
