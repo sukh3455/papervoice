@@ -162,7 +162,8 @@ export default function ApiKeyModal({
             onChange={(e) => setGeminiModel(e.target.value)}
             className="w-full px-3 py-2 text-xs font-mono-code rounded-xl bg-[var(--paper-surface-alt)] border border-[var(--paper-border)] text-[var(--paper-ink)] focus:outline-none focus:ring-1 focus:ring-[var(--paper-accent)] cursor-pointer"
           >
-            <option value="gemini-2.5-flash-preview-tts">Gemini 2.5 Flash TTS (Latest &amp; Recommended)</option>
+            <option value="gemini-3.8-flash-tts">Gemini 3.8 Flash TTS (Latest &amp; Recommended)</option>
+            <option value="gemini-3.8-flash-lite-tts">Gemini 3.8 Flash-Lite TTS (Fast &amp; High-Speed)</option>
             <option value="gemini-2.5-pro-preview-tts">Gemini 2.5 Pro TTS (Highest Quality)</option>
           </select>
         </div>

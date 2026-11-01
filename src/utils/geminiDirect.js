@@ -34,7 +34,7 @@ export async function synthesizeGeminiDirect({
   text,
   voice = 'gemini-Puck',
   apiKey,
-  model = 'gemini-2.5-flash-preview-tts',
+  model = 'gemini-3.8-flash-tts',
   style = ''
 }) {
   if (!apiKey || !apiKey.trim()) {
@@ -52,10 +52,17 @@ export async function synthesizeGeminiDirect({
     }
   }
 
-  // Only use dedicated TTS models — gemini-3.8-flash is a multimodal model that ignores voiceName
+  // Migrate obsolete model IDs
+  let activeModel = model;
+  if (!activeModel || activeModel === 'gemini-2.5-flash' || activeModel === 'gemini-2.5-flash-preview-tts' || activeModel === 'gemini-3.8-flash') {
+    activeModel = 'gemini-3.8-flash-tts';
+  }
+
+  // Dedicated TTS models: gemini-3.8-flash-tts is the official flagship model supporting 30 prebuilt voices
   const candidateModels = [
-    model,
-    'gemini-2.5-flash-preview-tts',
+    activeModel,
+    'gemini-3.8-flash-tts',
+    'gemini-3.8-flash-lite-tts',
     'gemini-2.5-pro-preview-tts',
   ]
     .map((m) => (m ? m.replace(/^models\//, '') : m))

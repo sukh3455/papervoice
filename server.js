@@ -51,11 +51,11 @@ const kokoroVoices = [
 ];
 
 // Google Gemini Latest Models & Native Audio Voices (BYOK)
-// Using dedicated TTS models: gemini-2.5-flash-preview-tts, gemini-2.5-pro-preview-tts
+// Using dedicated TTS models: gemini-3.8-flash-tts, gemini-3.8-flash-lite-tts, gemini-2.5-pro-preview-tts
 const geminiModels = [
-  { id: 'gemini-2.5-flash-preview-tts', name: 'Gemini 2.5 Flash TTS', tag: 'Latest & Recommended', desc: 'Google\'s dedicated TTS model — natural, expressive, 130 languages' },
-  { id: 'gemini-2.5-pro-preview-tts', name: 'Gemini 2.5 Pro TTS', tag: 'Highest Quality', desc: 'Pro-grade TTS model with richer voice quality' },
-  { id: 'gemini-2.5-flash', name: 'Gemini 2.5 Flash (Multimodal)', tag: 'General Fallback', desc: 'General model with audio output modality' }
+  { id: 'gemini-3.8-flash-tts', name: 'Gemini 3.8 Flash TTS', tag: 'Latest & Recommended', desc: 'Google\'s dedicated flagship TTS model — natural, expressive, 130+ languages' },
+  { id: 'gemini-3.8-flash-lite-tts', name: 'Gemini 3.8 Flash-Lite TTS', tag: 'Fast & High-Speed', desc: 'Low-latency dedicated TTS model for fast turnaround' },
+  { id: 'gemini-2.5-pro-preview-tts', name: 'Gemini 2.5 Pro TTS', tag: 'Highest Quality', desc: 'Pro-grade TTS model with richer voice quality' }
 ];
 
 const geminiVoices = [
@@ -335,7 +335,7 @@ app.post('/api/validate-key', async (req, res) => {
 
 // 6. Gemini Latest Native Audio & Google Cloud Synthesis Endpoint
 app.post('/api/tts/gemini', async (req, res) => {
-  const { text, voice = 'gemini-Puck', apiKey, model = 'gemini-2.5-flash-preview-tts', style } = req.body;
+  const { text, voice = 'gemini-Puck', apiKey, model = 'gemini-3.8-flash-tts', style } = req.body;
   const key = apiKey || req.headers['x-google-api-key'] || process.env.GEMINI_API_KEY;
 
   if (!key) {
@@ -389,12 +389,12 @@ app.post('/api/tts/gemini', async (req, res) => {
       // Candidate models in order of priority — dedicated TTS models first
       const candidateModels = [
         model,
-        'gemini-2.5-flash-preview-tts',
+        'gemini-3.8-flash-tts',
+        'gemini-3.8-flash-lite-tts',
         'gemini-2.5-pro-preview-tts',
-        'gemini-3.8-flash'
       ]
         .map(m => m ? m.replace(/^models\//, '') : m)
-        .filter((m, idx, arr) => m && m !== 'gemini-2.5-flash' && arr.indexOf(m) === idx);
+        .filter((m, idx, arr) => m && m !== 'gemini-2.5-flash' && m !== 'gemini-3.8-flash' && arr.indexOf(m) === idx);
 
       // Format prompt text with style if provided (as supported by Gemini TTS in Google AI Studio)
       let promptText = text.trim();

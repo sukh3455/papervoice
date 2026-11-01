@@ -49,10 +49,16 @@ export const GEMINI_VOICES = [
 
 export const GEMINI_MODELS = [
   {
-    id: 'gemini-2.5-flash-preview-tts',
-    name: 'Gemini 2.5 Flash TTS',
+    id: 'gemini-3.8-flash-tts',
+    name: 'Gemini 3.8 Flash TTS',
     tag: 'Latest & Recommended',
-    desc: "Google's dedicated TTS model — natural, expressive, 130 languages",
+    desc: "Google's dedicated flagship TTS model — natural, expressive, 130+ languages",
+  },
+  {
+    id: 'gemini-3.8-flash-lite-tts',
+    name: 'Gemini 3.8 Flash-Lite TTS',
+    tag: 'Fast & High-Speed',
+    desc: 'Low-latency dedicated TTS model for fast turnaround',
   },
   {
     id: 'gemini-2.5-pro-preview-tts',

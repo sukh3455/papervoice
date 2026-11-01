@@ -73,8 +73,8 @@ export default function App() {
   });
   const [geminiModel, setGeminiModel] = useState(() => {
     const saved = localStorage.getItem('papervoice_gemini_model');
-    if (!saved || saved === 'gemini-2.5-flash') {
-      return 'gemini-2.5-flash-preview-tts';
+    if (!saved || saved === 'gemini-2.5-flash' || saved === 'gemini-2.5-flash-preview-tts' || saved === 'gemini-3.8-flash') {
+      return 'gemini-3.8-flash-tts';
     }
     return saved;
   });
